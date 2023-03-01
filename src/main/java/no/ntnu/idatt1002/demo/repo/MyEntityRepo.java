@@ -19,7 +19,7 @@ public class MyEntityRepo {
      * @return     an instance of MyEntity
      */
     public MyEntity getMyEntity(String id) {
-		// Get connection (maybe use pool?)
+  // Get connection (maybe use pool?)
 		// Do some SQL
 		// Return som real data
 		
