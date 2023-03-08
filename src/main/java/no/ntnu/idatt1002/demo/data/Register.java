@@ -63,5 +63,6 @@ public class Register {
      */
     public void addTransaction(double amount, String category, String name){
         this.transactions.add(new Transaction(amount, category, name));
+        this.numberOfTransactions++;
     }
 }
