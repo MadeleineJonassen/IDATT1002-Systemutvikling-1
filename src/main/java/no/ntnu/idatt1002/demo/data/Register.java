@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Register {
     private int numberOfTransactions;
-    private ArrayList<Transaction> transactions;
+    private ArrayList<Transaction> transactions = new ArrayList<>();
 
     /**
      * Returns the number of transactions in the register
@@ -50,5 +50,18 @@ public class Register {
         }
 
         return netIncome;
+    }
+
+    //TODO doing this to avoid aggregation. Change if this impacts coupling too much
+
+    /**
+     * Add a transaction to the register
+     *
+     * @param amount The amount of currency the transaction holds as a double
+     * @param category The category associated with the transaction as a string
+     * @param name The name given to the transaction as a String
+     */
+    public void addTransaction(double amount, String category, String name){
+        this.transactions.add(new Transaction(amount, category, name));
     }
 }
