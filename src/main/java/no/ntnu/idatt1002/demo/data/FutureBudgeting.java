@@ -17,6 +17,7 @@ public class FutureBudgeting {
   }
 
   public void initiateUnused () {
+    unusedCategories.add("Choose category...");
     unusedCategories.add("Housing");
     unusedCategories.add("Groceries");
     unusedCategories.add("Entertainment");
