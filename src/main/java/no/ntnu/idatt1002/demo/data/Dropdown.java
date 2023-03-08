@@ -19,7 +19,6 @@ public class Dropdown extends Application {
     test.initiateUnused();
     primaryStage.setTitle("Dropdown to select category");
     ChoiceBox cbx = new ChoiceBox(FXCollections.observableArrayList(test.unusedCategories));
-    //cbx.getItems().addAll("Housing", "Other...");
 
     StackPane root = new StackPane();
     root.getChildren().add(cbx);
