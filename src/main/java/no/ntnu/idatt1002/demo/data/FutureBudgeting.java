@@ -10,10 +10,8 @@ public class FutureBudgeting {
   int differenceExpense;//Beskriver fjerde og siste kolonne,
   // differansen mellom forventet og faktisk utgit for kategorien
 
-  public FutureBudgeting(int expectedExpense, int actualExpense) {
-    this.expectedExpense = expectedExpense;
-    this.actualExpense = actualExpense;
-    this.differenceExpense = expectedExpense-actualExpense;
+  public FutureBudgeting() {
+
   }
 
   public void initiateUnused () {

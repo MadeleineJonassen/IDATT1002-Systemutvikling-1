@@ -18,7 +18,7 @@ public class FutureBudgetingGUI extends Application {
     launch(args);
   }
 
-  FutureBudgeting test = new FutureBudgeting(100, 95);
+  FutureBudgeting test = new FutureBudgeting();
 
   @Override
   public void start(Stage primaryStage) {
@@ -60,12 +60,13 @@ public class FutureBudgetingGUI extends Application {
       GridPane.setConstraints(inputFirstCategoryActual, 2, n + 1);
       grid.getChildren().addAll(inputFirstCategoryActual);
 
-      Label result = new Label("ii");
+      Label result = new Label();
 
       EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent actionevent) {
-          result.setText(String.valueOf(Integer.valueOf(expectedOut.getText()) - Integer.valueOf(actualOut.getText())));
+          result.setText(String.valueOf(Integer.parseInt(inputFirstCategoryExpected.getText())
+              - Integer.parseInt(inputFirstCategoryActual.getText())));
         }
       };
       GridPane.setConstraints(result, 3, n + 1);
