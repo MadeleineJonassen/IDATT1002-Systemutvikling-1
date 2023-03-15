@@ -23,7 +23,7 @@ public class FutureBudgetingGUI extends Application {
   @Override
   public void start(Stage primaryStage) {
     test.initiateUnused();
-    primaryStage.setTitle("Dropdown to select category");
+    primaryStage.setTitle("SpendWise/FutureBudgeting");
 
     GridPane grid = new GridPane();
     grid.setPadding(new Insets(10,10,10,10));
@@ -65,15 +65,16 @@ public class FutureBudgetingGUI extends Application {
       EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent actionevent) {
-          result.setText(String.valueOf(Integer.parseInt(inputFirstCategoryExpected.getText())
-              - Integer.parseInt(inputFirstCategoryActual.getText())));
+          result.setText(String.valueOf(
+              Integer.parseInt(inputFirstCategoryExpected.getText()) -
+              Integer.parseInt(inputFirstCategoryActual.getText())));
         }
       };
       GridPane.setConstraints(result, 3, n + 1);
       grid.getChildren().addAll(result);
       inputFirstCategoryActual.setOnAction(event);
     }
-    primaryStage.setScene(new Scene(grid, 500, 400));
+    primaryStage.setScene(new Scene(grid, 525, 200));
     primaryStage.show();
   }
 }
