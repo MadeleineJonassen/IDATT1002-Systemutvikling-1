@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Calendar;
 //Date format to format dates
 
+//TODO make user tests for all in data
+
 /**
  * Abstract class that expense/income inherits from.
  */
