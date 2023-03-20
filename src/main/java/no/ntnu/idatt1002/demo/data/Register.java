@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Register {
     private int numberOfTransactions;
-    private ArrayList<Transaction> transactions = new ArrayList<>();
+    private ArrayList<Category> categories;
 
     /**
      * Returns the number of transactions in the register
@@ -23,16 +23,8 @@ public class Register {
      * @param category The category to search for as a String
      * @return All transactions found as an ArrayList, returns an empty arraylist if none were found
      */
-    public ArrayList<Transaction> getTransactionsByCategory(String category){
-        ArrayList<Transaction> foundTransactions = new ArrayList<>();
-        for (Transaction t : this.transactions){
-            if (t.getCategory().equals(category)){
-                Transaction transactionCopy = new Transaction(t.getAmount(), t.getCategory(), t.getName());
-                foundTransactions.add(transactionCopy);
-            }
-        }
-
-        return foundTransactions;
+    public void getTransactionsByCategory(String category){
+        //TODO
     }
 
     //TODO should this be here? Or should it only work for subscriptions
@@ -45,24 +37,11 @@ public class Register {
     public double getNetIncome(){
         double netIncome = 0;
 
-        for (Transaction t: this.transactions){
-            netIncome += t.getAmount();
-        }
-
+        //TODO
         return netIncome;
     }
 
     //TODO doing this to avoid aggregation. Change if this impacts coupling too much
 
-    /**
-     * Add a transaction to the register
-     *
-     * @param amount The amount of currency the transaction holds as a double
-     * @param category The category associated with the transaction as a string
-     * @param name The name given to the transaction as a String
-     */
-    public void addTransaction(double amount, String category, String name){
-        this.transactions.add(new Transaction(amount, category, name));
-        this.numberOfTransactions++;
-    }
+    //TODO getCategoriesByName
 }
