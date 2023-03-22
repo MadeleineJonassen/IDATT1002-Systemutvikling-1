@@ -1,9 +1,10 @@
 package no.ntnu.idatt1002.demo.data;
 
 public class RecurringCategory extends Category{
-    RecurringCategory(String name) {
+    public RecurringCategory(String name) {
         super(name);
     }
+    public RecurringCategory(){super();}
 
     //TODO checks for which month it is etc etc
 }
