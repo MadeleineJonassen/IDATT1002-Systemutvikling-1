@@ -2,6 +2,8 @@ package no.ntnu.idatt1002.demo.data;
 
 //TODO should there be an extra class for subscriptions that inherit from Transaction?
 
+import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
+
 import java.util.ArrayList;
 
 public class Register {
@@ -30,19 +32,78 @@ public class Register {
     /**
      * Returns all transactions given a certain category type (class).
      *
-     * @param c The category type you want to search for. This is passed as an empty object of the type you want
+     * @param category The category type you want to search for.
+     *                 This can and should be passed as an empty object of the type you want
      * @return All transactions found as an ArrayList, returns an empty arraylist if none were found
      */
-    public ArrayList<Transaction> getTransactionsByCategoryType(Category c){
+    public ArrayList<Transaction> getTransactionsByCategoryType(Category category){
         ArrayList<Transaction> transactions = new ArrayList<>();
 
-        for (Category category : this.categories){
-            if (category.getClass().equals(c.getClass())){
-                transactions.addAll(category.getTransactions());
+        for (Category c : this.categories){
+            if (c.getClass().equals(category.getClass())){
+                transactions.addAll(c.getTransactions());
             }
         }
 
         return transactions;
+    }
+
+    /**
+     * Adds a category to the register. If the category already exists a DuplicateNameException
+     * will be thrown, as categories must be unequivocally named
+     *
+     * @param category Category object to add to the register
+     */
+    public void addCategory(Category category) throws DuplicateNameException {
+        if (hasName(category.getName())){
+            throw new DuplicateNameException("Category with that name already exists in the register");
+        }
+
+        Category categoryCopy = new Category(category.getName());
+        categoryCopy.addAll(category.getTransactions());
+        categories.add(categoryCopy);
+    }
+
+    /**
+     * Adds all categories passed to the register.
+     * If any of the categories already exists a DuplicateNameException will be thrown.
+     * The categories are passed as an ArrayList
+     *
+     * @param categories ArrayList of categories
+     */
+    public void addAll(ArrayList<Category> categories) throws DuplicateNameException {
+        for (Category c : categories){
+            addCategory(c);
+        }
+    }
+
+    /**
+     * Adds all categories passed to the register.
+     * If any of the categories already exists a DuplicateNameException will be thrown.
+     * The categories are passed as varargs
+     *
+     * @param categories Categories to add
+     */
+    public void addAll(Category... categories) throws DuplicateNameException {
+        for (Category c : categories){
+            addCategory(c);
+        }
+    }
+
+    /**
+     * Checks if a category with the given name exists in the register
+     *
+     * @param name Name to check as a String
+     * @return True if name exists, false if it does not
+     */
+    private boolean hasName(String name) {
+        for (Category c : categories){
+            if (c.getName().equals(name)){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     //TODO should this be here? Or should it only work for subscriptions
