@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.recurringTransactions.RecurringTransactionsController">
+   <children>
+      <Label layoutX="66.0" layoutY="28.0" text="Recurring Transactions">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ListView fx:id="recurringTransactions" layoutX="72.0" layoutY="100.0" onMousePressed="#listData" prefHeight="242.0" prefWidth="229.0" />
+      <PieChart layoutX="355.0" layoutY="100.0" prefHeight="176.0" prefWidth="194.0" />
+      <Label fx:id="monthName" layoutX="400.0" layoutY="298.0" text="Month Name">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datePicker" layoutX="455.0" layoutY="14.0" onAction="#dateChosen" prefHeight="28.0" prefWidth="128.0" promptText="Choose date" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="455.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0" />
+   </children>
+</AnchorPane>
