@@ -8,9 +8,10 @@ public class Category {
     private ArrayList<Transaction> transactions;
     private int numberOfTransactions;
 
-    Category(String name){
+    public Category(String name){
         this.name = name;
     }
+    public Category(){};
 
     public String getName() {
         return name;

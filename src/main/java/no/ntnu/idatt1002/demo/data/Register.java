@@ -28,14 +28,21 @@ public class Register {
     }
 
     /**
-     * Returns all transactions given a certain category type (class)
+     * Returns all transactions given a certain category type (class).
      *
-     * @param c The category type you want to search for
+     * @param c The category type you want to search for. This is passed as an empty object of the type you want
      * @return All transactions found as an ArrayList, returns an empty arraylist if none were found
      */
-    public void getTransactionsByCategoryType(Category c){
-        System.out.println(c.getClass().getSimpleName());
-        //TODO
+    public ArrayList<Transaction> getTransactionsByCategoryType(Category c){
+        ArrayList<Transaction> transactions = new ArrayList<>();
+
+        for (Category category : this.categories){
+            if (category.getClass().equals(c.getClass())){
+                transactions.addAll(category.getTransactions());
+            }
+        }
+
+        return transactions;
     }
 
     //TODO should this be here? Or should it only work for subscriptions
