@@ -27,6 +27,17 @@ public class Register {
         //TODO
     }
 
+    /**
+     * Returns all transactions given a certain category type (class)
+     *
+     * @param c The category type you want to search for
+     * @return All transactions found as an ArrayList, returns an empty arraylist if none were found
+     */
+    public void getTransactionsByCategoryType(Category c){
+        System.out.println(c.getClass().getSimpleName());
+        //TODO
+    }
+
     //TODO should this be here? Or should it only work for subscriptions
     /**
      * Based on all transactions in the register, this method calculates the
