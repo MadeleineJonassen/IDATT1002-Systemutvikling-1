@@ -13,6 +13,7 @@ public class RegisterTest {
 
         Category food = new Category("Food");
         RecurringCategory loan = new RecurringCategory("Loan");
+        //loan.addTransaction(new Income("Student loan", ));
         RecurringCategory job = new RecurringCategory("Job");
 
         register.addAll(food, loan, job);
