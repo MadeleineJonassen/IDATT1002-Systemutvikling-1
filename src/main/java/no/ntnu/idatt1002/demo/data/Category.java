@@ -23,7 +23,13 @@ public class Category {
     }
 
     public void addTransaction(Transaction t){
-        //TODO
+        transactions.add(t);
+    }
+
+    public void addAll(ArrayList<Transaction> transactionsToAdd){
+        for (Transaction t : transactionsToAdd){
+            addTransaction(t);
+        }
     }
 
     //TODO remove transaction, delete category (with moving transactions?), search transaction by name/id
