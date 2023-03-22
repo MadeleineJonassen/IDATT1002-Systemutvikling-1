@@ -1,6 +1,6 @@
 package no.ntnu.idatt1002.demo;
 
-import no.ntnu.idatt1002.demo.data.FutureBudgetingGUI;
+import no.ntnu.idatt1002.demo.data.PeriodMain;
 
 /**
  * Use this class to start the application
@@ -11,6 +11,6 @@ public class MyApp {
     /**
      * Main method for my application
      */
-    public static void main(String[] args){ FutureBudgetingGUI.main(args); }
+    public static void main(String[] args){ PeriodMain.main(args); }
 }
 

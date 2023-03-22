@@ -1,9 +1,9 @@
-package no.ntnu.idatt1002.demo.data;
+package no.ntnu.idatt1002.demo.FutureBudgeting;
 
 import java.util.ArrayList;
 
 public class FutureBudgeting {
-  ArrayList<String> unusedCategories = new ArrayList<>();//Disse to kategoriene beskriver valgene for første kolonne
+  ArrayList<String> unusedCategories = new ArrayList<>();
   public FutureBudgeting() {
 
   }

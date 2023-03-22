@@ -1,4 +1,4 @@
-package no.ntnu.idatt1002.demo.data;
+package no.ntnu.idatt1002.demo.FutureBudgeting;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import no.ntnu.idatt1002.demo.FutureBudgeting.FutureBudgeting;
 
 public class FutureBudgetingGUI extends Application {
   public static void main(String[] args) {
