@@ -2,6 +2,7 @@ package no.ntnu.idatt1002.demo.data;
 
 //TODO should there be an extra class for subscriptions that inherit from Transaction?
 
+import no.ntnu.idatt1002.demo.exceptions.ConformityException;
 import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
 
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class Register {
      *
      * @param category Category object to add to the register
      */
-    public void addCategory(Category category) throws DuplicateNameException {
+    public void addCategory(Category category) throws DuplicateNameException, ConformityException {
         if (hasName(category.getName())){
             throw new DuplicateNameException("Category with that name already exists in the register");
         }
@@ -71,7 +72,7 @@ public class Register {
      *
      * @param categories ArrayList of categories
      */
-    public void addAll(ArrayList<Category> categories) throws DuplicateNameException {
+    public void addAll(ArrayList<Category> categories) throws DuplicateNameException, ConformityException {
         for (Category c : categories){
             addCategory(c);
         }
@@ -84,7 +85,7 @@ public class Register {
      *
      * @param categories Categories to add
      */
-    public void addAll(Category... categories) throws DuplicateNameException {
+    public void addAll(Category... categories) throws DuplicateNameException, ConformityException {
         for (Category c : categories){
             addCategory(c);
         }
