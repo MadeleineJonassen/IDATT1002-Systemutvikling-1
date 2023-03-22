@@ -17,6 +17,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import no.ntnu.idatt1002.demo.data.Category;
+import no.ntnu.idatt1002.demo.data.RecurringCategory;
 import no.ntnu.idatt1002.demo.data.Register;
 import no.ntnu.idatt1002.demo.data.Transaction;
 
@@ -58,8 +59,10 @@ public class RecurringTransactionsController {
   @FXML
   public void listData() {
     List<String> transactionStringList = new ArrayList<>();
-    transactionStringList.add("Cats");
-    transactionStringList.add("Bottle");
+    List<Transaction> transactionList = categoryRegister.getTransactionsByCategoryType(new RecurringCategory());
+    for (Transaction transaction : transactionList) {
+      transactionStringList.add(transaction.toString());
+    }
     ObservableList<String> observableList = FXCollections.observableList(transactionStringList);
     recurringTransactions.setItems(observableList);
   }
@@ -77,15 +80,10 @@ public class RecurringTransactionsController {
 @FXML
   public void listData() {
     List<String> transactionStringList = new ArrayList<>();
-    List<Transaction> transactionList = categoryRegister.getTransactionsByCategory("RecurringCategory");
-    for (Transaction transaction : transactionList) {
-      transactionStringList.add(transaction.toString());
-    }
+    transactionStringList.add("Cats");
+    transactionStringList.add("Bottle");
     ObservableList<String> observableList = FXCollections.observableList(transactionStringList);
     recurringTransactions.setItems(observableList);
   }
-
-
-
 */
 
