@@ -21,7 +21,7 @@
       <children>
          <AnchorPane prefHeight="459.0" prefWidth="587.0">
             <children>
-               <PieChart layoutX="35.0" layoutY="85.0" prefHeight="220.0" prefWidth="229.0" title="Expenses graph" />
+               <PieChart layoutX="35.0" layoutY="85.0" prefHeight="220.0" prefWidth="229.0" title="Expenses graph" fx:id="pieChart" />
                <DatePicker layoutX="408.0" layoutY="36.0" prefHeight="26.0" prefWidth="153.0" promptText="Enter month to view" />
                <CheckBox layoutX="276.0" layoutY="103.0" mnemonicParsing="false" text="Food" fx:id="foodChecked" onAction="#foodChecked"/>
                <CheckBox layoutX="276.0" layoutY="145.0" mnemonicParsing="false" text="Housing" fx:id="housingChecked" onAction="#housingChecked"/>

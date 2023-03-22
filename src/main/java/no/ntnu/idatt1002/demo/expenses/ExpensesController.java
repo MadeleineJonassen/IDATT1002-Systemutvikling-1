@@ -1,9 +1,16 @@
 package no.ntnu.idatt1002.demo.expenses;
 
 import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.CheckBox;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.GridPane;
 
-public class ExpensesController {
+import java.net.URL;
+import java.util.ResourceBundle;
+public class ExpensesController implements Initializable{
   @FXML
   private CheckBox foodChecked;
   @FXML
@@ -14,6 +21,10 @@ public class ExpensesController {
   private CheckBox travelChecked;
   @FXML
   private CheckBox otherChecked;
+  @FXML
+  private PieChart pieChart;
+  @FXML
+  private GridPane gridPane;
   public void editCategoryButtonPushed(){
     System.out.println("The category button has been pushed");
   }
@@ -72,6 +83,20 @@ public class ExpensesController {
       System.out.println("fixed expenses selected");
     }
   }
+
+
+  public void initialize(URL url, ResourceBundle resourceBundle) {
+
+      ObservableList<PieChart.Data> piechartData = FXCollections.observableArrayList(
+              new PieChart.Data("Food", 13),
+              new PieChart.Data("Housing", 25),
+              new PieChart.Data("Fixed Expenses", 10),
+              new PieChart.Data("Travel", 22),
+              new PieChart.Data("Other", 30)
+      );
+      pieChart.setData(piechartData);
+  }
+
 
 }
 

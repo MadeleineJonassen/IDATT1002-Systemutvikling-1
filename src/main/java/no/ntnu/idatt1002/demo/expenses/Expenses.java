@@ -16,7 +16,6 @@ public class Expenses extends Application {
     Scene scene = FXMLLoader.load(fxmlUrl);
     primaryStage.setScene(scene);
     primaryStage.show();
-
   }
 
   public static void main(String[] args) {
