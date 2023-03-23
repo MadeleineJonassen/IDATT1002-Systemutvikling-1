@@ -2,6 +2,10 @@ package no.ntnu.idatt1002.demo.expenses;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 public class ExpensesController {
   @FXML
@@ -14,6 +18,11 @@ public class ExpensesController {
   private CheckBox travelChecked;
   @FXML
   private CheckBox otherChecked;
+  @FXML
+  private DatePicker fromDate;
+  @FXML
+  private DatePicker toDate;
+  
   public void editCategoryButtonPushed(){
     System.out.println("The category button has been pushed");
   }
@@ -61,6 +70,7 @@ public class ExpensesController {
       System.out.println("fixed expenses is de-checked");
     }else if (travelChecked.isSelected()){
       System.out.println("fixed expenses selected");
+      System.out.println(fromDate.getValue());
     }
   }
 
@@ -71,6 +81,12 @@ public class ExpensesController {
     }else if (otherChecked.isSelected()){
       System.out.println("fixed expenses selected");
     }
+  }
+
+  @FXML
+  private void timeInterval() {
+    LocalDate from = fromDate.getValue();
+    LocalDate to = toDate.getValue();
   }
 
 }
