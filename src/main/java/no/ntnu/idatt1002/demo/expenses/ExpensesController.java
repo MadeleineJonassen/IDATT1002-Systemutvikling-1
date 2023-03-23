@@ -3,9 +3,7 @@ package no.ntnu.idatt1002.demo.expenses;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
-
 import java.time.LocalDate;
-import java.util.Date;
 
 public class ExpensesController {
   @FXML
@@ -84,10 +82,18 @@ public class ExpensesController {
   }
 
   @FXML
-  private void timeInterval() {
-    LocalDate from = fromDate.getValue();
-    LocalDate to = toDate.getValue();
+  private String timeInterval() {
+    LocalDate startDate = fromDate.getValue();
+    LocalDate stopDate = toDate.getValue();
+    if(toDate == null) {
+      toDate = fromDate;
+      return ("(" + startDate + ")");
+    }
+    if (startDate.compareTo(stopDate) > 0) {
+      return ("(" + startDate + "->" + stopDate);
+    } else {
+      return null;
+    }
   }
-
 }
 
