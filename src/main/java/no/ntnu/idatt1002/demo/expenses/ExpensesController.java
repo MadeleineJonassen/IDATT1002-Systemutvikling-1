@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import java.time.LocalDate;
@@ -37,7 +38,8 @@ public class ExpensesController implements Initializable{
   private DatePicker fromDate;
   @FXML
   private DatePicker toDate;
-
+  @FXML
+  private Button changeToIncome;
   @FXML
   private PieChart pieChart;
   @FXML
@@ -146,6 +148,13 @@ public class ExpensesController implements Initializable{
         result = ("(" + startDate + "->" + stopDate + ")");
       }
     } return result;
+  }
+
+  public void goToIncome(ActionEvent event) throws IOException {
+    Scene goIncome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Income.fxml"))));
+    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    stage.setScene(goIncome);
+    stage.show();
   }
 }
 
