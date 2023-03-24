@@ -1,13 +1,21 @@
 package no.ntnu.idatt1002.demo.FutureBudgeting;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FutureBudgetingController {
 
@@ -137,5 +145,12 @@ public class FutureBudgetingController {
         cb.setItems(FXCollections.observableArrayList(categories));
       }
     }
+  }
+  public void goHome(ActionEvent event) throws IOException {
+    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
+    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    Scene scene = new Scene(rootGoHome);
+    stage.setScene(scene);
+    stage.show();
   }
 }
