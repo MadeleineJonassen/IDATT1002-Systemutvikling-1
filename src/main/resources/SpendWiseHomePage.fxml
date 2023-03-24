@@ -24,7 +24,7 @@
       <right>
          <TableView prefHeight="214.0" prefWidth="200.0" BorderPane.alignment="CENTER">
            <columns>
-             <TableColumn prefWidth="124.0" text="Recent Trancactions" />
+             <TableColumn fx:id="transactionTable" prefWidth="124.0" text="Recent Transactions" />
              <TableColumn prefWidth="75.0" text="C2">
                   <graphic>
                      <VBox prefHeight="23.0" prefWidth="520.0" />
