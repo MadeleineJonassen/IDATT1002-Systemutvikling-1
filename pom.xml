@@ -152,7 +152,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        no.ntnu.idatt1002.demo.MyApp
+                                        no.ntnu.idatt1002.demo.homePage.HomePage
                                     </mainClass>
                                 </manifest>
                             </archive>
