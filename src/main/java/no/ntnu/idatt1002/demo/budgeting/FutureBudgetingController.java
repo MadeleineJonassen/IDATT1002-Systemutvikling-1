@@ -1,4 +1,4 @@
-package no.ntnu.idatt1002.demo.FutureBudgeting;
+package no.ntnu.idatt1002.demo.budgeting;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;

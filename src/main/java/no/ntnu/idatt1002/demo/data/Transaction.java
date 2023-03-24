@@ -1,8 +1,8 @@
 package no.ntnu.idatt1002.demo.data;
 
+import java.util.Calendar;
 import java.util.Date;
 
-import java.util.Calendar;
 //Date format to format dates
 
 //TODO make user tests for all in data
@@ -14,33 +14,42 @@ import java.util.Calendar;
  * Abstract class that expense/income inherits from.
  */
 public abstract class Transaction {
-    private String name;
-    private String notes;
-    private Date date;
-    private double amount;
+  private String name;
+  private String notes;
+  private Date date;
+  private double amount;
 
-    //Constructor in here?
-    public Transaction(String name, String notes, Date date, double amount){
-        this.name = name;
-        this.notes = notes;
-        //TODO deep copy, or solved by being private?
-        this.date = date;
-        this.amount = amount;
-    }
+  //Constructor in here?
 
-    public String getName() {
-        return name;
-    }
+  /**
+   * Creates a transaction with following parameters.
 
-    public String getNotes() {
-        return notes;
-    }
+   * @param name of the transaction
+   * @param notes small notes for the transaction
+   * @param date of the transaction
+   * @param amount of money transferred
+   */
+  public Transaction(String name, String notes, Date date, double amount) {
+    this.name = name;
+    this.notes = notes;
+    //TODO deep copy, or solved by being private?
+    this.date = date;
+    this.amount = amount;
+  }
 
-    public Date getDate() {
-        return date;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public double getAmount(){
-        return amount;
-    }
+  public String getNotes() {
+    return notes;
+  }
+
+  public Date getDate() {
+    return date;
+  }
+
+  public double getAmount() {
+    return amount;
+  }
 }
