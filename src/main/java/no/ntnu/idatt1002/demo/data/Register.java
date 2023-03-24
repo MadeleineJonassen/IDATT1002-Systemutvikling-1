@@ -121,6 +121,11 @@ public class Register {
         return netIncome;
     }
 
+    public ArrayList<Category> getCategories() {
+        //TODO write properly
+        return categories;
+    }
+
     //TODO doing this to avoid aggregation. Change if this impacts coupling too much
 
     //TODO getCategoriesByName
