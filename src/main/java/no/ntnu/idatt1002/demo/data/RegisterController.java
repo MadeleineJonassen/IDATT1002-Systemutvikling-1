@@ -85,7 +85,7 @@ public class RegisterController {
         json.put("categories", categoriesJson);
 
         //TODO find differences where json can be written and read
-        FileWriter file = new FileWriter(jsonPath);
+        FileWriter file = new FileWriter(Register.class.getResource(".").getFile() + "/" + jsonPath);
         file.write(json.toString());
         file.close();
     }
