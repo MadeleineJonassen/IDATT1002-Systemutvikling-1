@@ -44,7 +44,7 @@ public class HomePageController {
   }
 
   public void switchToEditExpenses(ActionEvent event) throws IOException {
-    rootSwitchToAddExpense = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/AddExpense.fxml"))));
+    rootSwitchToAddExpense = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/EditExpense.fxml"))));
     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToAddExpense);
     stage.setScene(scene);
