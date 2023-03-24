@@ -20,13 +20,15 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 public class ExpensesController implements Initializable{
   @FXML
-  private CheckBox foodChecked;
+  private CheckBox groceriesChecked;
   @FXML
   private CheckBox housingChecked;
   @FXML
   private CheckBox fixedExpensesChecked;
   @FXML
   private CheckBox travelChecked;
+  @FXML
+  private CheckBox entertainmentChecked;
   @FXML
   private CheckBox otherChecked;
   @FXML
@@ -49,11 +51,11 @@ public class ExpensesController implements Initializable{
     System.out.println("The change to bar graph button has been pushed");
   }
   @FXML
-  private void foodChecked(){
-    if(!foodChecked.isSelected()){
-      System.out.println("food is de-checked");
-    }else if (foodChecked.isSelected()){
-      System.out.println("food selected");
+  private void groceriesChecked(){
+    if(!groceriesChecked.isSelected()){
+      System.out.println("groceries is de-checked");
+    }else if (groceriesChecked.isSelected()){
+      System.out.println("groceries selected");
     }
   }
 
@@ -77,9 +79,17 @@ public class ExpensesController implements Initializable{
   @FXML
   private void travelChecked(){
     if(!travelChecked.isSelected()){
-      System.out.println("fixed expenses is de-checked");
+      System.out.println("travel is de-checked");
     }else if (travelChecked.isSelected()){
-      System.out.println("fixed expenses selected");
+      System.out.println("travel selected");
+    }
+  }
+  @FXML
+  private void entertainmentChecked(){
+    if(!entertainmentChecked.isSelected()){
+      System.out.println("entertainment is de-checked");
+    }else if (entertainmentChecked.isSelected()){
+      System.out.println("entertainment selected");
     }
   }
 
@@ -90,6 +100,13 @@ public class ExpensesController implements Initializable{
     }else if (otherChecked.isSelected()){
       System.out.println("fixed expenses selected");
     }
+  }
+  public void goHome(ActionEvent event) throws IOException {
+    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
+    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    Scene scene = new Scene(rootGoHome);
+    stage.setScene(scene);
+    stage.show();
   }
 
   public void goHome(ActionEvent event) throws IOException {
