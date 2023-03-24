@@ -116,7 +116,6 @@ public class ExpensesController implements Initializable{
     stage.show();
   }
 
-
   public void initialize(URL url, ResourceBundle resourceBundle) {
 
       ObservableList<PieChart.Data> piechartData = FXCollections.observableArrayList(
