@@ -106,6 +106,12 @@ public class IncomeController implements Initializable {
     pieChart.setData(piechartData);
   }
 
+  public void goToExpenses(ActionEvent event) throws IOException {
+    Scene goExpenses = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Expenses.fxml"))));
+    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    stage.setScene(goExpenses);
+    stage.show();
+  }
 
 }
 
