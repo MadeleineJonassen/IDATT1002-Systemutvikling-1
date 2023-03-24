@@ -16,11 +16,12 @@ import java.util.Calendar;
 public abstract class Transaction {
     private String name;
     private String notes;
-    private Date date;
+    //TODO make into string
+    private String date;
     private double amount;
 
     //Constructor in here?
-    public Transaction(String name, String notes, Date date, double amount){
+    public Transaction(String name, String notes, String date, double amount){
         this.name = name;
         this.notes = notes;
         //TODO deep copy, or solved by being private?
@@ -36,7 +37,7 @@ public abstract class Transaction {
         return notes;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
