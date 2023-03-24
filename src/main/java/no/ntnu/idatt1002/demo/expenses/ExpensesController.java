@@ -53,9 +53,9 @@ public class ExpensesController implements Initializable{
   @FXML
   private void groceriesChecked(){
     if(!groceriesChecked.isSelected()){
-      System.out.println("food is de-checked");
+      System.out.println("groceries is de-checked");
     }else if (groceriesChecked.isSelected()){
-      System.out.println("food selected");
+      System.out.println("groceries selected");
     }
   }
 
@@ -79,9 +79,9 @@ public class ExpensesController implements Initializable{
   @FXML
   private void travelChecked(){
     if(!travelChecked.isSelected()){
-      System.out.println("fixed expenses is de-checked");
+      System.out.println("travel is de-checked");
     }else if (travelChecked.isSelected()){
-      System.out.println("fixed expenses selected");
+      System.out.println("travel selected");
     }
   }
   @FXML
