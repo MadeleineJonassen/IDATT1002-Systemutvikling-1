@@ -21,7 +21,7 @@ import no.ntnu.idatt1002.demo.data.RecurringCategory;
 import no.ntnu.idatt1002.demo.data.Register;
 import no.ntnu.idatt1002.demo.data.Transaction;
 
-import java.awt.event.ActionEvent;
+//import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
