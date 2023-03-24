@@ -20,13 +20,15 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 public class ExpensesController implements Initializable{
   @FXML
-  private CheckBox foodChecked;
+  private CheckBox groceriesChecked;
   @FXML
   private CheckBox housingChecked;
   @FXML
   private CheckBox fixedExpensesChecked;
   @FXML
   private CheckBox travelChecked;
+  @FXML
+  private CheckBox entertainmentChecked;
   @FXML
   private CheckBox otherChecked;
   @FXML
@@ -49,10 +51,10 @@ public class ExpensesController implements Initializable{
     System.out.println("The change to bar graph button has been pushed");
   }
   @FXML
-  private void foodChecked(){
-    if(!foodChecked.isSelected()){
+  private void groceriesChecked(){
+    if(!groceriesChecked.isSelected()){
       System.out.println("food is de-checked");
-    }else if (foodChecked.isSelected()){
+    }else if (groceriesChecked.isSelected()){
       System.out.println("food selected");
     }
   }
@@ -80,6 +82,14 @@ public class ExpensesController implements Initializable{
       System.out.println("fixed expenses is de-checked");
     }else if (travelChecked.isSelected()){
       System.out.println("fixed expenses selected");
+    }
+  }
+  @FXML
+  private void entertainmentChecked(){
+    if(!entertainmentChecked.isSelected()){
+      System.out.println("entertainment is de-checked");
+    }else if (entertainmentChecked.isSelected()){
+      System.out.println("entertainment selected");
     }
   }
 
