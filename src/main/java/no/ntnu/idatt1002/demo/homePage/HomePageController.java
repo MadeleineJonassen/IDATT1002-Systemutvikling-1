@@ -9,9 +9,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
 
 public class HomePageController {
@@ -20,6 +22,7 @@ public class HomePageController {
   private Scene scene;
   private Scene rootSwitchToExpenses;
   private AnchorPane rootSwitchToRecurringTrans;
+  private GridPane rootSwitchToAddExpense;
 
   public void switchToExpenses(ActionEvent event) throws IOException {
     rootSwitchToExpenses = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Expenses.fxml"))));
@@ -33,6 +36,14 @@ public class HomePageController {
     rootSwitchToRecurringTrans = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/RecurringTransactions.fxml"))));
     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToRecurringTrans);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void switchToEditExpenses(ActionEvent event) throws IOException {
+    rootSwitchToAddExpense = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/AddExpense.fxml"))));
+    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToAddExpense);
     stage.setScene(scene);
     stage.show();
   }
