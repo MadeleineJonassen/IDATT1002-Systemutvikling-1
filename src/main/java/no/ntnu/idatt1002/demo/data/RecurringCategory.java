@@ -1,10 +1,16 @@
 package no.ntnu.idatt1002.demo.data;
 
-public class RecurringCategory extends Category{
-    public RecurringCategory(String name) {
-        super(name);
-    }
-    public RecurringCategory(){super();}
+/**
+ * Describes a category for a recurring transaction.
+ */
+public class RecurringCategory extends Category {
+  public RecurringCategory(String name) {
+    super(name);
+  }
 
-    //TODO checks for which month it is etc etc
+  public RecurringCategory() {
+    super();
+  }
+
+  //TODO checks for which month it is etc etc
 }

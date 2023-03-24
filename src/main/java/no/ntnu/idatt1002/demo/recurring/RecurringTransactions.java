@@ -1,13 +1,15 @@
-package no.ntnu.idatt1002.demo.recurringTransactions;
+package no.ntnu.idatt1002.demo.recurring;
 
+import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.net.URL;
-
+/**
+ * Creates the GUI stage for recurring transactions.
+ */
 public class RecurringTransactions extends Application {
   @Override
   public void start(Stage primaryStage) throws Exception {
