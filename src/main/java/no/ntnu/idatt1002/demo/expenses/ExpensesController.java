@@ -1,13 +1,28 @@
 package no.ntnu.idatt1002.demo.expenses;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import java.time.LocalDate;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-public class ExpensesController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.Objects;
+import java.util.ResourceBundle;
+public class ExpensesController implements Initializable{
   @FXML
-  private CheckBox foodChecked;
+  private CheckBox groceriesChecked;
   @FXML
   private CheckBox housingChecked;
   @FXML
@@ -15,12 +30,18 @@ public class ExpensesController {
   @FXML
   private CheckBox travelChecked;
   @FXML
+  private CheckBox entertainmentChecked;
+  @FXML
   private CheckBox otherChecked;
   @FXML
   private DatePicker fromDate;
   @FXML
   private DatePicker toDate;
-  
+
+  @FXML
+  private PieChart pieChart;
+  @FXML
+  private GridPane gridPane;
   public void editCategoryButtonPushed(){
     System.out.println("The category button has been pushed");
   }
@@ -37,11 +58,11 @@ public class ExpensesController {
     System.out.println("The change to bar graph button has been pushed");
   }
   @FXML
-  private void foodChecked(){
-    if(!foodChecked.isSelected()){
-      System.out.println("food is de-checked");
-    }else if (foodChecked.isSelected()){
-      System.out.println("food selected");
+  private void groceriesChecked(){
+    if(!groceriesChecked.isSelected()){
+      System.out.println("groceries is de-checked");
+    }else if (groceriesChecked.isSelected()){
+      System.out.println("groceries selected");
     }
   }
 
@@ -65,10 +86,17 @@ public class ExpensesController {
   @FXML
   private void travelChecked(){
     if(!travelChecked.isSelected()){
-      System.out.println("fixed expenses is de-checked");
+      System.out.println("travel is de-checked");
     }else if (travelChecked.isSelected()){
-      System.out.println("fixed expenses selected");
-      System.out.println(fromDate.getValue());
+      System.out.println("travel selected");
+    }
+  }
+  @FXML
+  private void entertainmentChecked(){
+    if(!entertainmentChecked.isSelected()){
+      System.out.println("entertainment is de-checked");
+    }else if (entertainmentChecked.isSelected()){
+      System.out.println("entertainment selected");
     }
   }
 
@@ -80,6 +108,27 @@ public class ExpensesController {
       System.out.println("fixed expenses selected");
     }
   }
+  public void goHome(ActionEvent event) throws IOException {
+    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
+    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    Scene scene = new Scene(rootGoHome);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+
+  public void initialize(URL url, ResourceBundle resourceBundle) {
+
+      ObservableList<PieChart.Data> piechartData = FXCollections.observableArrayList(
+              new PieChart.Data("Food", 13),
+              new PieChart.Data("Housing", 25),
+              new PieChart.Data("Fixed Expenses", 10),
+              new PieChart.Data("Travel", 22),
+              new PieChart.Data("Other", 30)
+      );
+      pieChart.setData(piechartData);
+  }
+
 
   @FXML
   private String timeInterval() { //TODO: optimize...
