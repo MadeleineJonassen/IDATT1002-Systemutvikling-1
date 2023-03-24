@@ -82,18 +82,22 @@ public class ExpensesController {
   }
 
   @FXML
-  private String timeInterval() {
-    LocalDate startDate = fromDate.getValue();
-    LocalDate stopDate = toDate.getValue();
-    if(toDate == null) {
-      toDate = fromDate;
-      return ("(" + startDate + ")");
-    }
-    if (startDate.compareTo(stopDate) > 0) {
-      return ("(" + startDate + "->" + stopDate);
-    } else {
-      return null;
-    }
+  private String timeInterval() { //TODO: optimize...
+    String result = null;
+    if (fromDate.isManaged() || toDate.isManaged()) {
+      LocalDate startDate = fromDate.getValue();
+      LocalDate stopDate = toDate.getValue();
+      if (toDate == null) {
+        toDate = fromDate;
+        result = ("(" + startDate + ")");
+      } else if (stopDate.isAfter(startDate)) {
+        result = ("(" + startDate + "->" + stopDate + ")");
+      } else if (startDate.isAfter(stopDate)) {
+        startDate = toDate.getValue();
+        stopDate = fromDate.getValue();
+        result = ("(" + startDate + "->" + stopDate + ")");
+      }
+    } return result;
   }
 }
 
