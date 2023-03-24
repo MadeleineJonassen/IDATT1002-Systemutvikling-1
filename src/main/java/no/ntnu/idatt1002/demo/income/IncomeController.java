@@ -2,7 +2,6 @@ package no.ntnu.idatt1002.demo.income;
 
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +10,16 @@ import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public class IncomeController implements Initializable {
   @FXML
@@ -23,8 +32,6 @@ public class IncomeController implements Initializable {
   private CheckBox otherIncomeChecked;
   @FXML
   private PieChart pieChart;
-  @FXML
-  private GridPane gridPane;
 
   public void editCategoryButtonPushed() {
     System.out.println("The category button has been pushed");
@@ -76,6 +83,14 @@ public class IncomeController implements Initializable {
     } else if (otherIncomeChecked.isSelected()) {
       System.out.println("other income selected");
     }
+  }
+
+  public void goHome(ActionEvent event) throws IOException {
+    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    Scene scene = new Scene(rootGoHome);
+    stage.setScene(scene);
+    stage.show();
   }
 
 
