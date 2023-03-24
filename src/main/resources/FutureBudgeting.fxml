@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.FutureBudgeting.FutureBudgetingController">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.FutureBudgeting.FutureBudgetingController">
    <children>
       <ChoiceBox fx:id="firstCategory" layoutX="41.0" layoutY="95.0" prefWidth="150.0" />
       <ChoiceBox fx:id="secondCategory" layoutX="41.0" layoutY="138.0" prefWidth="150.0" />
@@ -15,18 +12,18 @@
       <ChoiceBox fx:id="fourthCategory" layoutX="41.0" layoutY="235.0" prefWidth="150.0" />
       <ChoiceBox fx:id="fifthCategory" layoutX="41.0" layoutY="283.0" prefWidth="150.0" />
       <ChoiceBox fx:id="sixthCategory" layoutX="41.0" layoutY="333.0" prefWidth="150.0" />
-      <TextField fx:id="firstExpected" layoutX="239.0" layoutY="93.0" prefHeight="25.0" prefWidth="117.0" onAction="#setFirstDiff"/>
-      <TextField fx:id="secondExpected" layoutX="239.0" layoutY="136.0" prefHeight="25.0" prefWidth="117.0" onAction="#setSecondDiff"/>
-      <TextField fx:id="thirdExpected" layoutX="239.0" layoutY="184.0" prefHeight="25.0" prefWidth="117.0" onAction="#setThirdDiff"/>
-      <TextField fx:id="fourthExpected" layoutX="239.0" layoutY="233.0" prefHeight="25.0" prefWidth="117.0" onAction="#setFourthDiff"/>
-      <TextField fx:id="fifthExpected" layoutX="239.0" layoutY="281.0" prefHeight="25.0" prefWidth="117.0" onAction="#setFifthDiff"/>
-      <TextField fx:id="sixthExpected" layoutX="239.0" layoutY="331.0" prefHeight="25.0" prefWidth="117.0" onAction="#setSixthDiff"/>
-      <TextField fx:id="firstActual" layoutX="402.0" layoutY="93.0" prefHeight="25.0" prefWidth="117.0" text="0" onAction="#setFirstDiff"/>
-      <TextField fx:id="secondActual" layoutX="402.0" layoutY="136.0" prefHeight="25.0" prefWidth="117.0" text="0" onAction="#setSecondDiff"/>
-      <TextField fx:id="thirdActual" layoutX="402.0" layoutY="184.0" prefHeight="25.0" prefWidth="117.0" text="0" onAction="#setThirdDiff"/>
-      <TextField fx:id="fourthActual" layoutX="402.0" layoutY="233.0" prefHeight="25.0" prefWidth="117.0" text="0" onAction="#setFourthDiff"/>
-      <TextField fx:id="fifthActual" layoutX="402.0" layoutY="281.0" prefHeight="25.0" prefWidth="117.0" text="0" onAction="#setFifthDiff"/>
-      <TextField fx:id="sixthActual" layoutX="402.0" layoutY="331.0" prefHeight="25.0" prefWidth="117.0" text="0" onAction="#setSixthDiff"/>
+      <TextField fx:id="firstExpected" layoutX="239.0" layoutY="93.0" onAction="#setFirstDiff" prefHeight="25.0" prefWidth="117.0" />
+      <TextField fx:id="secondExpected" layoutX="239.0" layoutY="136.0" onAction="#setSecondDiff" prefHeight="25.0" prefWidth="117.0" />
+      <TextField fx:id="thirdExpected" layoutX="239.0" layoutY="184.0" onAction="#setThirdDiff" prefHeight="25.0" prefWidth="117.0" />
+      <TextField fx:id="fourthExpected" layoutX="239.0" layoutY="233.0" onAction="#setFourthDiff" prefHeight="25.0" prefWidth="117.0" />
+      <TextField fx:id="fifthExpected" layoutX="239.0" layoutY="281.0" onAction="#setFifthDiff" prefHeight="25.0" prefWidth="117.0" />
+      <TextField fx:id="sixthExpected" layoutX="239.0" layoutY="331.0" onAction="#setSixthDiff" prefHeight="25.0" prefWidth="117.0" />
+      <TextField fx:id="firstActual" layoutX="402.0" layoutY="93.0" onAction="#setFirstDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
+      <TextField fx:id="secondActual" layoutX="402.0" layoutY="136.0" onAction="#setSecondDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
+      <TextField fx:id="thirdActual" layoutX="402.0" layoutY="184.0" onAction="#setThirdDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
+      <TextField fx:id="fourthActual" layoutX="402.0" layoutY="233.0" onAction="#setFourthDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
+      <TextField fx:id="fifthActual" layoutX="402.0" layoutY="281.0" onAction="#setFifthDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
+      <TextField fx:id="sixthActual" layoutX="402.0" layoutY="331.0" onAction="#setSixthDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
       <Text fx:id="firstDiff" layoutX="585.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
@@ -82,5 +79,6 @@
             <Font size="18.0" />
          </font>
       </Text>
+      <Button layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHome" text="Home" />
    </children>
 </AnchorPane>

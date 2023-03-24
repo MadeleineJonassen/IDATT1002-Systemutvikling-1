@@ -114,11 +114,11 @@
                         <font>
                            <Font name="Agency FB" size="15.0" />
                         </font></Button>
-                     <Button mnemonicParsing="false" style="-fx-background-color: translucent; -fx-background-color: D8AF7F;" text="Income overview" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <Button mnemonicParsing="false" onAction="#switchToIncome" style="-fx-background-color: translucent; -fx-background-color: D8AF7F;" text="Income overview" GridPane.columnIndex="1" GridPane.rowIndex="1">
                         <font>
                            <Font name="Agency FB" size="15.0" />
                         </font></Button>
-                     <Button mnemonicParsing="false" style="-fx-background-color: D8AF7F;" text="Budgeting" GridPane.columnIndex="2">
+                     <Button mnemonicParsing="false" onAction="#switchToFutureBudgeting" style="-fx-background-color: D8AF7F;" text="Budgeting" GridPane.columnIndex="2">
                         <font>
                            <Font name="Agency FB" size="15.0" />
                         </font></Button>
