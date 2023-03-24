@@ -1,5 +1,11 @@
-package no.ntnu.idatt1002.demo.recurringTransactions;
+package no.ntnu.idatt1002.demo.recurring;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,23 +18,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import no.ntnu.idatt1002.demo.data.Category;
 import no.ntnu.idatt1002.demo.data.RecurringCategory;
 import no.ntnu.idatt1002.demo.data.Register;
 import no.ntnu.idatt1002.demo.data.Transaction;
 
-//import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
+/**
+ * Controller for recurring transactions FXML.
+ */
 public class RecurringTransactionsController {
   @FXML
   private Label monthName;
@@ -48,7 +45,7 @@ public class RecurringTransactionsController {
     LocalDate date = datePicker.getValue();
     month = date.getMonth();
     String monthString = month.toString().toLowerCase();
-    String finalString = monthString.substring(0,1).toUpperCase() + monthString.substring(1);
+    String finalString = monthString.substring(0, 1).toUpperCase() + monthString.substring(1);
     if (date != null) {
       monthName.setText(finalString + " overview");
     } else {
@@ -56,10 +53,14 @@ public class RecurringTransactionsController {
     }
   }
 
+  /**
+   * Lists all data for recurring transactions.
+   */
   @FXML
   public void listData() {
     List<String> transactionStringList = new ArrayList<>();
-    List<Transaction> transactionList = categoryRegister.getTransactionsByCategoryType(new RecurringCategory());
+    List<Transaction> transactionList = categoryRegister.getTransactionsByCategoryType(
+        new RecurringCategory());
     for (Transaction transaction : transactionList) {
       transactionStringList.add(transaction.toString());
     }
@@ -67,9 +68,16 @@ public class RecurringTransactionsController {
     recurringTransactions.setItems(observableList);
   }
 
+  /**
+   * Button to go to home page of application.
+
+   * @param event when button is pressed with mouse.
+   * @throws IOException if input is invalid.
+   */
   public void goHome(ActionEvent event) throws IOException {
-    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
-    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
+        "/SpendWiseHomePage.fxml"))));
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);
     stage.setScene(scene);
     stage.show();

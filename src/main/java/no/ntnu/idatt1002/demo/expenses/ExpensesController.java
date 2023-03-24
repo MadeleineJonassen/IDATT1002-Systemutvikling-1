@@ -173,9 +173,17 @@ public class ExpensesController implements Initializable {
     return result;
   }
 
+  /**
+   * Home button.
+
+   * @param event mouse click
+   * @throws IOException if invalid input is detected.
+   */
   public void goToIncome(ActionEvent event) throws IOException {
-    Scene goIncome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Income.fxml"))));
-    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    Scene goIncome = (FXMLLoader.load(Objects.requireNonNull(
+        getClass().getResource("/Income.fxml"))));
+
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     stage.setScene(goIncome);
     stage.show();
   }

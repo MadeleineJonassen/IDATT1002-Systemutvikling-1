@@ -1,5 +1,9 @@
 package no.ntnu.idatt1002.demo.budgeting;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,11 +16,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
+/**
+ * Controller for future budgetting GUI.
+ */
 public class FutureBudgetingController {
 
   @FXML
@@ -73,37 +75,65 @@ public class FutureBudgetingController {
   @FXML
   private Text sixthDiff;
 
+  /**
+   * Calculates difference between given expected output and actual output.
+   */
   public void setFirstDiff() {
     String difference;
-    difference = String.valueOf((Integer.parseInt(firstExpected.getText()) - Integer.parseInt(firstActual.getText())));
+    difference = String.valueOf((Integer.parseInt(firstExpected.getText())
+        - Integer.parseInt(firstActual.getText())));
     firstDiff.setText(difference);
   }
+
+  /**
+   * Calculates difference between given expected output and actual output.
+   */
   public void setSecondDiff() {
     String difference;
-    difference = String.valueOf((Integer.parseInt(secondExpected.getText()) - Integer.parseInt(secondActual.getText())));
+    difference = String.valueOf((Integer.parseInt(secondExpected.getText())
+        - Integer.parseInt(secondActual.getText())));
     secondDiff.setText(difference);
   }
+
+  /**
+   * Calculates difference between given expected output and actual output.
+   */
   public void setThirdDiff() {
     String difference;
-    difference = String.valueOf((Integer.parseInt(thirdExpected.getText()) - Integer.parseInt(thirdActual.getText())));
+    difference = String.valueOf((Integer.parseInt(thirdExpected.getText())
+        - Integer.parseInt(thirdActual.getText())));
     thirdDiff.setText(difference);
   }
+
+  /**
+   * Calculates difference between given expected output and actual output.
+   */
   public void setFourthDiff() {
     String difference;
-    difference = String.valueOf((Integer.parseInt(fourthExpected.getText()) - Integer.parseInt(fourthActual.getText())));
+    difference = String.valueOf((Integer.parseInt(fourthExpected.getText())
+        - Integer.parseInt(fourthActual.getText())));
     fourthDiff.setText(difference);
   }
+
+  /**
+   * Calculates difference between given expected output and actual output.
+   */
   public void setFifthDiff() {
     String difference;
-    difference = String.valueOf((Integer.parseInt(fifthExpected.getText()) - Integer.parseInt(fifthActual.getText())));
+    difference = String.valueOf((Integer.parseInt(fifthExpected.getText())
+        - Integer.parseInt(fifthActual.getText())));
     fifthDiff.setText(difference);
   }
+
+  /**
+   * Calculates difference between given expected output and actual output.
+   */
   public void setSixthDiff() {
     String difference;
-    difference = String.valueOf((Integer.parseInt(sixthExpected.getText()) - Integer.parseInt(sixthActual.getText())));
+    difference = String.valueOf((Integer.parseInt(sixthExpected.getText())
+        - Integer.parseInt(sixthActual.getText())));
     sixthDiff.setText(difference);
   }
-
 
   @FXML
   private ChoiceBox<Object> firstCategory;
@@ -123,6 +153,9 @@ public class FutureBudgetingController {
   @FXML
   private ChoiceBox<Object> sixthCategory;
 
+  /**
+   * Initializes the categories used in future budgeting dropdowns.
+   */
   public void categoryInitiater() {
     if (firstCategory.isVisible()) {
       List<ChoiceBox<Object>> dropdowns = new ArrayList<>();
@@ -146,9 +179,18 @@ public class FutureBudgetingController {
       }
     }
   }
+
+  /**
+   * Home button.
+
+   * @param event mouse click on button.
+   * @throws IOException if wrong input is detected.
+   */
   public void goHome(ActionEvent event) throws IOException {
-    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
-    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
+        getClass().getResource("/SpendWiseHomePage.fxml"))));
+
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);
     stage.setScene(scene);
     stage.show();
