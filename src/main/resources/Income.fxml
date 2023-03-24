@@ -29,6 +29,7 @@
                <Button fx:id="editIncome" layoutX="424.0" layoutY="182.0" mnemonicParsing="false" onAction="#editIncomeButtonPushed" prefHeight="26.0" prefWidth="107.0" text="Edit income" />
                <Button fx:id="viewExpenses" layoutX="423.0" layoutY="233.0" mnemonicParsing="false" onAction="#viewExpensesButtonPushed" prefHeight="26.0" prefWidth="107.0" text="View expenses" />
                <Button fx:id="changeToIncomeBarGraph" layoutX="422.0" layoutY="283.0" mnemonicParsing="false" onAction="#changeToIncomeBarGraphButtonPushed" prefHeight="26.0" prefWidth="137.0" text="Change to bar graph" />
+               <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHome" text="Home" />
             </children>
          </AnchorPane>
       </children>
