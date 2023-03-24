@@ -109,14 +109,6 @@ public class ExpensesController implements Initializable{
     stage.show();
   }
 
-  public void goHome(ActionEvent event) throws IOException {
-    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
-    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-    Scene scene = new Scene(rootGoHome);
-    stage.setScene(scene);
-    stage.show();
-  }
-
   public void initialize(URL url, ResourceBundle resourceBundle) {
 
       ObservableList<PieChart.Data> piechartData = FXCollections.observableArrayList(

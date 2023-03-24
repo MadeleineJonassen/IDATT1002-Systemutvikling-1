@@ -76,9 +76,9 @@
       <bottom>
          <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="379.0" BorderPane.alignment="CENTER">
             <children>
-               <Button mnemonicParsing="false" text="Edit Expenses" />
+               <Button mnemonicParsing="false" onAction="#switchToEditExpenses" text="Edit Expenses" />
                <Region prefHeight="37.0" prefWidth="44.0" />
-               <Button mnemonicParsing="false" text="Edit Income" />
+               <Button mnemonicParsing="false" onAction="#switchToEditIncome" text="Edit Income" />
             </children>
          </HBox>
       </bottom>

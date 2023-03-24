@@ -23,7 +23,7 @@ public class HomePageController {
   private Scene rootSwitchToExpenses;
   private AnchorPane rootSwitchToRecurringTrans;
   private GridPane rootSwitchToAddExpense;
-
+  private GridPane rootSwitchToEditIncome;
   public void switchToExpenses(ActionEvent event) throws IOException {
     rootSwitchToExpenses = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Expenses.fxml"))));
     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -44,6 +44,14 @@ public class HomePageController {
     rootSwitchToAddExpense = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/AddExpense.fxml"))));
     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToAddExpense);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void switchToEditIncome(ActionEvent event) throws IOException {
+    rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/EditIncome.fxml"))));
+    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToEditIncome);
     stage.setScene(scene);
     stage.show();
   }
