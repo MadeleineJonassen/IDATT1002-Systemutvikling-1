@@ -32,6 +32,7 @@
                <Button layoutX="424.0" layoutY="182.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="107.0" text="Edit expenses" fx:id="editExpenses" onAction="#editExpensesButtonPushed"/>
                <Button layoutX="423.0" layoutY="233.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="107.0" text="View income" fx:id="viewIncome" onAction="#viewIncomeButtonPushed"/>
                <Button layoutX="422.0" layoutY="283.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Change to bar graph" fx:id="changeToBarGraph" onAction="#changeToBarGraphButtonPushed"/>
+               <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHome" text="Home" />
             </children>
          </AnchorPane>
       </children>
