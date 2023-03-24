@@ -7,6 +7,9 @@ import java.util.Calendar;
 
 //TODO make user tests for all in data
 
+//NOTE Since this class is immutable, deep copies should not be necessary. If this is wrong
+//all files copying transactions need to be changed
+
 /**
  * Abstract class that expense/income inherits from.
  */
@@ -17,6 +20,13 @@ public abstract class Transaction {
     private double amount;
 
     //Constructor in here?
+    public Transaction(String name, String notes, Date date, double amount){
+        this.name = name;
+        this.notes = notes;
+        //TODO deep copy, or solved by being private?
+        this.date = date;
+        this.amount = amount;
+    }
 
     public String getName() {
         return name;

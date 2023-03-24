@@ -1,5 +1,10 @@
 package no.ntnu.idatt1002.demo.data;
 
+import java.util.Date;
+
 public class Expense extends Transaction{
-    //TODO override the date?
+  public Expense(String name, String notes, Date date, double amount) {
+    super(name, notes, date, amount);
+  }
+  //TODO override the date?
 }

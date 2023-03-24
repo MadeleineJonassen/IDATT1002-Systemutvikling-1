@@ -64,7 +64,7 @@
            </rowConstraints>
             <children>
                <Button mnemonicParsing="false" onAction="#switchToExpenses" prefHeight="25.0" prefWidth="151.0" text="Expense overview" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-               <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="151.0" text="Recurring transactions" />
+               <Button mnemonicParsing="false" onAction="#switchToRecurringTransactions" prefHeight="26.0" prefWidth="151.0" text="Recurring transactions" />
                <Button mnemonicParsing="false" text="Income overview" GridPane.rowIndex="1" />
                <Button mnemonicParsing="false" text="Budgeting" GridPane.columnIndex="1" />
                <Region prefHeight="67.0" prefWidth="65.0" GridPane.columnIndex="2" />
@@ -76,9 +76,9 @@
       <bottom>
          <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="379.0" BorderPane.alignment="CENTER">
             <children>
-               <Button mnemonicParsing="false" text="Edit Expenses" />
+               <Button mnemonicParsing="false" onAction="#switchToEditExpenses" text="Edit Expenses" />
                <Region prefHeight="37.0" prefWidth="44.0" />
-               <Button mnemonicParsing="false" text="Edit Income" />
+               <Button mnemonicParsing="false" onAction="#switchToEditIncome" text="Edit Income" />
             </children>
          </HBox>
       </bottom>
