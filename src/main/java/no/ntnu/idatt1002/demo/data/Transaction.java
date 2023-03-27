@@ -1,5 +1,11 @@
 package no.ntnu.idatt1002.demo.data;
 
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableStringValue;
+import javafx.beans.value.ObservableValue;
+import no.ntnu.idatt1002.demo.exceptions.ConformityException;
+
 import java.util.Date;
 
 import java.util.Calendar;
@@ -14,34 +20,49 @@ import java.util.Calendar;
  * Abstract class that expense/income inherits from.
  */
 public abstract class Transaction {
-    private String name;
-    private String notes;
-    //TODO make into string
-    private String date;
-    private double amount;
+    private final SimpleStringProperty name;
+    private final SimpleStringProperty notes;
+    //TODO make into string (all other places)
+    private final SimpleStringProperty date;
+    private final SimpleDoubleProperty amount;
+    private SimpleStringProperty category; // Only used by tableview
 
     //Constructor in here?
     public Transaction(String name, String notes, String date, double amount){
-        this.name = name;
-        this.notes = notes;
-        //TODO deep copy, or solved by being private?
-        this.date = date;
-        this.amount = amount;
+        this.name = new SimpleStringProperty(name);
+        this.notes = new SimpleStringProperty(notes);
+        this.date = new SimpleStringProperty(date);
+        this.amount = new SimpleDoubleProperty(amount);
     }
 
     public String getName() {
-        return name;
+        return name.get();
     }
 
     public String getNotes() {
-        return notes;
+        return notes.get();
     }
 
     public String getDate() {
-        return date;
+        return date.get();
     }
 
     public double getAmount(){
-        return amount;
+        return amount.get();
+    }
+
+    public String getCategory() throws ConformityException{
+        if (category == null){
+            throw new ConformityException("Category has not been set yet (it should have been)");
+        }
+
+        return category.get();
+    }
+
+    public void setCategory(String category){
+        //Only fire this method if the category hasn't been set yet
+        if (this.category == null){
+            this.category = new SimpleStringProperty(category);
+        }
     }
 }

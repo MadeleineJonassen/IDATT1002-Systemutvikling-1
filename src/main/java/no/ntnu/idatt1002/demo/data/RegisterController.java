@@ -10,12 +10,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class RegisterController {
-    public static Register loadData(String jsonPath) throws IOException, URISyntaxException, ConformityException, DuplicateNameException {
+    public static Register loadData(URL url) throws IOException, URISyntaxException, ConformityException, DuplicateNameException {
         // Default database should be in resources/database
-        File file = new File(Register.class.getResource(jsonPath).toURI());
+        File file = new File(url.toURI());
         String content = FileUtils.readFileToString(file, "utf-8");
         JSONObject json = new JSONObject(content);
 
@@ -28,7 +29,7 @@ public class RegisterController {
 
             JSONArray jsonTransactions = currentJsonCategory.getJSONArray("transactions");
             for (int j = 0; j < jsonTransactions.length(); j++){
-                JSONObject currentJsonTransaction = jsonTransactions.getJSONObject(i);
+                JSONObject currentJsonTransaction = jsonTransactions.getJSONObject(j);
 
                 // If the amounts are written with minus signs, they are expenses
                 Transaction t;
@@ -37,7 +38,7 @@ public class RegisterController {
                             currentJsonTransaction.getString("name"),
                             currentJsonTransaction.getString("notes"),
                             currentJsonTransaction.getString("date"),
-                            currentJsonTransaction.getDouble("amount"));
+                            -(currentJsonTransaction.getDouble("amount")));
                 } else {
                     t = new Income(
                             currentJsonTransaction.getString("name"),
@@ -52,6 +53,7 @@ public class RegisterController {
         return register;
     }
 
+    @SuppressWarnings("VulnerableCodeUsages") //TODO fix
     public static void writeData(String jsonPath, Register register) throws IOException {
         JSONObject json = new JSONObject();
 
@@ -90,12 +92,13 @@ public class RegisterController {
         file.close();
     }
 
+    /*
     public static void main(String[] args) throws IOException, URISyntaxException {
         try{
-            loadData("/database/register.json");
+            loadData(getClass().getClassLoader().getResource("database/register.json"));
         } catch (Exception e){
 
         }
 
-    }
+    }*/
 }

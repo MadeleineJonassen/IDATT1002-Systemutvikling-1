@@ -1,5 +1,7 @@
 package no.ntnu.idatt1002.demo.homePage;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,20 +13,30 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import no.ntnu.idatt1002.demo.data.Register;
+import no.ntnu.idatt1002.demo.data.RegisterController;
+import no.ntnu.idatt1002.demo.data.Transaction;
+import no.ntnu.idatt1002.demo.exceptions.ConformityException;
+import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class HomePageController implements Initializable {
 
-  public TableColumn transactionTable;
+  @FXML
+  private TableView<Transaction> transactionTable = new TableView<>();
   private Stage stage;
   private Scene scene;
   private Scene rootSwitchToExpenses;
@@ -64,6 +76,31 @@ public class HomePageController implements Initializable {
   }
 
   @Override
-  public void initialize(URL url, ResourceBundle resourceBundle) {
+  public void initialize(URL url, ResourceBundle resourceBundle) throws RuntimeException {
+    Register register;
+
+    try {
+      register = RegisterController.loadData(Objects.requireNonNull(
+              getClass().getClassLoader().getResource("database/register.json")));
+    } catch (IOException | URISyntaxException | ConformityException | DuplicateNameException e) {
+      throw new RuntimeException(e);
+    }
+
+    // Make all the columns
+    TableColumn<Transaction, String> nameColumn = new TableColumn<Transaction, String>("Name");
+    TableColumn<Transaction, Double> amountColumn = new TableColumn<Transaction, Double>("Amount");
+    TableColumn<Transaction, String> categoryColumn = new TableColumn<Transaction, String>("Category");
+
+    // Set the cell value factories based on transactions
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+    amountColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
+    categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+
+    // Add the columns to the table
+    ArrayList<Transaction> transactions = register.getAllTransactions();
+    ObservableList<Transaction> data = FXCollections.observableArrayList(transactions);
+    transactionTable.setItems(data);
+    transactionTable.getColumns().addAll(nameColumn, amountColumn, categoryColumn);
+    return;
   }
 }

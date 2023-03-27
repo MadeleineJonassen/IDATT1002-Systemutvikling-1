@@ -8,17 +8,7 @@ import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
 import java.util.ArrayList;
 
 public class Register {
-    private int numberOfTransactions;
-    private ArrayList<Category> categories;
-
-    /**
-     * Returns the number of transactions in the register
-     *
-     * @return The number of transactions as an int
-     */
-    public int getNumberOfTransactions() {
-        return numberOfTransactions;
-    }
+    private final ArrayList<Category> categories = new ArrayList<>();
 
     /**
      * Returns a deep-copy of the transactions given a certain category
@@ -124,6 +114,36 @@ public class Register {
     public ArrayList<Category> getCategories() {
         //TODO write properly
         return categories;
+    }
+
+    /**
+     * Returns an ArrayList of all transactions in the register
+     *
+     * @return All transactions as an ArrayList
+     */
+    public ArrayList<Transaction> getAllTransactions() {
+        ArrayList<Transaction> transactions = new ArrayList<>();
+
+        for (Category c : categories){
+            transactions.addAll(c.getTransactions());
+        }
+
+        return transactions;
+    }
+
+    /**
+     * Return the number of transactions across all categories in the register
+     *
+     * @return The number of transactions as an int
+     */
+    public int getNumberOfTransactions() {
+        int numberOfTransactions = 0;
+
+        for (Category c : categories) {
+            numberOfTransactions += c.getNumberOfTransactions();
+        }
+
+        return numberOfTransactions;
     }
 
     //TODO doing this to avoid aggregation. Change if this impacts coupling too much

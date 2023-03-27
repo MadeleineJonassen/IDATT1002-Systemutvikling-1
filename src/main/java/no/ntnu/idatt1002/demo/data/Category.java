@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Category {
     private String name;
     //TODO not let recurring be part of this class but instead RecurringCategory
-    private ArrayList<Transaction> transactions;
+    private final ArrayList<Transaction> transactions = new ArrayList<>();
     private int numberOfTransactions;
 
     public Category(String name){
@@ -32,13 +32,19 @@ public class Category {
             }
         }
 
+        t.setCategory(this.name);
         transactions.add(t);
+        numberOfTransactions++;
     }
 
     public void addAll(ArrayList<Transaction> transactionsToAdd) throws ConformityException{
         for (Transaction t : transactionsToAdd){
             addTransaction(t);
         }
+    }
+
+    public int getNumberOfTransactions() {
+        return numberOfTransactions;
     }
 
     //TODO remove transaction, delete category (with moving transactions?), search transaction by name/id
