@@ -1,13 +1,17 @@
 package no.ntnu.idatt1002.demo.budgeting;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.ResourceBundle;
+
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
@@ -17,9 +21,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * Controller for future budgetting GUI.
+ * Controller for future budgeting GUI.
  */
-public class FutureBudgetingController {
+public class FutureBudgetingController implements Initializable {
 
   @FXML
   public TextField firstExpected;
@@ -156,7 +160,7 @@ public class FutureBudgetingController {
   /**
    * Initializes the categories used in future budgeting dropdowns.
    */
-  public void categoryInitiater() {
+  public void categoryInitiator() {
     if (firstCategory.isVisible()) {
       List<ChoiceBox<Object>> dropdowns = new ArrayList<>();
       dropdowns.add(firstCategory);
@@ -194,5 +198,10 @@ public class FutureBudgetingController {
     Scene scene = new Scene(rootGoHome);
     stage.setScene(scene);
     stage.show();
+  }
+
+  @Override
+  public void initialize (URL url, ResourceBundle resourceBundle) {
+    categoryInitiator();
   }
 }
