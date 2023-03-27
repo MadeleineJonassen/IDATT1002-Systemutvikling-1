@@ -4,7 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * This is just a simple Java-bean
+ * This is just a simple Java-bean.
+
  * @author nilstes
  */
 public class MyEntity {
