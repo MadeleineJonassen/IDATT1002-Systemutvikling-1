@@ -101,6 +101,5 @@ public class HomePageController implements Initializable {
     ObservableList<Transaction> data = FXCollections.observableArrayList(transactions);
     transactionTable.setItems(data);
     transactionTable.getColumns().addAll(nameColumn, amountColumn, categoryColumn);
-    return;
   }
 }
