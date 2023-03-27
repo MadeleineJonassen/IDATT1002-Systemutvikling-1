@@ -1,84 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.budgeting.FutureBudgetingController">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="691.0" style="-fx-background-color: F5E1B9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.budgeting.FutureBudgetingController">
    <children>
-      <ChoiceBox fx:id="firstCategory" layoutX="41.0" layoutY="95.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="secondCategory" layoutX="41.0" layoutY="138.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="thirdCategory" layoutX="41.0" layoutY="186.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="fourthCategory" layoutX="41.0" layoutY="235.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="fifthCategory" layoutX="41.0" layoutY="283.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="sixthCategory" layoutX="41.0" layoutY="333.0" prefWidth="150.0" />
-      <TextField fx:id="firstExpected" layoutX="239.0" layoutY="93.0" onAction="#setFirstDiff" prefHeight="25.0" prefWidth="117.0" />
-      <TextField fx:id="secondExpected" layoutX="239.0" layoutY="136.0" onAction="#setSecondDiff" prefHeight="25.0" prefWidth="117.0" />
-      <TextField fx:id="thirdExpected" layoutX="239.0" layoutY="184.0" onAction="#setThirdDiff" prefHeight="25.0" prefWidth="117.0" />
-      <TextField fx:id="fourthExpected" layoutX="239.0" layoutY="233.0" onAction="#setFourthDiff" prefHeight="25.0" prefWidth="117.0" />
-      <TextField fx:id="fifthExpected" layoutX="239.0" layoutY="281.0" onAction="#setFifthDiff" prefHeight="25.0" prefWidth="117.0" />
-      <TextField fx:id="sixthExpected" layoutX="239.0" layoutY="331.0" onAction="#setSixthDiff" prefHeight="25.0" prefWidth="117.0" />
-      <TextField fx:id="firstActual" layoutX="402.0" layoutY="93.0" onAction="#setFirstDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
-      <TextField fx:id="secondActual" layoutX="402.0" layoutY="136.0" onAction="#setSecondDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
-      <TextField fx:id="thirdActual" layoutX="402.0" layoutY="184.0" onAction="#setThirdDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
-      <TextField fx:id="fourthActual" layoutX="402.0" layoutY="233.0" onAction="#setFourthDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
-      <TextField fx:id="fifthActual" layoutX="402.0" layoutY="281.0" onAction="#setFifthDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
-      <TextField fx:id="sixthActual" layoutX="402.0" layoutY="331.0" onAction="#setSixthDiff" prefHeight="25.0" prefWidth="117.0" text="0" />
-      <Text fx:id="firstDiff" layoutX="585.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <ChoiceBox fx:id="firstCategory" layoutX="51.0" layoutY="92.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="secondCategory" layoutX="51.0" layoutY="135.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="thirdCategory" layoutX="51.0" layoutY="183.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="fourthCategory" layoutX="51.0" layoutY="232.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="fifthCategory" layoutX="51.0" layoutY="280.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="sixthCategory" layoutX="51.0" layoutY="330.0" prefWidth="150.0" />
+      <TextField fx:id="firstExpected" layoutX="239.0" layoutY="93.0" onAction="#setFirstDiff" prefHeight="25.0" prefWidth="117.0">
          <font>
-            <Font size="18.0" />
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="secondExpected" layoutX="239.0" layoutY="136.0" onAction="#setSecondDiff" prefHeight="25.0" prefWidth="117.0">
+         <font>
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="thirdExpected" layoutX="239.0" layoutY="184.0" onAction="#setThirdDiff" prefHeight="25.0" prefWidth="117.0">
+         <font>
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="fourthExpected" layoutX="239.0" layoutY="233.0" onAction="#setFourthDiff" prefHeight="25.0" prefWidth="117.0">
+         <font>
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="fifthExpected" layoutX="239.0" layoutY="281.0" onAction="#setFifthDiff" prefHeight="25.0" prefWidth="117.0">
+         <font>
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="sixthExpected" layoutX="239.0" layoutY="331.0" onAction="#setSixthDiff" prefHeight="25.0" prefWidth="117.0">
+         <font>
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="firstActual" layoutX="402.0" layoutY="93.0" onAction="#setFirstDiff" prefHeight="25.0" prefWidth="117.0" text="0">
+         <font>
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="secondActual" layoutX="402.0" layoutY="136.0" onAction="#setSecondDiff" prefHeight="25.0" prefWidth="117.0" text="0">
+         <font>
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="thirdActual" layoutX="402.0" layoutY="184.0" onAction="#setThirdDiff" prefHeight="25.0" prefWidth="117.0" text="0">
+         <font>
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="fourthActual" layoutX="402.0" layoutY="233.0" onAction="#setFourthDiff" prefHeight="25.0" prefWidth="117.0" text="0">
+         <font>
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="fifthActual" layoutX="402.0" layoutY="281.0" onAction="#setFifthDiff" prefHeight="25.0" prefWidth="117.0" text="0">
+         <font>
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="sixthActual" layoutX="402.0" layoutY="331.0" onAction="#setSixthDiff" prefHeight="25.0" prefWidth="117.0" text="0">
+         <font>
+            <Font name="Agency FB" size="12.0" />
+         </font></TextField>
+      <Text fx:id="firstDiff" fill="#495635" layoutX="585.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+         <font>
+            <Font name="Agency FB" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="secondDiff" layoutX="585.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Text fx:id="secondDiff" fill="#495635" layoutX="585.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
-            <Font size="18.0" />
+            <Font name="Agency FB" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="thirdDiff" layoutX="585.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Text fx:id="thirdDiff" fill="#495635" layoutX="585.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
-            <Font size="18.0" />
+            <Font name="Agency FB" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="fourthDiff" layoutX="585.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Text fx:id="fourthDiff" fill="#495635" layoutX="585.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
-            <Font size="18.0" />
+            <Font name="Agency FB" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="fifthDiff" layoutX="585.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Text fx:id="fifthDiff" fill="#495635" layoutX="585.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
-            <Font size="18.0" />
+            <Font name="Agency FB" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="sixthDiff" layoutX="585.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Text fx:id="sixthDiff" fill="#495635" layoutX="585.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
-            <Font size="18.0" />
+            <Font name="Agency FB" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="49.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose category:">
+      <Text fill="#8e7d69" layoutX="71.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose category:">
          <font>
-            <Font size="18.0" />
+            <Font name="Agency FB Bold" size="22.0" />
          </font>
       </Text>
-      <Text layoutX="243.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expected cost:">
+      <Text fill="#8e7d69" layoutX="243.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expected cost:">
          <font>
-            <Font size="18.0" />
+            <Font name="Agency FB Bold" size="22.0" />
          </font>
       </Text>
-      <Text layoutX="417.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actual cost:">
+      <Text fill="#8e7d69" layoutX="417.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actual cost:">
          <font>
-            <Font size="18.0" />
+            <Font name="Agency FB Bold" size="22.0" />
          </font>
       </Text>
-      <Text layoutX="561.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Difference:">
+      <Text fill="#8e7d69" layoutX="561.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Difference:">
          <font>
-            <Font size="18.0" />
+            <Font name="Agency FB Bold" size="22.0" />
          </font>
       </Text>
-      <Text layoutX="190.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Only use numbers in text fields!">
+      <Text fill="#909f43" layoutX="251.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Only use numbers in text fields!">
          <font>
-            <Font size="18.0" />
+            <Font name="Agency FB" size="25.0" />
          </font>
       </Text>
-      <Button layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHome" text="Home" />
+      <Button mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>
