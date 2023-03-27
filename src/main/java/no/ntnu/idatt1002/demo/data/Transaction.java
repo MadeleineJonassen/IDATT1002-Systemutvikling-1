@@ -26,6 +26,7 @@ public abstract class Transaction {
     private final SimpleStringProperty date;
     private final SimpleDoubleProperty amount;
     private SimpleStringProperty category; // Only used by tableview
+    private SimpleStringProperty amountString; // Only used by tableview
 
     //Constructor in here?
     public Transaction(String name, String notes, String date, double amount){
@@ -33,6 +34,7 @@ public abstract class Transaction {
         this.notes = new SimpleStringProperty(notes);
         this.date = new SimpleStringProperty(date);
         this.amount = new SimpleDoubleProperty(amount);
+        this.amountString = new SimpleStringProperty(this.amountToString());
     }
 
     public String getName() {
@@ -51,6 +53,10 @@ public abstract class Transaction {
         return amount.get();
     }
 
+    public String getAmountString(){
+        return amountString.get();
+    }
+
     public String getCategory() throws ConformityException{
         if (category == null){
             throw new ConformityException("Category has not been set yet (it should have been)");
@@ -65,4 +71,6 @@ public abstract class Transaction {
             this.category = new SimpleStringProperty(category);
         }
     }
+
+    protected abstract String amountToString();
 }

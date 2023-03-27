@@ -7,4 +7,8 @@ public class Income extends Transaction {
     super(name, notes, date, amount);
   }
   //TODO
+
+  protected String amountToString(){
+    return Double.toString(this.getAmount()) + " NKr";
+  }
 }

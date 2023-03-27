@@ -88,12 +88,13 @@ public class HomePageController implements Initializable {
 
     // Make all the columns
     TableColumn<Transaction, String> nameColumn = new TableColumn<Transaction, String>("Name");
-    TableColumn<Transaction, Double> amountColumn = new TableColumn<Transaction, Double>("Amount");
+    TableColumn<Transaction, String> amountColumn = new TableColumn<Transaction, String>("Amount");
     TableColumn<Transaction, String> categoryColumn = new TableColumn<Transaction, String>("Category");
 
     // Set the cell value factories based on transactions
     nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-    amountColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
+    // For the amount column use the amountToString method
+    amountColumn.setCellValueFactory(new PropertyValueFactory<>("amountString"));
     categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
 
     // Add the columns to the table

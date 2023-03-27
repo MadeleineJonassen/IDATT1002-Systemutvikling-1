@@ -7,4 +7,8 @@ public class Expense extends Transaction{
     super(name, notes, date, amount);
   }
   //TODO override the date?
+
+    protected String amountToString(){
+        return "-" + Double.toString(this.getAmount()) + " NKr";
+    }
 }
