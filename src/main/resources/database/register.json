@@ -1,0 +1,11 @@
+{
+  "categories": [
+    {"name": "Food", "transactions": [
+      {"name": "Kiosk", "notes": "", "date": "2023-03-24", "amount": -535.50},
+      {"name": "Kiwi", "notes": "", "date": "2023-03-24", "amount": -29.90}
+    ]},
+    {"name":  "Loans", "transactions": [
+      {"name": "Student loans", "notes": "", "date": "2023-03-24", "amount": 8800}
+    ]}
+  ]
+}
