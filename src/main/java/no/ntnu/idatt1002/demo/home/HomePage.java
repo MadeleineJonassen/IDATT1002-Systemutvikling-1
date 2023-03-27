@@ -13,8 +13,17 @@ import javafx.stage.Stage;
  * GUI loader for home page.
  */
 public class HomePage extends Application {
+
+  Stage window;
+
   @Override
   public void start(Stage stage) throws IOException {
+
+    window = stage;
+    window.setOnCloseRequest(e-> {
+      e.consume();
+      closeProgram();
+    });
 
     Parent root = FXMLLoader.load(Objects.requireNonNull(
         getClass().getResource("/SpendWiseHomePage.fxml")));
@@ -26,5 +35,11 @@ public class HomePage extends Application {
 
   public static void main(String[] args) {
     launch();
+  }
+
+  private void closeProgram(){
+    Boolean answer = ConfirmBox.display("Title", "Are you sure you want to exit?");
+    if(answer)
+      window.close();
   }
 }
