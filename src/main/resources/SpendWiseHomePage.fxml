@@ -22,15 +22,8 @@
     </padding>
    <BorderPane prefHeight="332.0" prefWidth="592.0">
       <right>
-         <TableView prefHeight="214.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-           <columns>
-             <TableColumn fx:id="transactionTable" prefWidth="124.0" text="Recent Transactions" />
-             <TableColumn prefWidth="75.0" text="C2">
-                  <graphic>
-                     <VBox prefHeight="23.0" prefWidth="520.0" />
-                  </graphic>
-               </TableColumn>
-           </columns>
+         <TableView fx:id="transactionTable" prefHeight="214.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+           <!--Recent transactions text now does not show up-->
          </TableView>
       </right>
       <bottom>
