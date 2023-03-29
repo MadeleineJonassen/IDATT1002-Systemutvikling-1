@@ -112,7 +112,7 @@ public class Register {
     }
 
     public ArrayList<Category> getCategories() {
-        //TODO write properly
+        //TODO write properly deep copy
         return categories;
     }
 
@@ -144,6 +144,23 @@ public class Register {
         }
 
         return numberOfTransactions;
+    }
+
+    /**
+     * Returns the category with the given name
+     *
+     * @param text Name of the category to search for
+     * @return The category with the given name, or null if no category was found
+     */
+    public Category getCategoryByName(String text) {
+        //TODO write properly deep copy
+        for (Category c : categories){
+            if (c.getName().equals(text)){
+                return c;
+            }
+        }
+
+        return null;
     }
 
     //TODO doing this to avoid aggregation. Change if this impacts coupling too much

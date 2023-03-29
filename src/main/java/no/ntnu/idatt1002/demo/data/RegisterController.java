@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class RegisterController {
+    @SuppressWarnings("VulnerableCodeUsages")
     public static Register loadData(URL url) throws IOException, URISyntaxException, ConformityException, DuplicateNameException {
         // Default database should be in resources/database
         File file = new File(url.toURI());
@@ -25,7 +26,13 @@ public class RegisterController {
         JSONArray jsonCategories = json.getJSONArray("categories");
         for (int i = 0; i < jsonCategories.length(); i++){
             JSONObject currentJsonCategory = jsonCategories.getJSONObject(i);
-            Category category = new Category(currentJsonCategory.getString("name"));
+
+            Category category;
+            if (currentJsonCategory.getBoolean("recurring")){
+                category = new RecurringCategory(currentJsonCategory.getString("name"));
+            } else {
+                category = new Category(currentJsonCategory.getString("name"));
+            }
 
             JSONArray jsonTransactions = currentJsonCategory.getJSONArray("transactions");
             for (int j = 0; j < jsonTransactions.length(); j++){
@@ -34,17 +41,33 @@ public class RegisterController {
                 // If the amounts are written with minus signs, they are expenses
                 Transaction t;
                 if (currentJsonTransaction.getDouble("amount") < 0){
-                    t = new Expense(
-                            currentJsonTransaction.getString("name"),
-                            currentJsonTransaction.getString("notes"),
-                            currentJsonTransaction.getString("date"),
-                            -(currentJsonTransaction.getDouble("amount")));
+                    if (currentJsonCategory.getBoolean("recurring")){
+                        t = new RecurringExpense(
+                                currentJsonTransaction.getString("name"),
+                                currentJsonTransaction.getString("notes"),
+                                currentJsonTransaction.getString("date"),
+                                -(currentJsonTransaction.getDouble("amount")));
+                    } else {
+                        t = new Expense(
+                                currentJsonTransaction.getString("name"),
+                                currentJsonTransaction.getString("notes"),
+                                currentJsonTransaction.getString("date"),
+                                -(currentJsonTransaction.getDouble("amount")));
+                    }
                 } else {
-                    t = new Income(
-                            currentJsonTransaction.getString("name"),
-                            currentJsonTransaction.getString("notes"),
-                            currentJsonTransaction.getString("date"),
-                            currentJsonTransaction.getDouble("amount"));
+                    if (currentJsonCategory.getBoolean("recurring")){
+                        t = new RecurringIncome(
+                                currentJsonTransaction.getString("name"),
+                                currentJsonTransaction.getString("notes"),
+                                currentJsonTransaction.getString("date"),
+                                currentJsonTransaction.getDouble("amount"));
+                    } else {
+                        t = new Income(
+                                currentJsonTransaction.getString("name"),
+                                currentJsonTransaction.getString("notes"),
+                                currentJsonTransaction.getString("date"),
+                                currentJsonTransaction.getDouble("amount"));
+                    }
                 }
                 category.addTransaction(t);
             }
@@ -53,7 +76,7 @@ public class RegisterController {
         return register;
     }
 
-    @SuppressWarnings("VulnerableCodeUsages") //TODO fix
+    @SuppressWarnings("VulnerableCodeUsages") //TODO fix, recurring write
     public static void writeData(String jsonPath, Register register) throws IOException {
         JSONObject json = new JSONObject();
 

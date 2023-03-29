@@ -47,5 +47,19 @@ public class Category {
         return numberOfTransactions;
     }
 
+    public boolean isExpenseCategory(){
+        return transactions.get(0) instanceof Expense;
+    }
+
+    public double getTotalAmount() {
+        double total = 0;
+
+        for (Transaction t : transactions){
+            total += t.getAmount();
+        }
+
+        return total;
+    }
+
     //TODO remove transaction, delete category (with moving transactions?), search transaction by name/id
 }

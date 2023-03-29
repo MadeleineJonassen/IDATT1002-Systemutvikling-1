@@ -6,5 +6,8 @@ public class RecurringExpense extends Expense{
   public RecurringExpense(String name, String notes, String date, double amount) {
     super(name, notes, date, amount);
   }
-  //TODO
+
+  public RecurringExpense(Expense e){
+    super(e.getName(), e.getNotes(), e.getDate(), e.getAmount());
+  }
 }
