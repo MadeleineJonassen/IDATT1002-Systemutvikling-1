@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -23,6 +24,8 @@ public class HomePageController {
   private GridPane rootSwitchToAddExpense;
   private GridPane rootSwitchToEditIncome;
   private AnchorPane rootSwitchToFutureBudgeting;
+
+  private BorderPane rootSwitchToHelpOption;
 
   /**
    * Button that takes user to expenses.
