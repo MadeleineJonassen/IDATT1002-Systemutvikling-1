@@ -117,4 +117,15 @@ public class HomePageController {
     stage.setScene(scene);
     stage.show();
   }
+
+  public void switchToHelpOption(ActionEvent event) throws IOException {
+    rootSwitchToHelpOption = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/HelpOption.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToHelpOption);
+    stage.setScene(scene);
+    stage.show();
+  }
+
 }
