@@ -5,10 +5,12 @@ import java.util.Objects;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -24,8 +26,7 @@ public class HomePageController {
   private GridPane rootSwitchToAddExpense;
   private GridPane rootSwitchToEditIncome;
   private AnchorPane rootSwitchToFutureBudgeting;
-
-  private BorderPane rootSwitchToHelpOption;
+  private FXMLLoader rootSwitchToHelpOption;
 
   /**
    * Button that takes user to expenses.
@@ -121,13 +122,16 @@ public class HomePageController {
     stage.show();
   }
 
-  public void switchToHelpOption(ActionEvent event) throws IOException {
-    rootSwitchToHelpOption = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/HelpOption.fxml"))));
-
-    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    scene = new Scene(rootSwitchToHelpOption);
-    stage.setScene(scene);
+  /**
+   * A button that opens the help option menu.
+   * @param event - mouse click
+   * @throws IOException - if wrong input detected
+   */
+  public void openHelpOption(ActionEvent event) throws IOException {
+    rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpOption.fxml"));
+    Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
+    Stage stage = new Stage();
+    stage.setScene(new Scene(rootHelp));
     stage.show();
   }
 

@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 
+/**
+ * Opens the help option
+ */
 public class Help extends Application {
 
   @Override

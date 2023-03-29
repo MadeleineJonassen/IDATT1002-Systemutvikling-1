@@ -94,7 +94,7 @@
                      </ImageView>
                   </graphic>
                </Button>
-               <Button alignment="CENTER" minWidth="28.0" mnemonicParsing="false" onAction="#switchToHelpOption" prefHeight="23.0" prefWidth="28.0" style="-fx-background-color: transparent;" textOverrun="CLIP">
+               <Button alignment="CENTER" minWidth="28.0" mnemonicParsing="false" onAction="#openHelpOption" prefHeight="23.0" prefWidth="28.0" style="-fx-background-color: transparent;" textOverrun="CLIP">
                   <graphic>
                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
