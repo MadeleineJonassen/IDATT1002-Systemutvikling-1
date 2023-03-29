@@ -54,7 +54,7 @@
                      <Font name="Agency FB Bold" size="12.0" />
                   </font>
                </Button>
-               <Button mnemonicParsing="false" onAction="#switchToEditIncome" style="-fx-background-color: translucent; -fx-border-color: D8AF7F;" text="Edit Income" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <Button mnemonicParsing="false" onAction="#switchToEditIncome" style="-fx-border-color: D8AF7F; -fx-background-color: translucent;" text="Edit Income" GridPane.columnIndex="1" GridPane.rowIndex="1">
                   <font>
                      <Font name="Agency FB Bold" size="12.0" />
                   </font>
@@ -94,7 +94,7 @@
                      </ImageView>
                   </graphic>
                </Button>
-               <Button alignment="CENTER" minWidth="28.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="28.0" style="-fx-background-color: transparent;" textOverrun="CLIP">
+               <Button alignment="CENTER" minWidth="28.0" mnemonicParsing="false" onAction="#switchToHelpOption" prefHeight="23.0" prefWidth="28.0" style="-fx-background-color: transparent;" textOverrun="CLIP">
                   <graphic>
                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
