@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: F5E1B9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.expenses.EditExpenseController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: F5E1B9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.expenses.EditExpenseController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -27,18 +18,18 @@
    <children>
       <AnchorPane prefHeight="53.0" prefWidth="107.0" GridPane.columnIndex="1">
          <children>
-            <Label layoutX="14.0" layoutY="28.0" text="Add Expense:" textFill="#8e7d69">
+            <Label layoutX="-16.0" layoutY="29.0" text="Add Expense:" textFill="#8e7d69">
                <font>
-                  <Font name="Agency FB" size="24.0" />
+                  <Font name="Arial" size="21.0" />
                </font>
             </Label>
             <DatePicker fx:id="datePicker" layoutX="125.0" layoutY="28.0" prefHeight="25.0" prefWidth="161.0" promptText="Choose date" style="-fx-border-color: D8AF7F;" />
          </children></AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Label layoutX="88.0" layoutY="25.0" text="Edit Expenses" textFill="#8e7d69">
+            <Label layoutX="72.0" layoutY="27.0" text="Edit Expenses" textFill="#495635">
                <font>
-                  <Font name="Agency FB" size="29.0" />
+                  <Font name="Arial" size="27.0" />
                </font>
             </Label>
             <Button layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: transparent;">
@@ -55,37 +46,40 @@
          <children>
             <TextField fx:id="expenseName" layoutX="126.0" layoutY="49.0" prefHeight="25.0" prefWidth="150.0" promptText="Write here" style="-fx-border-color: D8AF7F;">
                <font>
-                  <Font name="Agency FB" size="14.0" />
+                  <Font name="Arial" size="12.0" />
                </font></TextField>
             <TextField fx:id="amount" layoutX="127.0" layoutY="87.0" promptText="Write here">
                <font>
-                  <Font name="Agency FB" size="14.0" />
+                  <Font name="Arial" size="12.0" />
                </font></TextField>
             <ComboBox fx:id="categoryBox" editable="true" layoutX="127.0" layoutY="127.0" prefWidth="150.0" promptText="Choose category" />
-            <TextField fx:id="notes" alignment="TOP_LEFT" layoutX="13.0" layoutY="196.0" prefHeight="105.0" prefWidth="268.0" promptText="Write notes here" style="-fx-border-color: D8AF7F;" />
-            <Label layoutX="13.0" layoutY="52.0" text="Expense name:" textFill="#8e7d69">
+            <TextField fx:id="notes" alignment="TOP_LEFT" layoutX="13.0" layoutY="196.0" prefHeight="105.0" prefWidth="268.0" promptText="Write notes here" style="-fx-border-color: D8AF7F;">
                <font>
-                  <Font name="Agency FB" size="17.0" />
+                  <Font name="Arial" size="12.0" />
+               </font></TextField>
+            <Label layoutY="52.0" text="Expense name:" textFill="#8e7d69">
+               <font>
+                  <Font name="Arial" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="54.0" layoutY="89.0" text="Amount:" textFill="#8e7d69">
+            <Label layoutX="51.0" layoutY="89.0" text="Amount:" textFill="#8e7d69">
                <font>
-                  <Font name="Agency FB" size="17.0" />
+                  <Font name="Arial" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="51.0" layoutY="130.0" text="Category:" textFill="#8e7d69">
+            <Label layoutX="41.0" layoutY="130.0" text="Category:" textFill="#8e7d69">
                <font>
-                  <Font name="Agency FB" size="17.0" />
+                  <Font name="Arial" size="16.0" />
                </font>
             </Label>
             <Label layoutX="14.0" layoutY="177.0" text="Notes:" textFill="#8e7d69">
                <font>
-                  <Font name="Agency FB" size="15.0" />
+                  <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="addExpense" layoutX="192.0" layoutY="308.0" mnemonicParsing="false" style="-fx-background-color: D8AF7F;" text="Add expense" textFill="#8e7d69">
+            <Button fx:id="addExpense" layoutX="180.0" layoutY="307.0" mnemonicParsing="false" style="-fx-background-color: D8AF7F;" text="Add expense" textFill="#495635">
                <font>
-                  <Font name="Agency FB Bold" size="15.0" />
+                  <Font name="Arial" size="15.0" />
                </font></Button>
          </children>
          <GridPane.margin>
