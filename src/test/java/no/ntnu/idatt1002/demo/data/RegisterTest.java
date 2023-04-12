@@ -12,10 +12,12 @@ public class RegisterTest {
     public void setup() throws DuplicateNameException, ConformityException {
         register = new Register();
 
+        // TODO use file
+
         Category food = new Category("Food");
-        RecurringCategory loan = new RecurringCategory("Loan");
+        Category loan = new Category("Loan");
         //loan.addTransaction(new Income("Student loan", ));
-        RecurringCategory job = new RecurringCategory("Job");
+        Category job = new Category("Job");
 
         register.addAll(food, loan, job);
     }
