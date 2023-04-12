@@ -13,14 +13,12 @@
             <Font name="Arial Bold" size="32.0" />
          </font>
       </Label>
-      <ListView fx:id="recurringTransactions" layoutX="72.0" layoutY="100.0" onMousePressed="#listData" prefHeight="310.0" prefWidth="261.0" />
-      <PieChart layoutX="355.0" layoutY="100.0" prefHeight="176.0" prefWidth="194.0" />
-      <Label fx:id="monthName" layoutX="492.0" layoutY="342.0" text="Month Name" textFill="#495635">
+      <PieChart fx:id="pieChart" layoutX="357.0" layoutY="101.0" prefHeight="196.0" prefWidth="224.0" />
+      <Label fx:id="monthName" layoutX="407.0" layoutY="326.0" text="Pie chart name" textFill="#495635">
          <font>
             <Font name="Arial" size="22.0" />
          </font>
       </Label>
-      <DatePicker fx:id="datePicker" layoutX="455.0" layoutY="14.0" onAction="#dateChosen" prefHeight="39.0" prefWidth="219.0" promptText="Choose date" AnchorPane.bottomAnchor="395.0" AnchorPane.leftAnchor="455.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0" />
       <Button layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHome" prefHeight="28.0" prefWidth="54.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -29,5 +27,12 @@
                </image>
             </ImageView>
          </graphic></Button>
+      <TableView fx:id="recurringTransactions" layoutX="24.0" layoutY="97.0" prefHeight="277.0" prefWidth="323.0">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="134.0" text="Name" />
+          <TableColumn fx:id="amount" prefWidth="86.0" text="Amount" />
+            <TableColumn fx:id="date" prefWidth="102.0" text="Day of month" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
