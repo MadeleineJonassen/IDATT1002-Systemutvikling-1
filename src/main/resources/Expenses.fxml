@@ -16,7 +16,7 @@
          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
       </rowConstraints>
       <children>
-         <AnchorPane prefHeight="459.0" prefWidth="587.0">
+         <AnchorPane minHeight="448.0" minWidth="691.0" prefHeight="448.0" prefWidth="691.0">
             <children>
                <PieChart fx:id="pieChart" layoutX="35.0" layoutY="141.0" prefHeight="248.0" prefWidth="229.0" style="-fx-border-color: D8AF7F;" />
                <DatePicker fx:id="fromDate" layoutX="255.0" layoutY="36.0" onAction="#timeInterval" prefHeight="26.0" prefWidth="150.0" promptText="Enter month to view" style="-fx-background-color: D8AF7F;" />
