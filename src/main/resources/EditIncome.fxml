@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane minHeight="448.0" minWidth="691.0" prefHeight="448.0" prefWidth="691.0" style="-fx-background-color: F5E1B9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.income.EditIncomeController">
+<GridPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: F5E1B9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.income.EditIncomeController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -18,18 +18,18 @@
     <children>
         <AnchorPane prefHeight="53.0" prefWidth="107.0" GridPane.columnIndex="1">
             <children>
-                <Label layoutX="4.0" layoutY="27.0" prefHeight="26.0" prefWidth="130.0" text="Add Income:" textFill="#8e7d69">
+                <Label layoutY="28.0" text="Add Income:" textFill="#8e7d69">
                     <font>
-                        <Font name="Agency FB Bold" size="20.0" />
+                        <Font name="Arial" size="21.0" />
                     </font>
                 </Label>
-                <DatePicker layoutX="125.0" layoutY="27.0" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: D8AF7F;" />
+                <DatePicker layoutX="125.0" layoutY="27.0" prefHeight="25.0" prefWidth="161.0" promptText="Choose date" style="-fx-background-color: D8AF7F;" />
             </children></AnchorPane>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
                 <Label layoutX="70.0" layoutY="26.0" text="Edit Income" textFill="#495635">
                     <font>
-                        <Font name="Agency FB" size="28.0" />
+                        <Font name="Arial" size="27.0" />
                     </font>
                 </Label>
                 <Button layoutY="14.0" mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: transparent;">
@@ -44,33 +44,42 @@
         </AnchorPane>
         <AnchorPane prefHeight="372.0" prefWidth="294.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <children>
-                <TextField layoutX="126.0" layoutY="49.0" prefHeight="25.0" prefWidth="150.0" style="-fx-border-color: D8AF7F;" />
-                <TextField layoutX="127.0" layoutY="87.0" prefHeight="28.0" prefWidth="150.0" style="-fx-border-color: D8AF7F;" />
+                <TextField layoutX="126.0" layoutY="49.0" prefHeight="25.0" prefWidth="150.0" promptText="Write here" style="-fx-border-color: D8AF7F;">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></TextField>
+                <TextField layoutX="127.0" layoutY="87.0" promptText="Write here" style="-fx-border-color: D8AF7F;">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></TextField>
                 <ComboBox layoutX="127.0" layoutY="127.0" prefWidth="150.0" style="-fx-background-color: D8AF7F;" />
-                <TextField alignment="TOP_LEFT" layoutX="13.0" layoutY="197.0" prefHeight="105.0" prefWidth="268.0" style="-fx-border-color: D8AF7F;" />
-                <Label layoutX="14.0" layoutY="52.0" text="Income name:" textFill="#8e7d69">
+                <TextField alignment="TOP_LEFT" layoutX="13.0" layoutY="197.0" prefHeight="105.0" prefWidth="268.0" promptText="Write notes here" style="-fx-border-color: D8AF7F;">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></TextField>
+                <Label layoutX="13.0" layoutY="53.0" text="Income name:" textFill="#8e7d69">
                     <font>
-                        <Font name="Agency FB" size="17.0" />
+                        <Font name="Arial" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="46.0" layoutY="90.0" text="Amount:" textFill="#8e7d69">
+                <Label layoutX="55.0" layoutY="91.0" text="Amount:" textFill="#8e7d69">
                     <font>
-                        <Font name="Agency FB" size="17.0" />
+                        <Font name="Arial" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="46.0" layoutY="129.0" text="Category:" textFill="#8e7d69">
+                <Label layoutX="45.0" layoutY="130.0" text="Category:" textFill="#8e7d69">
                     <font>
-                        <Font name="Agency FB" size="17.0" />
+                        <Font name="Arial" size="16.0" />
                     </font>
                 </Label>
                 <Label layoutX="14.0" layoutY="177.0" text="Notes:" textFill="#8e7d69">
                     <font>
-                        <Font name="Agency FB" size="16.0" />
+                        <Font name="Arial" size="15.0" />
                     </font>
                 </Label>
-                <Button layoutX="192.0" layoutY="308.0" mnemonicParsing="false" style="-fx-background-color: D8AF7F;" text="Add income" textFill="#7a6b5a">
+                <Button layoutX="192.0" layoutY="308.0" mnemonicParsing="false" style="-fx-background-color: D8AF7F;" text="Add income" textFill="#495635">
                <font>
-                  <Font name="Agency FB Bold" size="14.0" />
+                  <Font name="Arial" size="15.0" />
                </font></Button>
             </children>
             <GridPane.margin>

@@ -6,18 +6,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="448.0" minWidth="691.0" prefHeight="448.0" prefWidth="691.0" style="-fx-background-color: F5E1B9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.recurring.RecurringTransactionsController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: F5E1B9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.recurring.RecurringTransactionsController">
    <children>
       <Label layoutX="72.0" layoutY="28.0" text="Recurring Transactions" textFill="#8e7d69">
          <font>
-            <Font name="Agency FB Bold" size="32.0" />
+            <Font name="Arial Bold" size="32.0" />
          </font>
       </Label>
       <ListView fx:id="recurringTransactions" layoutX="72.0" layoutY="100.0" onMousePressed="#listData" prefHeight="310.0" prefWidth="261.0" />
       <PieChart layoutX="355.0" layoutY="100.0" prefHeight="176.0" prefWidth="194.0" />
       <Label fx:id="monthName" layoutX="492.0" layoutY="342.0" text="Month Name" textFill="#495635">
          <font>
-            <Font name="Agency FB" size="23.0" />
+            <Font name="Arial" size="22.0" />
          </font>
       </Label>
       <DatePicker fx:id="datePicker" layoutX="455.0" layoutY="14.0" onAction="#dateChosen" prefHeight="39.0" prefWidth="219.0" promptText="Choose date" AnchorPane.bottomAnchor="395.0" AnchorPane.leftAnchor="455.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0" />

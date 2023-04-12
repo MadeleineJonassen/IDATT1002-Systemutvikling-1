@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="448.0" minWidth="691.0" prefHeight="448.0" prefWidth="691.0" style="-fx-background-color: F5E1B9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.budgeting.FutureBudgetingController">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="691.0" style="-fx-background-color: F5E1B9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.budgeting.FutureBudgetingController">
    <children>
       <ChoiceBox fx:id="firstCategory" layoutX="51.0" layoutY="92.0" prefWidth="150.0" />
       <ChoiceBox fx:id="secondCategory" layoutX="51.0" layoutY="135.0" prefWidth="150.0" />
@@ -91,29 +91,29 @@
             <Font name="Agency FB" size="18.0" />
          </font>
       </Text>
-      <Text fill="#8e7d69" layoutX="71.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose category:">
+      <Text fill="#8e7d69" layoutX="81.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category">
          <font>
-            <Font name="Agency FB Bold" size="22.0" />
+            <Font name="Arial" size="22.0" />
          </font>
       </Text>
-      <Text fill="#8e7d69" layoutX="243.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expected cost:">
+      <Text fill="#8e7d69" layoutX="228.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expected cost">
          <font>
-            <Font name="Agency FB Bold" size="22.0" />
+            <Font name="Arial" size="22.0" />
          </font>
       </Text>
-      <Text fill="#8e7d69" layoutX="417.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actual cost:">
+      <Text fill="#8e7d69" layoutX="405.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actual cost">
          <font>
-            <Font name="Agency FB Bold" size="22.0" />
+            <Font name="Arial" size="22.0" />
          </font>
       </Text>
-      <Text fill="#8e7d69" layoutX="561.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Difference:">
+      <Text fill="#8e7d69" layoutX="540.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Difference">
          <font>
-            <Font name="Agency FB Bold" size="22.0" />
+            <Font name="Arial" size="22.0" />
          </font>
       </Text>
-      <Text fill="#909f43" layoutX="251.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Only use numbers in text fields!">
+      <Text fill="#909f43" layoutX="171.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Only use numbers in text fields!">
          <font>
-            <Font name="Agency FB" size="25.0" />
+            <Font name="Arial Bold" size="25.0" />
          </font>
       </Text>
       <Button mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: transparent;">
