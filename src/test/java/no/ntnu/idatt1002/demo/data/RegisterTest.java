@@ -12,6 +12,8 @@ public class RegisterTest {
     public void setup() throws DuplicateNameException, ConformityException {
         register = new Register();
 
+        // TODO use file
+
         Category food = new Category("Food");
         Category loan = new Category("Loan");
         //loan.addTransaction(new Income("Student loan", ));
