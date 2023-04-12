@@ -17,8 +17,8 @@
          <AnchorPane prefHeight="459.0" prefWidth="587.0">
             <children>
                <PieChart fx:id="pieChart" layoutX="35.0" layoutY="85.0" prefHeight="220.0" prefWidth="229.0" title="Expenses graph" />
-               <DatePicker fx:id="fromDate" layoutX="275.0" layoutY="36.0" onAction="#timeInterval" prefHeight="26.0" prefWidth="120.0" promptText="Enter date to view from" />
-               <DatePicker fx:id="toDate" layoutX="408.0" layoutY="36.0" onAction="#timeInterval" prefHeight="26.0" prefWidth="120.0" promptText="Enter date to view to" />
+               <DatePicker fx:id="fromDate" layoutX="275.0" layoutY="36.0" onAction="#goButtonPushed" prefHeight="26.0" prefWidth="120.0" promptText="Enter date to view from" />
+               <DatePicker fx:id="toDate" layoutX="408.0" layoutY="36.0" onAction="#goButtonPushed" prefHeight="26.0" prefWidth="120.0" promptText="Enter date to view to" />
                <!--CheckBox fx:id="groceriesChecked" layoutX="276.0" layoutY="103.0" mnemonicParsing="false" onAction="#groceriesChecked" text="Groceries" />
                <CheckBox fx:id="housingChecked" layoutX="276.0" layoutY="145.0" mnemonicParsing="false" onAction="#housingChecked" text="Housing" />
                <CheckBox fx:id="fixedExpensesChecked" layoutX="276.0" layoutY="186.0" mnemonicParsing="false" onAction="#fixedExpensesChecked" text="Fixed expenses" />

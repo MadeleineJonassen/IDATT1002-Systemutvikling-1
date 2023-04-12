@@ -2,6 +2,7 @@ package no.ntnu.idatt1002.demo.data;
 
 import no.ntnu.idatt1002.demo.exceptions.ConformityException;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Category {
@@ -50,12 +51,30 @@ public class Category {
     public boolean isExpenseCategory(){
         return transactions.get(0) instanceof Expense;
     }
+    public boolean isIncomeCategory(){ return transactions.get(0) instanceof Income; }
+    public boolean isRecurring() {
+        return ((transactions.get(0) instanceof RecurringExpense)
+                || (transactions.get(0) instanceof RecurringIncome));
+    }
+
 
     public double getTotalAmount() {
         double total = 0;
 
         for (Transaction t : transactions){
             total += t.getAmount();
+        }
+
+        return total;
+    }
+
+    public double getTotalAmountWithinTimeFrame(LocalDate from, LocalDate to) {
+        double total = 0;
+
+        for (Transaction t : transactions){
+            if (t.isWithinTimeFrame(from, to)){
+                total += t.getAmount();
+            }
         }
 
         return total;

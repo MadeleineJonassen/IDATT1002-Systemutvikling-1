@@ -6,6 +6,8 @@ import javafx.beans.value.ObservableStringValue;
 import javafx.beans.value.ObservableValue;
 import no.ntnu.idatt1002.demo.exceptions.ConformityException;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import java.util.Calendar;
@@ -73,4 +75,10 @@ public abstract class Transaction {
     }
 
     protected abstract String amountToString();
+
+    public boolean isWithinTimeFrame(LocalDate fromDate, LocalDate toDate){
+        LocalDate transactionDate = LocalDate.parse(this.getDate(), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+
+        return transactionDate.isAfter(fromDate) && transactionDate.isBefore(toDate);
+    }
 }

@@ -38,3 +38,4 @@ out/
 *.db
 *.DS_Store
 *.json
+!register.json

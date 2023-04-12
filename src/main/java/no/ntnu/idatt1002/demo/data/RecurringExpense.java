@@ -1,5 +1,7 @@
 package no.ntnu.idatt1002.demo.data;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class RecurringExpense extends Expense{
@@ -7,7 +9,13 @@ public class RecurringExpense extends Expense{
     super(name, notes, date, amount);
   }
 
-  public RecurringExpense(Expense e){
-    super(e.getName(), e.getNotes(), e.getDate(), e.getAmount());
+  public boolean isWithinTimeFrame(LocalDate fromDate, LocalDate toDate){
+    // The format for "date" in a recurring transaction is just a day of the month
+    // So we need to add the month and year to the date (current) to be able to compare it to the time frame
+    LocalDate transactionDate = LocalDate.parse(LocalDate.now().getYear() +
+            "-" + LocalDate.now().getMonthValue() +
+            "-" + this.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+    return transactionDate.isAfter(fromDate) && transactionDate.isBefore(toDate);
   }
 }

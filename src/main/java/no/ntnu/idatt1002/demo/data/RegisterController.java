@@ -7,7 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 
 public class RegisterController {
     @SuppressWarnings("VulnerableCodeUsages")
-    public static Register loadData(URL url) throws IOException, URISyntaxException, ConformityException, DuplicateNameException {
+    public static Register readData(URL url) throws IOException, URISyntaxException, ConformityException, DuplicateNameException {
         // Default database should be in resources/database
         File file = new File(url.toURI());
         String content = FileUtils.readFileToString(file, "utf-8");
@@ -28,11 +27,8 @@ public class RegisterController {
             JSONObject currentJsonCategory = jsonCategories.getJSONObject(i);
 
             Category category;
-            if (currentJsonCategory.getBoolean("recurring")){
-                category = new RecurringCategory(currentJsonCategory.getString("name"));
-            } else {
-                category = new Category(currentJsonCategory.getString("name"));
-            }
+            // TODO add failsafes so regular transactions can not be recurring and vice versa?
+            category = new Category(currentJsonCategory.getString("name"));
 
             JSONArray jsonTransactions = currentJsonCategory.getJSONArray("transactions");
             for (int j = 0; j < jsonTransactions.length(); j++){
@@ -77,7 +73,7 @@ public class RegisterController {
     }
 
     @SuppressWarnings("VulnerableCodeUsages") //TODO fix, recurring write
-    public static void writeData(String jsonPath, Register register) throws IOException {
+    public static JSONObject writeData(Register register) throws IOException {
         JSONObject json = new JSONObject();
 
         JSONArray categoriesJson = new JSONArray();
@@ -87,6 +83,7 @@ public class RegisterController {
             JSONObject categoryJson = new JSONObject();
 
             categoryJson.put("name", c.getName());
+            categoryJson.put("recurring", c.isRecurring());
 
             JSONArray transactionListJson = new JSONArray();
             for (Transaction t: c.getTransactions()){
@@ -109,10 +106,14 @@ public class RegisterController {
         }
         json.put("categories", categoriesJson);
 
+        return json;
+
         //TODO find differences where json can be written and read
-        FileWriter file = new FileWriter(Register.class.getResource(".").getFile() + "/" + jsonPath);
-        file.write(json.toString());
-        file.close();
+        //FileWriter file = new FileWriter(Register.class.getResource(".").getFile() + "/" + jsonPath);
+        //file.write(json.toString());
+        //file.close();
+
+
     }
 
     /*

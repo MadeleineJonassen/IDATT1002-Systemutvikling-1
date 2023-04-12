@@ -79,7 +79,7 @@ public class ExpensesController implements Initializable{
     pieChart.setData(piechartData);*/
 
     try {
-      register = RegisterController.loadData(Objects.requireNonNull(
+      register = RegisterController.readData(Objects.requireNonNull(
               getClass().getClassLoader().getResource("database/register.json")));
     } catch (Exception e){
       e.printStackTrace();
@@ -123,16 +123,15 @@ public class ExpensesController implements Initializable{
    * @param actionEvent The ActionEvent that triggered the method
    */
   public void goButtonPushed(ActionEvent actionEvent) {
-    /*
     // If the user has not selected both dates
-    if (fromDate == null || toDate == null) {
+    if (fromDate.getValue() == null || toDate.getValue() == null) {
       return;
     }
     // If the user has made a wrong selection
     // TODO: maybe make more user friendly (error message)
     if (fromDate.getValue().isAfter(toDate.getValue())){
       return;
-    }*/
+    }
 
     // Get the selected categories
     ArrayList<Category> selectedCategories = new ArrayList<>();
@@ -146,7 +145,8 @@ public class ExpensesController implements Initializable{
 
     ObservableList<PieChart.Data> piechartData = FXCollections.observableArrayList();
     for (Category category : selectedCategories) {
-      piechartData.add(new PieChart.Data(category.getName(), category.getTotalAmount()));
+      piechartData.add(new PieChart.Data(category.getName(),
+              category.getTotalAmountWithinTimeFrame(fromDate.getValue(), toDate.getValue())));
     }
 
     pieChart.setData(piechartData);
