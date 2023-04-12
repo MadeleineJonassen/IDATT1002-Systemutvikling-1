@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <Scene xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.income.IncomeController">
    <BorderPane prefHeight="800.0" prefWidth="1400.0">
       <center>
@@ -144,13 +143,6 @@
       </center>
       <top>
          <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <left>
-               <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                  <image>
-                     <Image url="@Icons/SpendwiseIcon.png" />
-                  </image>
-               </ImageView>
-            </left>
             <padding>
                <Insets bottom="20.0" left="30.0" right="30.0" top="30.0" />
             </padding>
@@ -185,6 +177,17 @@
                   </children>
                </VBox>
             </right>
+            <left>
+               <Button mnemonicParsing="false" onAction="#goHome" BorderPane.alignment="CENTER">
+                  <graphic>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@Icons/SpendwiseIcon.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+            </left>
          </BorderPane>
       </top>
    </BorderPane>
