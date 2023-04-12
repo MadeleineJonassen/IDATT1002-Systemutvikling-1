@@ -25,7 +25,7 @@ public class HomePageController {
   private AnchorPane rootSwitchToRecurringTrans;
   private GridPane rootSwitchToAddExpense;
   private GridPane rootSwitchToEditIncome;
-  private AnchorPane rootSwitchToFutureBudgeting;
+  private BorderPane rootSwitchToFutureBudgeting;
   private FXMLLoader rootSwitchToHelpOption;
 
   /**
