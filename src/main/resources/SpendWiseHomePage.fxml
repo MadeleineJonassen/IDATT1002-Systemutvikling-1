@@ -19,7 +19,7 @@
 
 <BorderPane minHeight="800.0" minWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.home.HomePageController">
    <top>
-      <BorderPane prefHeight="100.0" prefWidth="1400.0" style="-fx-background-color: A95AA1;" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="100.0" prefWidth="1400.0" style="-fx-background-color: EC84E2;" BorderPane.alignment="CENTER">
          <left>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
@@ -178,7 +178,7 @@
             </TableView>
          </right>
          <top>
-            <ToolBar prefHeight="40.0" prefWidth="1400.0" style="-fx-border-color: #382119; -fx-background-color: A95AA1;" BorderPane.alignment="CENTER">
+            <ToolBar prefHeight="40.0" prefWidth="1400.0" style="-fx-border-color: #382119; -fx-background-color: EC84E2;" BorderPane.alignment="CENTER">
               <items>
                 <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#switchToIncome" prefHeight="36.0" style="-fx-background-color: translucent;" text="Overview" textFill="#382119">
                      <font>

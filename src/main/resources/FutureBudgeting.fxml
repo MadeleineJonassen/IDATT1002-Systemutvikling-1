@@ -22,19 +22,19 @@
                <items>
                   <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Overview" textFill="#382119">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
-                     </font></Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Future Budgeting" textFill="#382119">
-                     <font>
-                        <Font name="Arial" size="20.0" />
+                        <Font name="Arial Bold" size="15.0" />
                      </font></Button>
                   <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Recurring Transactions" textFill="#382119">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial Bold" size="15.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Budgeting" textFill="#382119">
+                     <font>
+                        <Font name="Arial" size="15.0" />
                      </font></Button>
                   <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Edit" textFill="#382119">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial Bold" size="15.0" />
                      </font></Button>
                </items>
                <padding>
@@ -52,7 +52,7 @@
                      <children>
                         <Text fill="#382119" strokeType="OUTSIDE" strokeWidth="0.0" text="Category">
                            <font>
-                              <Font name="Arial" size="22.0" />
+                              <Font name="Arial" size="25.0" />
                            </font>
                         </Text>
                         <ChoiceBox fx:id="firstCategory" prefWidth="150.0" />
@@ -67,37 +67,37 @@
                      <children>
                         <Text fill="#382119" strokeType="OUTSIDE" strokeWidth="0.0" text="Expected cost">
                            <font>
-                              <Font name="Arial" size="22.0" />
+                              <Font name="Arial" size="25.0" />
                            </font>
                         </Text>
                         <TextField fx:id="firstExpected" onAction="#setFirstDiff" prefHeight="25.0" prefWidth="100.0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="secondExpected" onAction="#setSecondDiff" prefHeight="25.0" prefWidth="117.0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="thirdExpected" onAction="#setThirdDiff" prefHeight="25.0" prefWidth="117.0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="fourthExpected" onAction="#setFourthDiff" prefHeight="25.0" prefWidth="117.0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="fifthExpected" onAction="#setFifthDiff" prefHeight="25.0" prefWidth="117.0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="sixthExpected" onAction="#setSixthDiff" prefHeight="25.0" prefWidth="117.0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                      </children>
@@ -106,76 +106,76 @@
                      <children>
                         <Text fill="#382119" strokeType="OUTSIDE" strokeWidth="0.0" text="Actual cost">
                            <font>
-                              <Font name="Arial" size="22.0" />
+                              <Font name="Arial" size="25.0" />
                            </font>
                         </Text>
                         <TextField fx:id="firstActual" onAction="#setFirstDiff" prefHeight="25.0" prefWidth="117.0" text="0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="secondActual" onAction="#setSecondDiff" prefHeight="25.0" prefWidth="117.0" text="0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="thirdActual" onAction="#setThirdDiff" prefHeight="25.0" prefWidth="117.0" text="0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="fourthActual" onAction="#setFourthDiff" prefHeight="25.0" prefWidth="117.0" text="0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="fifthActual" onAction="#setFifthDiff" prefHeight="25.0" prefWidth="117.0" text="0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="sixthActual" onAction="#setSixthDiff" prefHeight="25.0" prefWidth="117.0" text="0">
                            <font>
-                              <Font name="Agency FB" size="12.0" />
+                              <Font name="Arial" size="15.0" />
                            </font>
                         </TextField>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="14.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="18.0">
                      <children>
                         <Text fill="#382119" strokeType="OUTSIDE" strokeWidth="0.0" text="Difference">
                            <font>
-                              <Font name="Arial" size="22.0" />
+                              <Font name="Arial" size="25.0" />
                            </font>
                         </Text>
                         <Text fx:id="firstDiff" fill="#495635" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
                            <font>
-                              <Font name="Agency FB" size="18.0" />
+                              <Font name="Arial" size="17.0" />
                            </font>
                         </Text>
                         <Text fx:id="secondDiff" fill="#495635" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
                            <font>
-                              <Font name="Agency FB" size="18.0" />
+                              <Font name="Arial" size="17.0" />
                            </font>
                         </Text>
                         <Text fx:id="thirdDiff" fill="#495635" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
                            <font>
-                              <Font name="Agency FB" size="18.0" />
+                              <Font name="Arial" size="17.0" />
                            </font>
                         </Text>
                         <Text fx:id="fourthDiff" fill="#495635" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
                            <font>
-                              <Font name="Agency FB" size="18.0" />
+                              <Font name="Arial" size="17.0" />
                            </font>
                         </Text>
                         <Text fx:id="fifthDiff" fill="#495635" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
                            <font>
-                              <Font name="Agency FB" size="18.0" />
+                              <Font name="Arial" size="17.0" />
                            </font>
                         </Text>
                         <Text fx:id="sixthDiff" fill="#495635" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
                            <font>
-                              <Font name="Agency FB" size="18.0" />
+                              <Font name="Arial" size="17.0" />
                            </font>
                         </Text>
                      </children>
@@ -186,9 +186,9 @@
       </BorderPane>
    </center>
    <top>
-      <BorderPane prefHeight="165.0" prefWidth="1400.0" style="-fx-background-color: EC84E2;" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="100.0" prefWidth="1400.0" style="-fx-background-color: EC84E2;" BorderPane.alignment="CENTER">
          <right>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0" spacing="20.0" BorderPane.alignment="CENTER">
                <children>
                   <Button mnemonicParsing="false" style="-fx-background-color: translucent;">
                      <graphic>
@@ -225,7 +225,7 @@
          <center>
             <Label text="Future Budgeting" textFill="#382119" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Arial Bold" size="60.0" />
+                  <Font name="Arial Bold" size="45.0" />
                </font>
             </Label>
          </center>
@@ -240,9 +240,9 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <Label prefHeight="36.0" prefWidth="350.0" text="Only use numbers in text fields!">
+            <Label prefHeight="36.0" prefWidth="350.0" text="Only use numbers in text fields!" textFill="#ff4530">
                <font>
-                  <Font size="25.0" />
+                  <Font name="Arial" size="25.0" />
                </font>
             </Label>
          </children>
