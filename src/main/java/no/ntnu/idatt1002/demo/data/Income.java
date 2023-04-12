@@ -11,8 +11,12 @@ import java.util.Date;
  */
 
 public class Income extends Transaction {
-  public Income(String name, String notes, Date date, double amount) {
+  public Income(String name, String notes, String date, double amount) {
     super(name, notes, date, amount);
   }
   //TODO
+
+  protected String amountToString(){
+    return Double.toString(this.getAmount()) + " NKr";
+  }
 }
