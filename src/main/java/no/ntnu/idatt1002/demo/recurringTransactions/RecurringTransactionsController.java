@@ -12,12 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import no.ntnu.idatt1002.demo.data.Category;
-import no.ntnu.idatt1002.demo.data.RecurringCategory;
 import no.ntnu.idatt1002.demo.data.Register;
 import no.ntnu.idatt1002.demo.data.Transaction;
 
@@ -59,7 +53,7 @@ public class RecurringTransactionsController {
   @FXML
   public void listData() {
     List<String> transactionStringList = new ArrayList<>();
-    List<Transaction> transactionList = categoryRegister.getTransactionsByCategoryType(new RecurringCategory());
+    List<Transaction> transactionList = categoryRegister.getTransactionsByCategoryType(true);
     for (Transaction transaction : transactionList) {
       transactionStringList.add(transaction.toString());
     }

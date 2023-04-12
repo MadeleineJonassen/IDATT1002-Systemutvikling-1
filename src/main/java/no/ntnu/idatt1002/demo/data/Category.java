@@ -53,6 +53,11 @@ public class Category {
     }
     public boolean isIncomeCategory(){ return transactions.get(0) instanceof Income; }
     public boolean isRecurring() {
+        // Will be set to false if no transactions are in category
+        if (transactions.isEmpty()){
+            return false;
+        }
+
         return ((transactions.get(0) instanceof RecurringExpense)
                 || (transactions.get(0) instanceof RecurringIncome));
     }

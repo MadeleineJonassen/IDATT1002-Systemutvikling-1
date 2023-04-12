@@ -27,11 +27,14 @@ public class Register {
      *                 This can and should be passed as an empty object of the type you want
      * @return All transactions found as an ArrayList, returns an empty arraylist if none were found
      */
-    public ArrayList<Transaction> getTransactionsByCategoryType(Category category){
+    public ArrayList<Transaction> getTransactionsByCategoryType(boolean recurring){
         ArrayList<Transaction> transactions = new ArrayList<>();
 
+        // TODO may introduce bugs
+        //  if empty recurring categories show up as not false due to current behavior
+
         for (Category c : this.categories){
-            if (c.getClass().equals(category.getClass())){
+            if (c.isRecurring()){
                 transactions.addAll(c.getTransactions());
             }
         }
