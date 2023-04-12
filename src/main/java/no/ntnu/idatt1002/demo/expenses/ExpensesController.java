@@ -17,6 +17,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -125,7 +126,7 @@ public class ExpensesController implements Initializable {
    * @throws IOException If SpendWiseHomePage.fxml is not found in resources
    */
   public void goHome(ActionEvent event) throws IOException {
-    VBox rootGoHome = (FXMLLoader.load(
+    BorderPane rootGoHome = (FXMLLoader.load(
         Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);

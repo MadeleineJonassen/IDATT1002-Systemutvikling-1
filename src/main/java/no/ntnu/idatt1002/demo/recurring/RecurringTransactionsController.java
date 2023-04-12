@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import no.ntnu.idatt1002.demo.data.RecurringCategory;
@@ -75,7 +76,7 @@ public class RecurringTransactionsController {
    * @throws IOException if input is invalid.
    */
   public void goHome(ActionEvent event) throws IOException {
-    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
+    BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
         "/SpendWiseHomePage.fxml"))));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);

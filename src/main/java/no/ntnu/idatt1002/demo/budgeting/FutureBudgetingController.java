@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -191,7 +192,7 @@ public class FutureBudgetingController implements Initializable {
    * @throws IOException if wrong input is detected.
    */
   public void goHome(ActionEvent event) throws IOException {
-    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
+    BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
         getClass().getResource("/SpendWiseHomePage.fxml"))));
 
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

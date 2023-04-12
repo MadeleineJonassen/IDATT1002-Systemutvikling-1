@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -46,7 +47,7 @@ public class EditExpenseController implements Initializable {
    */
 
   public void goHome(ActionEvent event) throws IOException {
-    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
+    BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
         getClass().getResource("/SpendWiseHomePage.fxml"))));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);

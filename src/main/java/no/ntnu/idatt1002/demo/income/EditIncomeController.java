@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -21,7 +22,7 @@ public class EditIncomeController {
    * @throws IOException if invalid input is detected.
    */
   public void goHome(ActionEvent event) throws IOException {
-    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
+    BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
         getClass().getResource("/SpendWiseHomePage.fxml"))));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
