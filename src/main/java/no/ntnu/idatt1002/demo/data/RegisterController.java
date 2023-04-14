@@ -28,15 +28,17 @@ public class RegisterController {
 
             Category category;
             // TODO add failsafes so regular transactions can not be recurring and vice versa?
-            category = new Category(currentJsonCategory.getString("name"));
+            category = new Category(
+                    currentJsonCategory.getString("name"), currentJsonCategory.getBoolean("recurring"));
 
             JSONArray jsonTransactions = currentJsonCategory.getJSONArray("transactions");
             for (int j = 0; j < jsonTransactions.length(); j++){
                 JSONObject currentJsonTransaction = jsonTransactions.getJSONObject(j);
 
-                // If the amounts are written with minus signs, they are expenses
+                // If the amounts are written with minus signs, they are expenses.
+                // This is for readability
                 Transaction t;
-                if (currentJsonTransaction.getDouble("amount") < 0){
+                if (category.isExpenseCategory()){
                     if (currentJsonCategory.getBoolean("recurring")){
                         t = new RecurringExpense(
                                 currentJsonTransaction.getString("name"),
@@ -72,7 +74,7 @@ public class RegisterController {
         return register;
     }
 
-    @SuppressWarnings("VulnerableCodeUsages") //TODO fix, recurring write
+    @SuppressWarnings("VulnerableCodeUsages")
     public static JSONObject writeData(Register register) throws IOException {
         JSONObject json = new JSONObject();
 
@@ -84,6 +86,7 @@ public class RegisterController {
 
             categoryJson.put("name", c.getName());
             categoryJson.put("recurring", c.isRecurring());
+            categoryJson.put("isExpenseCategory", c.isExpenseCategory());
 
             JSONArray transactionListJson = new JSONArray();
             for (Transaction t: c.getTransactions()){

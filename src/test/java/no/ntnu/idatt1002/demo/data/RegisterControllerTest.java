@@ -29,5 +29,7 @@ public class RegisterControllerTest {
         JSONObject writeJson = RegisterController.writeData(readRegister);
 
         assertEquals(readJson.toString(), writeJson.toString());
+
+        // TODO add test with empty category
     }
 }
