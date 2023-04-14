@@ -21,6 +21,11 @@ public class Register {
         //TODO
     }
 
+    public void addTransactionToCategory(Transaction transaction, String catString) throws ConformityException {
+        Category category = this.getCategoryByName(catString);
+        category.addTransaction(transaction);
+    }
+
     public List<String> getCategoriesByTransactionType(boolean isExpense) {
         List<String> categoriesByType = new ArrayList<>();
         for (Category category : categories) {

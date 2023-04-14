@@ -20,7 +20,6 @@ public class Category {
         this.isRecurringCategory = isRecurringCategory;
     }
 
-    ;
 
     public String getName() {
         return name;

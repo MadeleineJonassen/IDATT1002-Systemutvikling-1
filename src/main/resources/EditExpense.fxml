@@ -42,30 +42,30 @@
       </AnchorPane>
       <AnchorPane prefHeight="372.0" prefWidth="294.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <TextField fx:id="expenseName" layoutX="126.0" layoutY="49.0" prefHeight="25.0" prefWidth="150.0" promptText="Write here" style="-fx-border-color: D8AF7F;">
+            <TextField fx:id="expenseName" layoutX="127.0" layoutY="27.0" prefHeight="25.0" prefWidth="150.0" promptText="Write here" style="-fx-border-color: D8AF7F;">
                <font>
                   <Font name="Arial" size="12.0" />
                </font></TextField>
-            <TextField fx:id="amount" layoutX="127.0" layoutY="87.0" prefHeight="27.0" prefWidth="150.0" promptText="Write here">
+            <TextField fx:id="amount" layoutX="127.0" layoutY="62.0" prefHeight="27.0" prefWidth="150.0" promptText="Write here">
                <font>
                   <Font name="Arial" size="12.0" />
                </font></TextField>
-            <ComboBox fx:id="categoryBox" editable="true" layoutX="127.0" layoutY="127.0" prefWidth="150.0" promptText="Choose category" />
+            <ComboBox fx:id="categoryBox" editable="true" layoutX="127.0" layoutY="109.0" prefWidth="150.0" promptText="Choose category" />
             <TextField fx:id="notes" alignment="TOP_LEFT" layoutX="13.0" layoutY="196.0" prefHeight="105.0" prefWidth="268.0" promptText="Write notes here" style="-fx-border-color: D8AF7F;">
                <font>
                   <Font name="Arial" size="12.0" />
                </font></TextField>
-            <Label layoutY="52.0" text="Expense name:" textFill="#8e7d69">
+            <Label layoutX="2.0" layoutY="30.0" text="Expense name:" textFill="#8e7d69">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="51.0" layoutY="89.0" text="Amount:" textFill="#8e7d69">
+            <Label layoutX="51.0" layoutY="66.0" text="Amount:" textFill="#8e7d69">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="41.0" layoutY="130.0" text="Category:" textFill="#8e7d69">
+            <Label layoutX="46.0" layoutY="112.0" text="Category:" textFill="#8e7d69">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>
@@ -75,7 +75,7 @@
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="addExpense" layoutX="180.0" layoutY="307.0" mnemonicParsing="false" style="-fx-background-color: D8AF7F;" text="Add expense" textFill="#495635">
+            <Button fx:id="addExpense" layoutX="180.0" layoutY="307.0" mnemonicParsing="false" onAction="#addExpensePressed" style="-fx-background-color: D8AF7F;" text="Add expense" textFill="#495635">
                <font>
                   <Font name="Arial" size="15.0" />
                </font></Button>
