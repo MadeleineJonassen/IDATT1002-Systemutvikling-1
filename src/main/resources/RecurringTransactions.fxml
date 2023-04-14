@@ -31,7 +31,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Icons/HelpIcon.png" />
+                              <Image url="@Icons/Settings.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -40,7 +40,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Icons/Settings.png" />
+                              <Image url="@Icons/HelpIcon.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -49,7 +49,7 @@
             </VBox>
          </right>
          <left>
-            <Button mnemonicParsing="false" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#goHome" BorderPane.alignment="CENTER">
                <graphic>
                   <ImageView fitHeight="111.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>

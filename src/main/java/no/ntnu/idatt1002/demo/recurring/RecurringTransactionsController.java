@@ -99,7 +99,7 @@ public class RecurringTransactionsController implements Initializable {
    * @throws IOException if input is invalid.
    */
   public void goHome(ActionEvent event) throws IOException {
-    VBox rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
+    BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
         "/SpendWiseHomePage.fxml"))));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);
