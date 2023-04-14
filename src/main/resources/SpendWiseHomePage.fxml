@@ -19,23 +19,26 @@
 
 <BorderPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.home.HomePageController">
    <top>
-      <BorderPane prefHeight="165.0" prefWidth="1400.0" style="-fx-background-color: A95AA1;" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="100.0" prefWidth="1400.0" style="-fx-background-color: A95AA1;" BorderPane.alignment="CENTER">
          <left>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@Icons/SpendwiseIcon.png" />
                </image>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
             </ImageView>
          </left>
          <center>
             <Label prefHeight="70.0" prefWidth="370.0" style="-fx-background-color: 8E769;" text="SPENDWISE" textFill="#382119" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Arial Bold" size="60.0" />
+                  <Font name="Arial Bold" size="55.0" />
                </font>
             </Label>
          </center>
          <right>
-            <VBox prefHeight="115.0" prefWidth="54.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="50.0" prefWidth="50.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
                   <Button alignment="CENTER" minWidth="32.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent;" textOverrun="CLIP">
                      <opaqueInsets>
@@ -65,20 +68,20 @@
             <Insets />
          </BorderPane.margin>
          <padding>
-            <Insets bottom="20.0" left="30.0" right="30.0" top="30.0" />
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
       </BorderPane>
    </top>
    <bottom>
       <HBox alignment="CENTER" prefHeight="79.0" prefWidth="1400.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#switchToEditIncome" style="-fx-background-color: translucent; -fx-border-color: #0F2080;" text="Edit Income" textFill="#382119">
+            <Button mnemonicParsing="false" onAction="#switchToEditIncome" style="-fx-background-color: #0F2080;" text="Edit Income" textFill="WHITE">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
             </Button>
             <Region prefHeight="37.0" prefWidth="44.0" />
-            <Button mnemonicParsing="false" onAction="#switchToEditExpenses" style="-fx-background-color: translucent; -fx-border-color: #0F2080;" text="Edit Expenses" textFill="#382119">
+            <Button mnemonicParsing="false" onAction="#switchToEditExpenses" style="-fx-background-color: #0F2080;" text="Edit Expenses" textFill="WHITE">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
@@ -159,8 +162,8 @@
          <right>
             <TableView prefHeight="523.0" prefWidth="410.0" style="-fx-background-color: a95aa1;" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="124.0" text="Recent Trancactions" />
-                <TableColumn prefWidth="75.0" text="C2">
+                <TableColumn prefWidth="408.0" text="Recent Trancactions" />
+                <TableColumn minWidth="0.0" prefWidth="0.0" text="C2">
                      <graphic>
                         <VBox prefHeight="23.0" prefWidth="520.0" />
                      </graphic>
@@ -175,29 +178,32 @@
             </TableView>
          </right>
          <top>
-            <ToolBar prefHeight="4.0" prefWidth="1400.0" style="-fx-border-color: #382119; -fx-background-color: A95AA1;" BorderPane.alignment="CENTER">
+            <ToolBar prefHeight="40.0" prefWidth="1400.0" style="-fx-border-color: #382119; -fx-background-color: A95AA1;" BorderPane.alignment="CENTER">
               <items>
                 <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#switchToIncome" prefHeight="36.0" style="-fx-background-color: translucent;" text="Overview" textFill="#382119">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#switchToRecurringTransactions" prefHeight="36.0" style="-fx-background-color: translucent;" text="Recurring transactions" textFill="#382119">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#switchToFutureBudgeting" prefHeight="36.0" style="-fx-background-color: translucent;" text="Budgeting" textFill="#382119">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#switchToEditIncome" style="-fx-background-color: translucent;" text="Edit" textFill="#382119">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Button>
               </items>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </ToolBar>
          </top>
       </BorderPane>
