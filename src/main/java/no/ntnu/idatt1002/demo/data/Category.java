@@ -12,10 +12,12 @@ public class Category {
     private int numberOfTransactions;
     // false means income, true means expense
     private boolean isExpenseCategory;
+    private boolean isRecurringCategory;
 
-    public Category(String name, boolean isExpenseCategory){
+    public Category(String name, boolean isExpenseCategory, boolean isRecurringCategory){
         this.name = name;
         this.isExpenseCategory = isExpenseCategory;
+        this.isRecurringCategory = isRecurringCategory;
     }
 
     ;
@@ -53,13 +55,7 @@ public class Category {
     }
 
     public boolean isRecurring() {
-        // Will be set to false if no transactions are in category
-        if (transactions.isEmpty()){
-            return false;
-        }
-
-        return ((transactions.get(0) instanceof RecurringExpense)
-                || (transactions.get(0) instanceof RecurringIncome));
+        return isRecurringCategory;
     }
 
 

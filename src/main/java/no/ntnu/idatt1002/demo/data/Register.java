@@ -71,7 +71,8 @@ public class Register {
             throw new DuplicateNameException("Category with that name already exists in the register");
         }
 
-        Category categoryCopy = new Category(category.getName(), category.isExpenseCategory());
+        Category categoryCopy = new Category(
+            category.getName(), category.isExpenseCategory(), category.isRecurring());
         categoryCopy.addAll(category.getTransactions());
         categories.add(categoryCopy);
     }
