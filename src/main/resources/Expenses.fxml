@@ -26,32 +26,32 @@
             <center>
                <VBox alignment="CENTER_LEFT" spacing="10.0">
                   <children>
-                     <CheckBox fx:id="groceriesChecked" mnemonicParsing="false" onAction="#groceriesChecked" prefHeight="22.0" prefWidth="95.0" text="Groceries" textFill="#8e7d69">
+                     <CheckBox mnemonicParsing="false" prefHeight="22.0" prefWidth="95.0" text="Groceries" textFill="#8e7d69">
                         <font>
                            <Font name="Arial" size="15.0" />
                         </font>
                      </CheckBox>
-                     <CheckBox fx:id="housingChecked" mnemonicParsing="false" onAction="#housingChecked" text="Housing" textFill="#8e7d69">
+                     <CheckBox mnemonicParsing="false" text="Housing" textFill="#8e7d69">
                         <font>
                            <Font name="Arial" size="15.0" />
                         </font>
                      </CheckBox>
-                     <CheckBox fx:id="fixedExpensesChecked" mnemonicParsing="false" onAction="#fixedExpensesChecked" text="Fixed expenses" textFill="#8e7d69">
+                     <CheckBox  mnemonicParsing="false" text="Fixed expenses" textFill="#8e7d69">
                         <font>
                            <Font name="Arial" size="15.0" />
                         </font>
                      </CheckBox>
-                     <CheckBox fx:id="travelChecked" mnemonicParsing="false" onAction="#travelChecked" text="Travel" textFill="#8e7d69">
+                     <CheckBox mnemonicParsing="false" text="Travel" textFill="#8e7d69">
                         <font>
                            <Font name="Arial" size="15.0" />
                         </font>
                      </CheckBox>
-                     <CheckBox fx:id="entertainmentChecked" mnemonicParsing="false" onAction="#entertainmentChecked" text="Entertainment" textFill="#8e7d69">
+                     <CheckBox mnemonicParsing="false"  text="Entertainment" textFill="#8e7d69">
                         <font>
                            <Font name="Arial" size="15.0" />
                         </font>
                      </CheckBox>
-                     <CheckBox fx:id="otherChecked" mnemonicParsing="false" onAction="#otherChecked" text="Other" textFill="#8e7d69">
+                     <CheckBox mnemonicParsing="false"  text="Other" textFill="#8e7d69">
                         <font>
                            <Font name="Arial" size="15.0" />
                         </font>
@@ -89,7 +89,7 @@
                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                         </padding>
                      </HBox>
-                     <Button fx:id="viewIncome" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToIncome" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: D8AF7F;" text="View income">
+                     <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToIncome" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: D8AF7F;" text="View income">
                         <font>
                            <Font name="Arial" size="14.0" />
                         </font>
