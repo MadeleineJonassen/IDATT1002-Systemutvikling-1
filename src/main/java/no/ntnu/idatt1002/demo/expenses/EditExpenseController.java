@@ -1,7 +1,9 @@
 package no.ntnu.idatt1002.demo.expenses;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -15,14 +17,22 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import no.ntnu.idatt1002.demo.data.Category;
+import no.ntnu.idatt1002.demo.data.Register;
+import no.ntnu.idatt1002.demo.data.RegisterController;
+import no.ntnu.idatt1002.demo.exceptions.ConformityException;
+import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
 
 /**
  * Controller for the AddExpense.fxml window.
  */
 
 public class EditExpenseController implements Initializable {
+  @FXML
+  private GridPane gridPane;
   @FXML
   private DatePicker datePicker;
   @FXML
@@ -35,6 +45,12 @@ public class EditExpenseController implements Initializable {
   private TextField notes;
   @FXML
   private Button addExpense;
+  private Register categoryRegister;
+  private List<Category> categories;
+
+  public EditExpenseController() throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
+    categoryRegister = RegisterController.readData(getClass().getClassLoader().getResource("database/register.json"));
+  }
 
   public void addExpensePressed() {
   }
@@ -58,5 +74,15 @@ public class EditExpenseController implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     categoryBox.getItems().addAll("Food", "Clothes", "Rent", "Pets");
+  }
+
+  private boolean isNameEmpty() {
+    return ((expenseName.getText() == null) || (expenseName.getText().isEmpty()));
+  }
+  private boolean isAmountEmpty() {
+    return ((amount.getText() == null) || (amount).getText().isEmpty());
+  }
+  private void isCategoryChosen() {
+
   }
 }

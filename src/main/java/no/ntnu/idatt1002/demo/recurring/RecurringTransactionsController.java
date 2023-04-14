@@ -38,7 +38,7 @@ import java.util.ResourceBundle;
 /**
  * Controller for recurring transactions FXML.
  */
-public class RecurringTransactionsController {
+public class RecurringTransactionsController implements Initializable {
   @FXML
   private Label monthName;
   @FXML
