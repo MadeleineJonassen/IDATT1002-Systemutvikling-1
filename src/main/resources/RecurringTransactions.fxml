@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,25 +10,24 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.recurring.RecurringTransactionsController">
+<BorderPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.recurring.RecurringTransactionsController">
    <top>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: A95AA1;" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="100.0" prefWidth="1400.0" style="-fx-background-color: A95AA1;" BorderPane.alignment="CENTER">
          <center>
             <Label text="Recurring Transactions" textFill="#382119" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Arial Bold" size="40.0" />
+                  <Font name="Arial Bold" size="45.0" />
                </font>
             </Label>
          </center>
          <right>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false">
+                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -36,7 +36,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false">
+                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -49,9 +49,9 @@
             </VBox>
          </right>
          <left>
-            <Button mnemonicParsing="false" onAction="#goHome" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: translucent;" BorderPane.alignment="CENTER">
                <graphic>
-                  <ImageView fitHeight="111.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Icons/SpendwiseIcon.png" />
                      </image>
@@ -59,48 +59,72 @@
                </graphic>
             </Button>
          </left>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
       </BorderPane>
    </top>
    <center>
       <BorderPane BorderPane.alignment="CENTER">
          <left>
-            <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="monthName" contentDisplay="CENTER" text="Pie chart name" textFill="#382119">
+                  <Label fx:id="monthName" contentDisplay="CENTER" text="Recurring Transaction and Income" textFill="#382119">
                      <font>
                         <Font name="Arial" size="22.0" />
                      </font>
                   </Label>
-                  <PieChart fx:id="pieChart" prefHeight="196.0" prefWidth="586.0" />
+                  <PieChart fx:id="pieChart" prefHeight="430.0" prefWidth="586.0" />
                </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
             </VBox>
          </left>
          <center>
-            <TableView fx:id="recurringTransactions" prefHeight="277.0" prefWidth="323.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="recurringTransactions" prefHeight="555.0" prefWidth="704.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="name" prefWidth="200.0" text="Name" />
-                <TableColumn fx:id="amount" prefWidth="200.0" text="Amount" />
-                  <TableColumn fx:id="date" prefWidth="400.0" text="Day of month" />
+                <TableColumn fx:id="name" prefWidth="220.0" resizable="false" text="Name" />
+                <TableColumn fx:id="amount" prefWidth="220.0" resizable="false" text="Amount" />
+                  <TableColumn fx:id="date" prefWidth="270.0" resizable="false" text="Day of month" />
               </columns>
+               <BorderPane.margin>
+                  <Insets bottom="40.0" left="20.0" right="50.0" top="40.0" />
+               </BorderPane.margin>
             </TableView>
          </center>
          <top>
             <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: A95AA1; -fx-border-color: #382119;" BorderPane.alignment="CENTER">
               <items>
-                <Button mnemonicParsing="false" text="Overview" />
-                  <Button mnemonicParsing="false" text="Recurring transactions" />
-                  <Button mnemonicParsing="false" text="Budgeting" />
-                  <Button mnemonicParsing="false" text="Edit" />
+                <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Overview" textFill="#382119">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Recurring transactions" textFill="#382119">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Budgeting" textFill="#382119">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Edit" textFill="#382119">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </Button>
               </items>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </ToolBar>
          </top>
-         <bottom>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button mnemonicParsing="false" text="Edit expense" />
-               </children>
-            </HBox>
-         </bottom>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </BorderPane>
    </center>
 </BorderPane>
