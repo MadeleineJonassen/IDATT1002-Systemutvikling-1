@@ -10,11 +10,15 @@ public class Category {
     //TODO not let recurring be part of this class but instead RecurringCategory
     private final ArrayList<Transaction> transactions = new ArrayList<>();
     private int numberOfTransactions;
+    // false means income, true means expense
+    private boolean isExpenseCategory;
 
-    public Category(String name){
+    public Category(String name, boolean isExpenseCategory){
         this.name = name;
+        this.isExpenseCategory = isExpenseCategory;
     }
-    public Category(){};
+
+    ;
 
     public String getName() {
         return name;
@@ -48,10 +52,6 @@ public class Category {
         return numberOfTransactions;
     }
 
-    public boolean isExpenseCategory(){
-        return transactions.get(0) instanceof Expense;
-    }
-    public boolean isIncomeCategory(){ return transactions.get(0) instanceof Income; }
     public boolean isRecurring() {
         // Will be set to false if no transactions are in category
         if (transactions.isEmpty()){
@@ -83,6 +83,14 @@ public class Category {
         }
 
         return total;
+    }
+
+    public boolean isExpenseCategory() {
+        return isExpenseCategory;
+    }
+
+    public boolean isIncomeCategory() {
+        return !isExpenseCategory;
     }
 
     //TODO remove transaction, delete category (with moving transactions?), search transaction by name/id
