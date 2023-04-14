@@ -29,7 +29,7 @@ public class RegisterController {
             Category category;
             // TODO add failsafes so regular transactions can not be recurring and vice versa?
             category = new Category(
-                    currentJsonCategory.getString("name"), currentJsonCategory.getBoolean("recurring"));
+                    currentJsonCategory.getString("name"), currentJsonCategory.getBoolean("isExpenseCategory"));
 
             JSONArray jsonTransactions = currentJsonCategory.getJSONArray("transactions");
             for (int j = 0; j < jsonTransactions.length(); j++){
