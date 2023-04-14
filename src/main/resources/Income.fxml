@@ -10,6 +10,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -18,133 +20,134 @@
       <center>
          <BorderPane>
             <center>
-               <VBox alignment="CENTER_LEFT" spacing="10.0" BorderPane.alignment="CENTER">
-                  <children>
-                     <CheckBox fx:id="salaryChecked" mnemonicParsing="false" onAction="#salaryChecked" text="Salary" textFill="#8e7d69">
-                        <font>
-                           <Font name="Arial" size="20.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                        </padding>
-                     </CheckBox>
-                     <CheckBox fx:id="investmentChecked" mnemonicParsing="false" onAction="#investmentChecked" text="Investment" textFill="#8e7d69">
-                        <font>
-                           <Font name="Arial" size="20.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                        </padding>
-                     </CheckBox>
-                     <CheckBox fx:id="loanChecked" mnemonicParsing="false" onAction="#loanChecked" text="Loan" textFill="#8e7d69">
-                        <font>
-                           <Font name="Arial" size="20.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                        </padding>
-                     </CheckBox>
-                     <CheckBox fx:id="otherIncomeChecked" mnemonicParsing="false" onAction="#otherIncomeChecked" text="Other" textFill="#8e7d69">
-                        <font>
-                           <Font name="Arial" size="20.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                        </padding>
-                     </CheckBox>
-                  </children>
-                  <padding>
-                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                  </padding>
+               <HBox alignment="CENTER" prefHeight="603.0" prefWidth="885.0" BorderPane.alignment="CENTER">
                   <BorderPane.margin>
                      <Insets />
                   </BorderPane.margin>
-               </VBox>
+                  <children>
+                     <VBox alignment="CENTER" prefHeight="563.0" prefWidth="526.0" spacing="10.0">
+                        <children>
+                           <Label alignment="CENTER" contentDisplay="CENTER" text="Income Graph" textFill="#382119">
+                              <font>
+                                 <Font name="Arial Bold" size="30.0" />
+                              </font>
+                           </Label>
+                           <PieChart fx:id="pieChart" prefHeight="378.0" prefWidth="472.0" style="-fx-background-color: e6c1e3;" />
+                        </children>
+                        <padding>
+                           <Insets left="10.0" right="10.0" />
+                        </padding>
+                     </VBox>
+                     <VBox alignment="CENTER_LEFT" prefHeight="563.0" prefWidth="187.0" spacing="15.0">
+                        <children>
+                           <CheckBox fx:id="salaryChecked" mnemonicParsing="false" onAction="#salaryChecked" text="Salary" textFill="#0f2080">
+                              <font>
+                                 <Font name="Arial" size="20.0" />
+                              </font>
+                           </CheckBox>
+                           <CheckBox fx:id="investmentChecked" mnemonicParsing="false" onAction="#investmentChecked" text="Investment" textFill="#0f2080">
+                              <font>
+                                 <Font name="Arial" size="20.0" />
+                              </font>
+                           </CheckBox>
+                           <CheckBox fx:id="loanChecked" mnemonicParsing="false" onAction="#loanChecked" text="Loan" textFill="#0f2080">
+                              <font>
+                                 <Font name="Arial" size="20.0" />
+                              </font>
+                           </CheckBox>
+                           <CheckBox fx:id="otherIncomeChecked" mnemonicParsing="false" onAction="#otherIncomeChecked" text="Other" textFill="#0f2080">
+                              <font>
+                                 <Font name="Arial" size="20.0" />
+                              </font>
+                              <padding>
+                                 <Insets top="10.0" />
+                              </padding>
+                           </CheckBox>
+                        </children>
+                        <padding>
+                           <Insets left="10.0" right="20.0" />
+                        </padding>
+                     </VBox>
+                     <Region prefHeight="603.0" prefWidth="60.0" />
+                     <VBox alignment="CENTER" prefHeight="563.0" prefWidth="294.0" spacing="10.0">
+                        <children>
+                           <Button fx:id="viewExpenses" mnemonicParsing="false" onAction="#goToExpenses" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: F5793A;" text="View expenses" textFill="#382119">
+                              <font>
+                                 <Font name="Arial" size="20.0" />
+                              </font>
+                              <padding>
+                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                              </padding>
+                              <VBox.margin>
+                                 <Insets bottom="20.0" />
+                              </VBox.margin>
+                           </Button>
+                           <Button fx:id="editIncomeCategory" mnemonicParsing="false" onAction="#editCategoryButtonPushed" prefHeight="26.0" prefWidth="250.0" style="-fx-background-color: F5793A;" text="Edit categories" textFill="#382119">
+                              <font>
+                                 <Font name="Arial" size="20.0" />
+                              </font>
+                              <padding>
+                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                              </padding>
+                           </Button>
+                           <Button fx:id="editIncome" mnemonicParsing="false" onAction="#editIncomeButtonPushed" prefHeight="26.0" prefWidth="250.0" style="-fx-background-color: F5793A;" text="Edit income" textFill="#382119">
+                              <font>
+                                 <Font name="Arial" size="20.0" />
+                              </font>
+                              <padding>
+                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                              </padding>
+                           </Button>
+                           <Button fx:id="changeToIncomeBarGraph" mnemonicParsing="false" onAction="#changeToIncomeBarGraphButtonPushed" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: F5793A;" text="Change to bar graph" textFill="#382119">
+                              <font>
+                                 <Font name="Arial" size="20.0" />
+                              </font>
+                              <padding>
+                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                              </padding>
+                              <VBox.margin>
+                                 <Insets />
+                              </VBox.margin>
+                           </Button>
+                        </children>
+                        <opaqueInsets>
+                           <Insets />
+                        </opaqueInsets>
+                     </VBox>
+                  </children>
+               </HBox>
             </center>
             <top>
-               <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-border-color: #382119; -fx-background-color: A95AA1;" BorderPane.alignment="CENTER">
                  <items>
-                   <Button mnemonicParsing="false" text="Overview" textFill="#382119" />
-                     <Button mnemonicParsing="false" text="Recurring transactions" textFill="#382119" />
-                     <Button mnemonicParsing="false" text="Budgeting" textFill="#382119" />
-                     <Button mnemonicParsing="false" text="Edit" textFill="#382119" />
+                   <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Overview" textFill="#382119">
+                        <font>
+                           <Font name="Arial" size="15.0" />
+                        </font></Button>
+                     <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Recurring transactions" textFill="#382119">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font></Button>
+                     <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Budgeting" textFill="#382119">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font></Button>
+                     <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Edit" textFill="#382119">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font></Button>
                  </items>
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
                </ToolBar>
             </top>
-            <right>
-               <VBox alignment="CENTER" prefHeight="560.0" prefWidth="591.0" spacing="10.0" BorderPane.alignment="CENTER">
-                  <children>
-                     <Button fx:id="viewExpenses" mnemonicParsing="false" onAction="#goToExpenses" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: D8AF7F;" text="View expenses">
-                        <font>
-                           <Font name="Arial" size="20.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                        </padding>
-                        <VBox.margin>
-                           <Insets bottom="20.0" />
-                        </VBox.margin>
-                     </Button>
-                     <Button fx:id="editIncomeCategory" mnemonicParsing="false" onAction="#editCategoryButtonPushed" prefHeight="26.0" prefWidth="250.0" style="-fx-background-color: D8AF7F;" text="Edit categories">
-                        <font>
-                           <Font name="Arial" size="20.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                        </padding>
-                     </Button>
-                     <Button fx:id="editIncome" mnemonicParsing="false" onAction="#editIncomeButtonPushed" prefHeight="26.0" prefWidth="250.0" style="-fx-background-color: D8AF7F;" text="Edit income">
-                        <font>
-                           <Font name="Arial" size="20.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                        </padding>
-                     </Button>
-                     <Button fx:id="changeToIncomeBarGraph" mnemonicParsing="false" onAction="#changeToIncomeBarGraphButtonPushed" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: D8AF7F;" text="Change to bar graph">
-                        <font>
-                           <Font name="Arial" size="20.0" />
-                        </font>
-                        <padding>
-                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                        </padding>
-                        <VBox.margin>
-                           <Insets />
-                        </VBox.margin>
-                     </Button>
-                  </children>
-                  <padding>
-                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                  </padding>
-                  <BorderPane.margin>
-                     <Insets />
-                  </BorderPane.margin>
-               </VBox>
-            </right>
-            <left>
-               <VBox alignment="CENTER" prefHeight="480.0" prefWidth="498.0" BorderPane.alignment="CENTER">
-                  <children>
-                     <Label alignment="CENTER" contentDisplay="CENTER" text="Income Graph" textFill="#8e7d69">
-                        <font>
-                           <Font name="Arial Bold" size="30.0" />
-                        </font>
-                     </Label>
-                     <PieChart fx:id="pieChart" prefHeight="273.0" prefWidth="229.0" />
-                  </children>
-                  <padding>
-                     <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
-                  </padding>
-                  <BorderPane.margin>
-                     <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
-                  </BorderPane.margin>
-               </VBox>
-            </left>
          </BorderPane>
       </center>
       <top>
-         <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane prefHeight="100.0" prefWidth="1400.0" style="-fx-background-color: A95AA1;" BorderPane.alignment="CENTER">
             <padding>
-               <Insets bottom="20.0" left="30.0" right="30.0" top="30.0" />
+               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <center>
                <Label prefHeight="70.0" prefWidth="360.0" text="Income Overview" textFill="#382119" BorderPane.alignment="CENTER">
@@ -154,9 +157,9 @@
                </Label>
             </center>
             <right>
-               <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <VBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0" spacing="20.0" BorderPane.alignment="CENTER">
                   <children>
-                     <Button mnemonicParsing="false">
+                     <Button mnemonicParsing="false" style="-fx-background-color: translucent;">
                         <graphic>
                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                               <image>
@@ -165,7 +168,7 @@
                            </ImageView>
                         </graphic>
                      </Button>
-                     <Button mnemonicParsing="false">
+                     <Button mnemonicParsing="false" style="-fx-background-color: translucent;">
                         <graphic>
                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                               <image>
@@ -178,7 +181,7 @@
                </VBox>
             </right>
             <left>
-               <Button mnemonicParsing="false" onAction="#goHome" BorderPane.alignment="CENTER">
+               <Button mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: translucent;" BorderPane.alignment="CENTER">
                   <graphic>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>

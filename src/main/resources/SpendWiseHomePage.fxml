@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.home.HomePageController">
+<BorderPane minHeight="800.0" minWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.home.HomePageController">
    <top>
       <BorderPane prefHeight="100.0" prefWidth="1400.0" style="-fx-background-color: A95AA1;" BorderPane.alignment="CENTER">
          <left>
@@ -38,7 +38,7 @@
             </Label>
          </center>
          <right>
-            <VBox prefHeight="50.0" prefWidth="50.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
                   <Button alignment="CENTER" minWidth="32.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent;" textOverrun="CLIP">
                      <opaqueInsets>
