@@ -6,6 +6,7 @@ import no.ntnu.idatt1002.demo.exceptions.ConformityException;
 import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Register {
     private final ArrayList<Category> categories = new ArrayList<>();
@@ -18,6 +19,23 @@ public class Register {
      */
     public void getTransactionsByCategory(String category){
         //TODO
+    }
+
+    public List<String> getCategoriesByTransactionType(boolean isExpense) {
+        List<String> categoriesByType = new ArrayList<>();
+        for (Category category : categories) {
+            if (isExpense) {
+                if (category.isExpenseCategory()) {
+                    categoriesByType.add(category.getName());
+                }
+            } else {
+                if (category.isIncomeCategory()) {
+                    System.out.println("Income triggered");
+                    categoriesByType.add(category.getName());
+                }
+            }
+        }
+        return categoriesByType;
     }
 
     /**

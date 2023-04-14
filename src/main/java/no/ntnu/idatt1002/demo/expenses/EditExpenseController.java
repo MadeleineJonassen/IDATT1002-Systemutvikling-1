@@ -46,10 +46,11 @@ public class EditExpenseController implements Initializable {
   @FXML
   private Button addExpense;
   private Register categoryRegister;
-  private List<Category> categories;
+  private List<String> categories;
 
   public EditExpenseController() throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
     categoryRegister = RegisterController.readData(getClass().getClassLoader().getResource("database/register.json"));
+    categories = categoryRegister.getCategoriesByTransactionType(true);
   }
 
   public void addExpensePressed() {
@@ -73,7 +74,7 @@ public class EditExpenseController implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    categoryBox.getItems().addAll("Food", "Clothes", "Rent", "Pets");
+    categoryBox.getItems().addAll(categories);
   }
 
   private boolean isNameEmpty() {
