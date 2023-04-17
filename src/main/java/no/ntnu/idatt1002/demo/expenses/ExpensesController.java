@@ -33,16 +33,10 @@ public class ExpensesController implements Initializable {
   private DatePicker fromDate;
   @FXML
   private DatePicker toDate;
-  @FXML
-  private Button changeToIncome;
+
   @FXML
   private PieChart pieChart;
-  @FXML
-  private GridPane gridPane;
   private Register register;
-  private Stage stage;
-
-  private Scene scene;
   private Scene rootSwitchToIncome;
 
   public void editCategoryButtonPushed() {
@@ -167,7 +161,7 @@ public class ExpensesController implements Initializable {
     rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
             getClass().getResource("/Income.fxml"))));
 
-    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     stage.setScene(rootSwitchToIncome);
     stage.show();
   }
