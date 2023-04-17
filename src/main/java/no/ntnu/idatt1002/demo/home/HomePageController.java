@@ -20,14 +20,25 @@ public class HomePageController {
 
   private Stage stage;
   private Scene scene;
+  private BorderPane rootSwitchToOutcome;
   private Scene rootSwitchToExpenses;
   private Scene rootSwitchToIncome;
   private BorderPane rootSwitchToRecurringTrans;
   private GridPane rootSwitchToAddExpense;
   private GridPane rootSwitchToEditIncome;
   private BorderPane rootSwitchToFutureBudgeting;
+
   private FXMLLoader rootSwitchToHelpOption;
 
+  public void rootSwitchToOutcome(ActionEvent event) throws IOException {
+    rootSwitchToOutcome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/Outcome.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToOutcome);
+    stage.setScene(scene);
+    stage.show();
+  }
   /**
    * Button that takes user to expenses.
 
