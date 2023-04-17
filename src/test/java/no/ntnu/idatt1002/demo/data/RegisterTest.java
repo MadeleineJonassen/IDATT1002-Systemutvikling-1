@@ -12,13 +12,14 @@ public class RegisterTest {
     public void setup() throws DuplicateNameException, ConformityException {
         register = new Register();
 
-        // TODO use file
+        // TODO Empty, replaced with test in RegisterControllerTest for now
 
+        /*
         Category food = new Category("Food");
         Category loan = new Category("Loan");
         //loan.addTransaction(new Income("Student loan", ));
         Category job = new Category("Job");
 
-        register.addAll(food, loan, job);
+        register.addAll(food, loan, job);*/
     }
 }

@@ -6,6 +6,7 @@ import no.ntnu.idatt1002.demo.exceptions.ConformityException;
 import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Register {
     private final ArrayList<Category> categories = new ArrayList<>();
@@ -18,6 +19,28 @@ public class Register {
      */
     public void getTransactionsByCategory(String category){
         //TODO
+    }
+
+    public void addTransactionToCategory(Transaction transaction, String catString) throws ConformityException {
+        Category category = this.getCategoryByName(catString);
+        category.addTransaction(transaction);
+    }
+
+    public List<String> getCategoriesByTransactionType(boolean isExpense) {
+        List<String> categoriesByType = new ArrayList<>();
+        for (Category category : categories) {
+            if (isExpense) {
+                if (category.isExpenseCategory()) {
+                    categoriesByType.add(category.getName());
+                }
+            } else {
+                if (category.isIncomeCategory()) {
+                    System.out.println("Income triggered");
+                    categoriesByType.add(category.getName());
+                }
+            }
+        }
+        return categoriesByType;
     }
 
     /**
@@ -53,7 +76,8 @@ public class Register {
             throw new DuplicateNameException("Category with that name already exists in the register");
         }
 
-        Category categoryCopy = new Category(category.getName());
+        Category categoryCopy = new Category(
+            category.getName(), category.isExpenseCategory(), category.isRecurring());
         categoryCopy.addAll(category.getTransactions());
         categories.add(categoryCopy);
     }
