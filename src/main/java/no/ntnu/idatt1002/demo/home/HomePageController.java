@@ -7,10 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -139,7 +137,7 @@ public class HomePageController {
    * @throws IOException - if wrong input detected
    */
   public void openHelpOption(ActionEvent event) throws IOException {
-    rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpOption.fxml"));
+    rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpOption.fxml"));
     Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
     Stage stage = new Stage();
     stage.setScene(new Scene(rootHelp));

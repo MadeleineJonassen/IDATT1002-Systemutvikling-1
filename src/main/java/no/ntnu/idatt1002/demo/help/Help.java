@@ -14,7 +14,7 @@ public class Help extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    URL fxmlUrl = getClass().getResource("/HelpOption.fxml");
+    URL fxmlUrl = getClass().getResource("/HelpScenes/HelpOption.fxml");
     primaryStage.setTitle("Help");
     Scene scene = FXMLLoader.load(fxmlUrl);
     primaryStage.setScene(scene);
