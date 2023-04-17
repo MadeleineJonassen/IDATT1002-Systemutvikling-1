@@ -67,8 +67,7 @@
                         <Font name="Arial" size="16.0" />
                      </font>
                   </Label>
-                  <!-- onAction="#addCategoryPressed"-->
-                  <Button fx:id="addCategory" layoutX="22.0" layoutY="300.0" mnemonicParsing="false" style="-fx-background-color: D8AF7F;" text="Add category" textFill="#495635">
+                  <Button fx:id="addCategory" onAction="#addCategoryPressed" layoutX="22.0" layoutY="300.0" mnemonicParsing="false" style="-fx-background-color: D8AF7F;" text="Add category" textFill="#495635">
                      <font>
                         <Font name="Arial" size="15.0" />
                      </font>

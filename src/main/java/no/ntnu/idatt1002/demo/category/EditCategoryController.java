@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import no.ntnu.idatt1002.demo.data.Category;
 import no.ntnu.idatt1002.demo.data.Register;
 import no.ntnu.idatt1002.demo.data.RegisterController;
+import no.ntnu.idatt1002.demo.exceptions.ConformityException;
+import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -51,8 +53,7 @@ public class EditCategoryController implements Initializable {
       return;
     }
 
-    List<Category> categories = register.getCategories();
-    categories.forEach(category -> categoryList.getItems().add(category.getName()));
+    updateList();
   }
 
   /**
@@ -68,5 +69,25 @@ public class EditCategoryController implements Initializable {
     Scene scene = new Scene(rootGoHome);
     stage.setScene(scene);
     stage.show();
+  }
+
+  private void updateList(){
+    categoryList.getItems().clear();
+    List<Category> categories = register.getCategories();
+    categories.forEach(category -> categoryList.getItems().add(category.getName()));
+  }
+
+  public void addCategoryPressed(ActionEvent actionEvent) throws DuplicateNameException, ConformityException {
+    if (!categoryName.getText().isEmpty() &&
+        !recurringBox.getValue().isEmpty() &&
+        !expenseBox.getValue().isEmpty()) {
+
+      boolean recurring = recurringBox.getValue().equals("Yes");
+      boolean expense = expenseBox.getValue().equals("Expense");
+
+      Category category = new Category(categoryName.getText(), expense, recurring);
+      register.addCategory(category);
+      updateList();
+    }
   }
 }
