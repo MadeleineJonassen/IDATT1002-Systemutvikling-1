@@ -10,11 +10,16 @@ public class Category {
     //TODO not let recurring be part of this class but instead RecurringCategory
     private final ArrayList<Transaction> transactions = new ArrayList<>();
     private int numberOfTransactions;
+    // false means income, true means expense
+    private boolean isExpenseCategory;
+    private boolean isRecurringCategory;
 
-    public Category(String name){
+    public Category(String name, boolean isExpenseCategory, boolean isRecurringCategory){
         this.name = name;
+        this.isExpenseCategory = isExpenseCategory;
+        this.isRecurringCategory = isRecurringCategory;
     }
-    public Category(){};
+
 
     public String getName() {
         return name;
@@ -38,6 +43,14 @@ public class Category {
         numberOfTransactions++;
     }
 
+    public void removeTransaction(Transaction transaction) {
+        if (transactions.contains(transaction)) {
+            transactions.remove(transaction);
+        } else {
+            throw new IllegalArgumentException("The transaction does not exist");
+        }
+    }
+
     public void addAll(ArrayList<Transaction> transactionsToAdd) throws ConformityException{
         for (Transaction t : transactionsToAdd){
             addTransaction(t);
@@ -48,18 +61,8 @@ public class Category {
         return numberOfTransactions;
     }
 
-    public boolean isExpenseCategory(){
-        return transactions.get(0) instanceof Expense;
-    }
-    public boolean isIncomeCategory(){ return transactions.get(0) instanceof Income; }
     public boolean isRecurring() {
-        // Will be set to false if no transactions are in category
-        if (transactions.isEmpty()){
-            return false;
-        }
-
-        return ((transactions.get(0) instanceof RecurringExpense)
-                || (transactions.get(0) instanceof RecurringIncome));
+        return isRecurringCategory;
     }
 
 
@@ -83,6 +86,14 @@ public class Category {
         }
 
         return total;
+    }
+
+    public boolean isExpenseCategory() {
+        return isExpenseCategory;
+    }
+
+    public boolean isIncomeCategory() {
+        return !isExpenseCategory;
     }
 
     //TODO remove transaction, delete category (with moving transactions?), search transaction by name/id

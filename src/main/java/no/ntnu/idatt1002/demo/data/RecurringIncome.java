@@ -13,9 +13,9 @@ public class RecurringIncome extends Income{
   public boolean isWithinTimeFrame(LocalDate fromDate, LocalDate toDate){
     // The format for "date" in a recurring transaction is just a day of the month
     // So we need to add the month and year to the date (current) to be able to compare it to the time frame
-    LocalDate transactionDate = LocalDate.parse(this.getDate() +
-            "-" + LocalDate.now().getMonthValue() +
-            "-" + LocalDate.now().getYear(), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+    LocalDate transactionDate = LocalDate.parse(LocalDate.now().getYear() +
+        "-" + LocalDate.now().format(DateTimeFormatter.ofPattern("MM"))+
+        "-" + this.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
     return transactionDate.isAfter(fromDate) && transactionDate.isBefore(toDate);
   }

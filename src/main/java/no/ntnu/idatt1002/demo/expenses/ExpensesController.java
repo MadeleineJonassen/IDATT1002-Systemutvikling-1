@@ -150,11 +150,16 @@ public class ExpensesController implements Initializable {
 
     ObservableList<PieChart.Data> piechartData = FXCollections.observableArrayList();
     for (Category category : selectedCategories) {
-      piechartData.add(new PieChart.Data(category.getName(),
-              category.getTotalAmountWithinTimeFrame(fromDate.getValue(), toDate.getValue())));
+      double sum = category.getTotalAmountWithinTimeFrame(fromDate.getValue(), toDate.getValue());
+
+      if (sum != 0) {
+        piechartData.add(new PieChart.Data(category.getName(), sum));
+      }
+
     }
 
     pieChart.setData(piechartData);
+    pieChart.setLegendVisible(true);
   }
 
   public void switchToIncome(ActionEvent event) throws IOException {

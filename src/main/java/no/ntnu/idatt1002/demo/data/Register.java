@@ -6,6 +6,7 @@ import no.ntnu.idatt1002.demo.exceptions.ConformityException;
 import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Register {
     private final ArrayList<Category> categories = new ArrayList<>();
@@ -18,6 +19,54 @@ public class Register {
      */
     public void getTransactionsByCategory(String category){
         //TODO
+    }
+
+    /**
+     *
+     * @param transaction
+     * @param catString
+     * @throws ConformityException
+     */
+    public void addTransactionToCategory(Transaction transaction, String catString) throws ConformityException {
+        Category category = this.getCategoryByName(catString);
+        category.addTransaction(transaction);
+    }
+
+    /**
+     *
+     * @param isExpense
+     * @return
+     */
+    public List<String> getCategoriesByTransactionType(boolean isExpense) {
+        List<String> categoriesByType = new ArrayList<>();
+        for (Category category : categories) {
+            if (isExpense) {
+                if (category.isExpenseCategory()) {
+                    categoriesByType.add(category.getName());
+                }
+            } else {
+                if (category.isIncomeCategory()) {
+                    System.out.println("Income triggered");
+                    categoriesByType.add(category.getName());
+                }
+            }
+        }
+        return categoriesByType;
+    }
+
+    /**
+     *
+     * @param isExpense
+     * @return
+     */
+    public List<Transaction> getTransactionByTransactionType(boolean isExpense) {
+        List<Transaction> transactionsByType = new ArrayList<>();
+        for (Category category : categories) {
+            if (category.isExpenseCategory() == isExpense) {
+                transactionsByType.addAll(category.getTransactions());
+            }
+        }
+        return transactionsByType;
     }
 
     /**
@@ -53,7 +102,8 @@ public class Register {
             throw new DuplicateNameException("Category with that name already exists in the register");
         }
 
-        Category categoryCopy = new Category(category.getName());
+        Category categoryCopy = new Category(
+            category.getName(), category.isExpenseCategory(), category.isRecurring());
         categoryCopy.addAll(category.getTransactions());
         categories.add(categoryCopy);
     }
@@ -169,4 +219,9 @@ public class Register {
     //TODO doing this to avoid aggregation. Change if this impacts coupling too much
 
     //TODO getCategoriesByName
+
+    public void removeTransaction(Transaction transaction) throws ConformityException {
+        Category category = this.getCategoryByName(transaction.getCategory());
+        category.removeTransaction(transaction);
+    }
 }

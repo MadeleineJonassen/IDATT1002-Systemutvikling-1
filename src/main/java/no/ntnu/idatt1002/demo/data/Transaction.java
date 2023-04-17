@@ -77,8 +77,9 @@ public abstract class Transaction {
     protected abstract String amountToString();
 
     public boolean isWithinTimeFrame(LocalDate fromDate, LocalDate toDate){
-        LocalDate transactionDate = LocalDate.parse(this.getDate(), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        LocalDate transactionDate = LocalDate.parse(this.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-        return transactionDate.isAfter(fromDate) && transactionDate.isBefore(toDate);
+        return (transactionDate.isAfter(fromDate) || transactionDate.equals(fromDate)) &&
+            (transactionDate.equals(toDate) || transactionDate.isBefore(toDate));
     }
 }

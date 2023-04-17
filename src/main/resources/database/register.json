@@ -1,22 +1,25 @@
 {
   "categories": [
-    {"name": "Housing", "recurring":  true, "transactions": [
+    {"name": "Housing", "recurring":  true, "isExpenseCategory": true, "transactions": [
       {"name": "Rent", "notes": "Send to Ola Nordmann", "date": "20", "amount": -4500},
       {"name": "Electricity", "notes": "", "date": "05", "amount": -200}
     ]},
-    {"name": "Groceries", "recurring": false, "transactions": [
+    {"name": "Groceries", "recurring": false, "isExpenseCategory": true, "transactions": [
       {"name": "Kiosk", "notes": "", "date": "2023-03-23", "amount": -535.50},
       {"name": "Kiwi", "notes": "", "date": "2023-03-24", "amount": -29.90}
     ]},
-    {"name": "Travel", "recurring": true, "transactions": [
+    {"name": "Travel", "recurring": true, "isExpenseCategory": true, "transactions": [
       {"name": "Bus card", "notes": "", "date": "05", "amount": -529.90}
     ]},
-    {"name": "Entertainment", "recurring": true, "transactions": [
+    {"name": "Entertainment", "recurring": true, "isExpenseCategory": true, "transactions": [
       {"name": "Netflix", "notes": "", "date": "23", "amount": -109.99},
       {"name": "HBO", "notes": "", "date": "28", "amount": -79.99}
     ]},
-    {"name":  "Loans", "recurring": true, "transactions": [
+    {"name":  "Loans", "recurring": true, "isExpenseCategory": false, "transactions": [
       {"name": "Student loans", "notes": "", "date": "16", "amount": 8800}
+    ]},
+    {"name": "Scrapping", "recurring": false, "isExpenseCategory": false, "transactions": [
+      {"name": "Yard sale", "notes": "", "date":  "2023-04-17", "amount": 550}
     ]}
   ]
 }
