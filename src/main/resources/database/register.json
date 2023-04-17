@@ -17,6 +17,9 @@
     ]},
     {"name":  "Loans", "recurring": true, "isExpenseCategory": false, "transactions": [
       {"name": "Student loans", "notes": "", "date": "16", "amount": 8800}
+    ]},
+    {"name": "Scrapping", "recurring": false, "isExpenseCategory": false, "transactions": [
+      {"name": "Yard sale", "notes": "", "date":  "2023-04-17", "amount": 550}
     ]}
   ]
 }
