@@ -62,7 +62,7 @@ public class Register {
     public List<Transaction> getTransactionByTransactionType(boolean isExpense) {
         List<Transaction> transactionsByType = new ArrayList<>();
         for (Category category : categories) {
-            if (!category.isExpenseCategory()) {
+            if (category.isExpenseCategory() == isExpense) {
                 transactionsByType.addAll(category.getTransactions());
             }
         }

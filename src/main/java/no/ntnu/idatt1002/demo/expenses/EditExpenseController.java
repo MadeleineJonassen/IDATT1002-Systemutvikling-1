@@ -6,6 +6,8 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.*;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -40,6 +43,16 @@ public class EditExpenseController implements Initializable {
   private TextField notes;
   @FXML
   private Button addExpense;
+  @FXML
+  private Button deleteIncome;
+  @FXML
+  private TableView<Transaction> tableView;
+  @FXML
+  private TableColumn<Transaction, String> nameColumn;
+  @FXML
+  private TableColumn<Transaction, Double> amountColumn;
+  @FXML
+  private TableColumn<Transaction, String> categoryColumn;
   private Register categoryRegister;
   private List<String> categories;
   private List<String> retrievedCategories;
@@ -56,7 +69,22 @@ public class EditExpenseController implements Initializable {
     }
   }
 
+  public void deleteExpensePressed() throws ConformityException {
+    Transaction selectedItem = tableView.getSelectionModel().getSelectedItem();
+    if (selectedItem != null) {
+      categoryRegister.removeTransaction(selectedItem);
+      tableView.getItems().remove(selectedItem);
+    }
+  }
+
   public void addExpensePressed() throws ConformityException, IOException {
+    try {
+      Double.parseDouble(amount.getText());
+    } catch (NumberFormatException nfe) {
+      amount.clear();
+      amount.setPromptText("Please enter a number");
+      return;
+    }
     if (!isAmountEmpty() && !isNameEmpty() && !isCategoryBoxEmpty() && !isDateNotChosen()) {
       String name = expenseName.getText();
       double expenseAmount = Double.parseDouble(amount.getText());
@@ -96,6 +124,7 @@ public class EditExpenseController implements Initializable {
         datePicker.setPromptText("CHOSE DATE");
       }
     }
+    fillTableView();
   }
 
   /**
@@ -117,6 +146,15 @@ public class EditExpenseController implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     categoryBox.getItems().addAll(categories);
+    fillTableView();
+  }
+  public void fillTableView() {
+    List<Transaction> transactions = categoryRegister.getTransactionByTransactionType(true);
+    ObservableList<Transaction> transactionObservableList = FXCollections.observableArrayList(transactions);
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+    amountColumn.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+    categoryColumn.setCellValueFactory(new PropertyValueFactory<>("Category"));
+    tableView.setItems(transactionObservableList);
   }
 
   private boolean isNameEmpty() {

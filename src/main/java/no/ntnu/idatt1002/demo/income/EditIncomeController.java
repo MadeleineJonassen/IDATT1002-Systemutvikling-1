@@ -79,6 +79,13 @@ public class EditIncomeController implements Initializable {
     }
   }
   public void addIncomePressed() throws IOException, ConformityException {
+    try {
+      Double.parseDouble(amount.getText());
+    } catch (NumberFormatException nfe) {
+      amount.clear();
+      amount.setPromptText("Please enter a number");
+      return;
+    }
     if (!isAmountEmpty() && !isNameEmpty() && !isCategoryBoxEmpty() && !isDateNotChosen()) {
       String name = incomeName.getText();
       double incomeAmount = Double.parseDouble(amount.getText());
