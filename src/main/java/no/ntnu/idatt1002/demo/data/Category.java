@@ -43,6 +43,14 @@ public class Category {
         numberOfTransactions++;
     }
 
+    public void removeTransaction(Transaction transaction) {
+        if (transactions.contains(transaction)) {
+            transactions.remove(transaction);
+        } else {
+            throw new IllegalArgumentException("The transaction does not exist");
+        }
+    }
+
     public void addAll(ArrayList<Transaction> transactionsToAdd) throws ConformityException{
         for (Transaction t : transactionsToAdd){
             addTransaction(t);

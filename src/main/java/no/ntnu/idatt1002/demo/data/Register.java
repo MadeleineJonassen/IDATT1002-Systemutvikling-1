@@ -21,11 +21,22 @@ public class Register {
         //TODO
     }
 
+    /**
+     *
+     * @param transaction
+     * @param catString
+     * @throws ConformityException
+     */
     public void addTransactionToCategory(Transaction transaction, String catString) throws ConformityException {
         Category category = this.getCategoryByName(catString);
         category.addTransaction(transaction);
     }
 
+    /**
+     *
+     * @param isExpense
+     * @return
+     */
     public List<String> getCategoriesByTransactionType(boolean isExpense) {
         List<String> categoriesByType = new ArrayList<>();
         for (Category category : categories) {
@@ -41,6 +52,21 @@ public class Register {
             }
         }
         return categoriesByType;
+    }
+
+    /**
+     *
+     * @param isExpense
+     * @return
+     */
+    public List<Transaction> getTransactionByTransactionType(boolean isExpense) {
+        List<Transaction> transactionsByType = new ArrayList<>();
+        for (Category category : categories) {
+            if (category.isExpenseCategory() == isExpense) {
+                transactionsByType.addAll(category.getTransactions());
+            }
+        }
+        return transactionsByType;
     }
 
     /**
@@ -193,4 +219,9 @@ public class Register {
     //TODO doing this to avoid aggregation. Change if this impacts coupling too much
 
     //TODO getCategoriesByName
+
+    public void removeTransaction(Transaction transaction) throws ConformityException {
+        Category category = this.getCategoryByName(transaction.getCategory());
+        category.removeTransaction(transaction);
+    }
 }

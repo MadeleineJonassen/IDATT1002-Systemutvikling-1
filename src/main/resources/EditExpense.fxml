@@ -86,8 +86,17 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
-            <ListView layoutX="41.0" layoutY="23.0" prefHeight="298.0" prefWidth="221.0" style="-fx-background-color: D8AF7F;" />
-         </children>
-      </AnchorPane>
+            <TableView fx:id="tableView" layoutX="17.0" layoutY="24.0" prefHeight="264.0" prefWidth="268.0">
+              <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="93.0" text="Name" />
+                <TableColumn fx:id="amountColumn" prefWidth="84.0" text="Amount" />
+                  <TableColumn fx:id="categoryColumn" prefWidth="90.0" text="Category" />
+              </columns>
+            </TableView>
+            <Button fx:id="deleteExpense" layoutX="17.0" layoutY="306.0" mnemonicParsing="false" onAction="#deleteExpensePressed" style="-fx-background-color: D8AF7F;" text="Delete chosen income" textFill="#495635">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></Button>
+         </children></AnchorPane>
    </children>
 </GridPane>
