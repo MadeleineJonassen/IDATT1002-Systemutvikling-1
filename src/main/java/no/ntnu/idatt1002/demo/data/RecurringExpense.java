@@ -13,9 +13,10 @@ public class RecurringExpense extends Expense{
     // The format for "date" in a recurring transaction is just a day of the month
     // So we need to add the month and year to the date (current) to be able to compare it to the time frame
     LocalDate transactionDate = LocalDate.parse(LocalDate.now().getYear() +
-            "-" + LocalDate.now().getMonthValue() +
+            "-" + LocalDate.now().format(DateTimeFormatter.ofPattern("MM"))+
             "-" + this.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-    return transactionDate.isAfter(fromDate) && transactionDate.isBefore(toDate);
+    return (transactionDate.isAfter(fromDate) || transactionDate.equals(fromDate)) &&
+        (transactionDate.equals(toDate) || transactionDate.isBefore(toDate));
   }
 }
