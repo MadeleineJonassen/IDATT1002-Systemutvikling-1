@@ -18,9 +18,9 @@
 
 <BorderPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.expenses.OutcomeController">
    <top>
-      <BorderPane prefHeight="100.0" prefWidth="1400.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="100.0" prefWidth="1400.0" style="-fx-background-color: EC84E2;" BorderPane.alignment="CENTER">
          <left>
-            <Button mnemonicParsing="false" onAction="#goHome" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: translucent;" BorderPane.alignment="CENTER">
                <graphic>
                   <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -33,7 +33,7 @@
          <right>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false">
+                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -42,7 +42,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openHelpOption">
+                  <Button mnemonicParsing="false" onAction="#openHelpOption" style="-fx-background-color: translucent;">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -55,7 +55,7 @@
             </VBox>
          </right>
          <center>
-            <Label text="Expense Overview" BorderPane.alignment="CENTER">
+            <Label text="Expense Overview" textFill="#382119" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Arial Bold" size="40.0" />
                </font>
@@ -69,24 +69,24 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
-            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-border-color: #382119; -fx-background-color: EC84E2;" BorderPane.alignment="CENTER">
               <items>
-                <Button mnemonicParsing="false" onAction="#switchToIncome" text="Overview">
+                <Button mnemonicParsing="false" onAction="#switchToIncome" style="-fx-background-color: translucent;" text="Overview" textFill="#382119">
                      <font>
                         <Font name="Arial" size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#switchToRecurringTransactions" text="Recurring transactions">
+                  <Button mnemonicParsing="false" onAction="#switchToRecurringTransactions" style="-fx-background-color: translucent;" text="Recurring transactions" textFill="#382119">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#switchToFutureBudgeting" text="Budgeting">
+                  <Button mnemonicParsing="false" onAction="#switchToFutureBudgeting" style="-fx-background-color: translucent;" text="Budgeting" textFill="#382119">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#switchToEditIncome" text="Edit">
+                  <Button mnemonicParsing="false" onAction="#switchToEditIncome" style="-fx-background-color: translucent;" text="Edit" textFill="#382119">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
@@ -100,15 +100,19 @@
          <center>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox alignment="CENTER" prefHeight="560.0" prefWidth="376.0">
+                  <VBox alignment="CENTER" prefHeight="560.0" prefWidth="376.0" spacing="10.0">
                      <children>
-                        <Label text="Expense graph" />
+                        <Label text="Expense graph" textFill="#382119">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                        </Label>
                         <PieChart fx:id="pieChart" prefHeight="400.0" prefWidth="328.0" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="560.0" prefWidth="118.0">
                      <children>
-                        <MenuBar>
+                        <MenuBar prefHeight="42.0" prefWidth="200.0" style="-fx-border-color: #382119;">
                            <menus>
                               <Menu mnemonicParsing="false" text="Categories">
                                 <items>
@@ -127,16 +131,43 @@
                      </children>
                   </VBox>
                   <Region prefHeight="200.0" prefWidth="200.0" />
-                  <VBox alignment="CENTER" prefHeight="560.0" prefWidth="157.0" spacing="10.0">
+                  <VBox alignment="CENTER" prefHeight="603.0" prefWidth="293.0" spacing="10.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#switchToIncome" text="Income Overview">
+                        <Button mnemonicParsing="false" onAction="#switchToIncome" prefHeight="30.0" prefWidth="250.0" text="Income Overview" textFill="#382119">
                            <VBox.margin>
                               <Insets bottom="10.0" />
                            </VBox.margin>
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
                         </Button>
-                        <Button mnemonicParsing="false" text="Edit categories" />
-                        <Button mnemonicParsing="false" text="Edit outcome" />
-                        <Button mnemonicParsing="false" text="Change to bar graph" />
+                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="Edit categories" textFill="#382119">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="Edit outcome">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="Change to bar graph">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Button>
                      </children>
                   </VBox>
                </children>
