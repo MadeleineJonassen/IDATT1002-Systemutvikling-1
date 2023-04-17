@@ -25,45 +25,9 @@
                      <Insets />
                   </BorderPane.margin>
                   <children>
-                     <VBox alignment="CENTER" prefHeight="563.0" prefWidth="526.0" spacing="10.0">
-                        <children>
-                           <Label alignment="CENTER" contentDisplay="CENTER" text="Income Graph" textFill="#382119">
-                              <font>
-                                 <Font name="Arial Bold" size="30.0" />
-                              </font>
-                           </Label>
-                           <PieChart fx:id="pieChart" prefHeight="378.0" prefWidth="472.0" style="-fx-background-color: e6c1e3;" />
-                        </children>
-                        <padding>
-                           <Insets left="10.0" right="10.0" />
-                        </padding>
+                     <VBox fx:id="pieChartContainer" alignment="CENTER" prefHeight="563.0" prefWidth="526.0" spacing="10.0">
                      </VBox>
-                     <VBox alignment="CENTER_LEFT" prefHeight="563.0" prefWidth="187.0" spacing="15.0">
-                        <children>
-                           <CheckBox fx:id="salaryChecked" mnemonicParsing="false" onAction="#salaryChecked" text="Salary" textFill="#0f2080">
-                              <font>
-                                 <Font name="Arial" size="20.0" />
-                              </font>
-                           </CheckBox>
-                           <CheckBox fx:id="investmentChecked" mnemonicParsing="false" onAction="#investmentChecked" text="Investment" textFill="#0f2080">
-                              <font>
-                                 <Font name="Arial" size="20.0" />
-                              </font>
-                           </CheckBox>
-                           <CheckBox fx:id="loanChecked" mnemonicParsing="false" onAction="#loanChecked" text="Loan" textFill="#0f2080">
-                              <font>
-                                 <Font name="Arial" size="20.0" />
-                              </font>
-                           </CheckBox>
-                           <CheckBox fx:id="otherIncomeChecked" mnemonicParsing="false" onAction="#otherIncomeChecked" text="Other" textFill="#0f2080">
-                              <font>
-                                 <Font name="Arial" size="20.0" />
-                              </font>
-                              <padding>
-                                 <Insets top="10.0" />
-                              </padding>
-                           </CheckBox>
-                        </children>
+                     <VBox fx:id="checkBoxContainer" alignment="CENTER_LEFT" prefHeight="563.0" prefWidth="187.0" spacing="15.0">
                         <padding>
                            <Insets left="10.0" right="20.0" />
                         </padding>
