@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 
-public class Outcome extends Application {
+public class Expenses extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
     URL fxmlUrl = getClass().getResource("/Expenses.fxml");
-    primaryStage.setTitle("Outcome");
+    primaryStage.setTitle("Expenses");
     Scene scene = FXMLLoader.load(fxmlUrl);
     primaryStage.setScene(scene);
     primaryStage.show();
