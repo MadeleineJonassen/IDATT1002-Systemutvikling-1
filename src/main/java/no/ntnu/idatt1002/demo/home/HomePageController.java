@@ -17,7 +17,12 @@ public class HomePageController {
 
   private Stage stage;
   private Scene scene;
+  /**
+   * Button that takes user to expenses.
 
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
   public void rootSwitchToOutcome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToOutcome = (FXMLLoader.load(Objects.requireNonNull(
             getClass().getResource("/Outcome.fxml"))));
@@ -28,12 +33,6 @@ public class HomePageController {
     stage.show();
   }
 
-  /**
-   * Button that takes user to expenses.
-
-   * @param event mouse click.
-   * @throws IOException if wrong input detected.
-   */
   public void switchToExpenses(ActionEvent event) throws IOException {
     Scene rootSwitchToExpenses = (FXMLLoader.load(Objects.requireNonNull(
             getClass().getResource("/Expenses.fxml"))));

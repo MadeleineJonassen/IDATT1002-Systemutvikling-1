@@ -1,5 +1,7 @@
 package no.ntnu.idatt1002.demo.expenses;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,11 +38,7 @@ public class OutcomeController {
   @FXML
   private DatePicker toDate;
   @FXML
-  private Button changeToIncome;
-  @FXML
   private PieChart pieChart;
-  @FXML
-  private GridPane gridPane;
   private Register register;
   private Stage stage;
 
@@ -133,9 +131,6 @@ public class OutcomeController {
     stage.show();
   }
 
-  ///////
-
-
   /**
    * Initializes the controller class.
    *
@@ -210,5 +205,28 @@ public class OutcomeController {
       return;
     }
 
+    // Get the selected categories
+    ArrayList<Category> selectedCategories = new ArrayList<>();
+    for (int i = 0; i < categoryCheckBoxes.getChildren().size(); i++) {
+      CheckBox checkBox = (CheckBox) categoryCheckBoxes.getChildren().get(i);
+      if (checkBox.isSelected()) {
+        Category c = register.getCategoryByName(checkBox.getText());
+        selectedCategories.add(c);
+      }
+    }
+
+    ObservableList<PieChart.Data> piechartData = FXCollections.observableArrayList();
+    for (Category category : selectedCategories) {
+      double sum = category.getTotalAmountWithinTimeFrame(fromDate.getValue(), toDate.getValue());
+
+      if (sum != 0) {
+        piechartData.add(new PieChart.Data(category.getName(), sum));
+      }
+
+      pieChart.setData(piechartData);
+      pieChart.setLegendVisible(true);
+    }
+
   }
 }
+
