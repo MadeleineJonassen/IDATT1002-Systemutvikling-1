@@ -22,7 +22,7 @@ public class HomePageController {
   private Scene rootSwitchToExpenses;
   private Scene rootSwitchToIncome;
   private BorderPane rootSwitchToRecurringTrans;
-  private GridPane rootSwitchToAddExpense;
+  private BorderPane rootSwitchToAddExpense;
   private GridPane rootSwitchToEditIncome;
   private BorderPane rootSwitchToFutureBudgeting;
 

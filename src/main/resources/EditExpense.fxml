@@ -1,102 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: F5E1B9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.expenses.EditExpenseController">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="347.0" minHeight="10.0" prefHeight="347.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <AnchorPane prefHeight="53.0" prefWidth="107.0" GridPane.columnIndex="1">
-         <children>
-            <Label layoutX="-16.0" layoutY="29.0" text="Add Expense:" textFill="#8e7d69">
+
+<BorderPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.expenses.EditExpenseController">
+   <center>
+      <BorderPane>
+         <center>
+            <HBox alignment="CENTER" spacing="50.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="515.0" prefWidth="464.0" spacing="20.0">
+                     <children>
+                        <TableView fx:id="tableView" prefHeight="396.0" prefWidth="464.0">
+                          <columns>
+                            <TableColumn fx:id="nameColumn" prefWidth="121.83334350585938" text="Name" />
+                            <TableColumn fx:id="amountColumn" prefWidth="159.50003051757812" text="Amount" />
+                              <TableColumn fx:id="categoryColumn" prefWidth="182.99996948242188" text="Category" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="deleteExpense" mnemonicParsing="false" onAction="#deleteExpensePressed" style="-fx-background-color: D8AF7F;" text="Delete chosen income" textFill="#495635">
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="475.0" prefWidth="419.0">
+                     <HBox.margin>
+                        <Insets bottom="40.0" top="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="162.0" text="Add Expense" textFill="#8e7d69">
+                                 <font>
+                                    <Font name="Arial Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="161.0" promptText="Choose date" style="-fx-border-color: D8AF7F;" />
+                           </children>
+                        </HBox>
+                        <GridPane alignment="CENTER" hgap="10.0" prefHeight="420.0" prefWidth="428.0">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Expense name:" textFill="#8e7d69">
+                                 <font>
+                                    <Font name="Arial" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="expenseName" prefHeight="25.0" prefWidth="150.0" promptText="Write here" style="-fx-border-color: D8AF7F;" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Label text="Amount:" textFill="#8e7d69" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="amount" prefHeight="27.0" prefWidth="150.0" promptText="Write here" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Label text="Category:" textFill="#8e7d69" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial" size="16.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="categoryBox" editable="true" prefWidth="150.0" promptText="Choose category" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Button fx:id="addExpense" mnemonicParsing="false" onAction="#addExpensePressed" style="-fx-background-color: D8AF7F;" text="Add expense" textFill="#495635" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Arial" size="15.0" />
+                                 </font>
+                              </Button>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label text="Notes:" textFill="#8e7d69">
+                                       <font>
+                                          <Font name="Arial" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="notes" alignment="TOP_LEFT" prefHeight="105.0" prefWidth="268.0" promptText="Write notes here" style="-fx-border-color: D8AF7F;">
+                                       <font>
+                                          <Font name="Arial" size="12.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="40.0" right="40.0" top="40.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </HBox>
+         </center>
+         <top>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+              </items>
+            </ToolBar>
+         </top>
+      </BorderPane>
+   </center>
+   <top>
+      <BorderPane prefHeight="165.0" prefWidth="140.0" BorderPane.alignment="CENTER">
+         <left>
+            <Button mnemonicParsing="false" BorderPane.alignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icons/SpendwiseIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </left>
+         <right>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="78.0" spacing="16.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/Settings.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/HelpIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </right>
+         <center>
+            <Label text="Edit Expenses" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Arial" size="21.0" />
+                  <Font name="Arial Bold" size="40.0" />
                </font>
             </Label>
-            <DatePicker fx:id="datePicker" layoutX="125.0" layoutY="28.0" prefHeight="25.0" prefWidth="161.0" promptText="Choose date" style="-fx-border-color: D8AF7F;" />
-         </children></AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <Label layoutX="72.0" layoutY="27.0" text="Edit Expenses" textFill="#495635">
-               <font>
-                  <Font name="Arial" size="27.0" />
-               </font>
-            </Label>
-            <Button layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: transparent;" />
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="372.0" prefWidth="294.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <children>
-            <TextField fx:id="expenseName" layoutX="127.0" layoutY="27.0" prefHeight="25.0" prefWidth="150.0" promptText="Write here" style="-fx-border-color: D8AF7F;">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></TextField>
-            <TextField fx:id="amount" layoutX="127.0" layoutY="62.0" prefHeight="27.0" prefWidth="150.0" promptText="Write here">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></TextField>
-            <ComboBox fx:id="categoryBox" editable="true" layoutX="127.0" layoutY="109.0" prefWidth="150.0" promptText="Choose category" />
-            <TextField fx:id="notes" alignment="TOP_LEFT" layoutX="13.0" layoutY="196.0" prefHeight="105.0" prefWidth="268.0" promptText="Write notes here" style="-fx-border-color: D8AF7F;">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></TextField>
-            <Label layoutX="2.0" layoutY="30.0" text="Expense name:" textFill="#8e7d69">
-               <font>
-                  <Font name="Arial" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="51.0" layoutY="66.0" text="Amount:" textFill="#8e7d69">
-               <font>
-                  <Font name="Arial" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="46.0" layoutY="112.0" text="Category:" textFill="#8e7d69">
-               <font>
-                  <Font name="Arial" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="177.0" text="Notes:" textFill="#8e7d69">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-            </Label>
-            <Button fx:id="addExpense" layoutX="180.0" layoutY="307.0" mnemonicParsing="false" onAction="#addExpensePressed" style="-fx-background-color: D8AF7F;" text="Add expense" textFill="#495635">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font></Button>
-         </children>
-         <GridPane.margin>
-            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-         </GridPane.margin>
-      </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-         <children>
-            <TableView fx:id="tableView" layoutX="17.0" layoutY="24.0" prefHeight="264.0" prefWidth="268.0">
-              <columns>
-                <TableColumn fx:id="nameColumn" prefWidth="93.0" text="Name" />
-                <TableColumn fx:id="amountColumn" prefWidth="84.0" text="Amount" />
-                  <TableColumn fx:id="categoryColumn" prefWidth="90.0" text="Category" />
-              </columns>
-            </TableView>
-            <Button fx:id="deleteExpense" layoutX="17.0" layoutY="306.0" mnemonicParsing="false" onAction="#deleteExpensePressed" style="-fx-background-color: D8AF7F;" text="Delete chosen income" textFill="#495635">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font></Button>
-         </children></AnchorPane>
-   </children>
-</GridPane>
+         </center>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </BorderPane>
+   </top>
+</BorderPane>
