@@ -261,7 +261,7 @@ public class FutureBudgetingController implements Initializable {
    * @throws IOException - if wrong input detected
    */
   public void openHelpOption(ActionEvent event) throws IOException {
-    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpHome.fxml"));
+    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpBudgeting.fxml"));
     Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
     Stage stage = new Stage();
     stage.setScene(new Scene(rootHelp));
