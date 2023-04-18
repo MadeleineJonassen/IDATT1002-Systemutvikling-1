@@ -19,7 +19,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.expenses.EditExpenseController">
    <center>
       <BorderPane>
@@ -137,10 +136,10 @@
          <top>
             <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <items>
-                <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
+                <Button mnemonicParsing="false" onAction="#switchToIncome" text="Overview" />
+                  <Button mnemonicParsing="false" onAction="#switchToRecurringTransactions" text="Recurring transactions" />
+                  <Button mnemonicParsing="false" onAction="#switchToFutureBudgeting" text="Budgeting" />
+                  <Button mnemonicParsing="false" onAction="#switchToEditIncome" text="Edit" />
               </items>
             </ToolBar>
          </top>
@@ -149,7 +148,7 @@
    <top>
       <BorderPane prefHeight="165.0" prefWidth="140.0" BorderPane.alignment="CENTER">
          <left>
-            <Button mnemonicParsing="false" BorderPane.alignment="CENTER">
+            <Button fx:id="goHome" mnemonicParsing="false" BorderPane.alignment="CENTER">
                <graphic>
                   <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -171,7 +170,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false">
+                  <Button mnemonicParsing="false" onAction="#openHelpEdit">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>

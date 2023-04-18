@@ -18,18 +18,9 @@ public class HomePageController {
 
   private Stage stage;
   private Scene scene;
-  private BorderPane rootSwitchToOutcome;
-  private Scene rootSwitchToExpenses;
-  private Scene rootSwitchToIncome;
-  private BorderPane rootSwitchToRecurringTrans;
-  private BorderPane rootSwitchToAddExpense;
-  private GridPane rootSwitchToEditIncome;
-  private BorderPane rootSwitchToFutureBudgeting;
-
-  private FXMLLoader rootSwitchToHelpOption;
 
   public void rootSwitchToOutcome(ActionEvent event) throws IOException {
-    rootSwitchToOutcome = (FXMLLoader.load(Objects.requireNonNull(
+    BorderPane rootSwitchToOutcome = (FXMLLoader.load(Objects.requireNonNull(
             getClass().getResource("/Outcome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -44,8 +35,8 @@ public class HomePageController {
    * @throws IOException if wrong input detected.
    */
   public void switchToExpenses(ActionEvent event) throws IOException {
-    rootSwitchToExpenses = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/Expenses.fxml"))));
+    Scene rootSwitchToExpenses = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/Expenses.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     stage.setScene(rootSwitchToExpenses);
@@ -59,8 +50,8 @@ public class HomePageController {
    * @throws IOException if wrong input detected.
    */
   public void switchToIncome(ActionEvent event) throws IOException {
-    rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/Income.fxml"))));
+    Scene rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/Income.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     stage.setScene(rootSwitchToIncome);
@@ -74,8 +65,8 @@ public class HomePageController {
    * @throws IOException if wrong input detected.
    */
   public void switchToRecurringTransactions(ActionEvent event) throws IOException {
-    rootSwitchToRecurringTrans = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/RecurringTransactions.fxml"))));
+    BorderPane rootSwitchToRecurringTrans = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/RecurringTransactions.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToRecurringTrans);
@@ -90,8 +81,8 @@ public class HomePageController {
    * @throws IOException if wrong input detected.
    */
   public void switchToEditExpenses(ActionEvent event) throws IOException {
-    rootSwitchToAddExpense = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/EditExpense.fxml"))));
+    BorderPane rootSwitchToAddExpense = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/EditExpense.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToAddExpense);
@@ -106,8 +97,8 @@ public class HomePageController {
    * @throws IOException if wrong input detected.
    */
   public void switchToEditIncome(ActionEvent event) throws IOException {
-    rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/EditIncome.fxml"))));
+    GridPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/EditIncome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToEditIncome);
@@ -122,8 +113,8 @@ public class HomePageController {
    * @throws IOException if wrong input detected.
    */
   public void switchToFutureBudgeting(ActionEvent event) throws IOException {
-    rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/FutureBudgeting.fxml"))));
+    BorderPane rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/FutureBudgeting.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToFutureBudgeting);
@@ -137,7 +128,7 @@ public class HomePageController {
    * @throws IOException - if wrong input detected
    */
   public void openHelpOption(ActionEvent event) throws IOException {
-    rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpOption.fxml"));
+    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpOption.fxml"));
     Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
     Stage stage = new Stage();
     stage.setScene(new Scene(rootHelp));
