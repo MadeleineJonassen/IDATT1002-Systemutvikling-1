@@ -12,11 +12,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import no.ntnu.idatt1002.demo.data.Category;
@@ -27,7 +29,8 @@ import no.ntnu.idatt1002.demo.data.RegisterController;
  * GUI controller for income class.
  */
 public class IncomeController implements Initializable {
-
+  private Stage stage;
+  private Scene scene;
   @FXML
   private VBox categoryCheckBoxes;
   @FXML
@@ -54,20 +57,6 @@ public class IncomeController implements Initializable {
     System.out.println("The change to bar graph button has been pushed");
   }
 
-  /**
-   * Button to go to home page.
-
-   * @param event mouse click
-   * @throws IOException if invalid input is detected.
-   */
-  public void goHome(ActionEvent event) throws IOException {
-    BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/SpendWiseHomePage.fxml"))));
-    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    Scene scene = new Scene(rootGoHome);
-    stage.setScene(scene);
-    stage.show();
-  }
 
   /**
    * Making comment to make checkstyle go away. TODO: comment for real.
@@ -135,17 +124,96 @@ public class IncomeController implements Initializable {
     pieChart.setLegendVisible(true);
   }
 
-  /**
-   * Button to go to expenses.
 
-   * @param event mouse click on button.
-   * @throws IOException if wrong input is detected.
+  /**
+   * Button to go to home page.
+
+   * @param event mouse click
+   * @throws IOException if invalid input is detected.
    */
-  public void goToExpenses(ActionEvent event) throws IOException {
-    Scene goExpenses = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/Expenses.fxml"))));
+  public void goHome(ActionEvent event) throws IOException {
+    BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/SpendWiseHomePage.fxml"))));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(goExpenses);
+    Scene scene = new Scene(rootGoHome);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+
+  /**
+   * Button that takes user to income.
+
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
+  public void switchToIncome(ActionEvent event) throws IOException {
+    Scene rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/Income.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    stage.setScene(rootSwitchToIncome);
+    stage.show();
+  }
+
+  /**
+   * Button that takes user to recurring transactions.
+
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
+  public void switchToRecurringTransactions(ActionEvent event) throws IOException {
+    BorderPane rootSwitchToRecurringTrans = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/RecurringTransactions.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToRecurringTrans);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  /**
+   * Button that takes user to future budgeting.
+
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
+  public void switchToFutureBudgeting(ActionEvent event) throws IOException {
+    BorderPane rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/FutureBudgeting.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToFutureBudgeting);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  /**
+   * Button that takes user to edit expenses.
+
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
+  public void switchToEditExpenses(ActionEvent event) throws IOException {
+    BorderPane rootSwitchToAddExpense = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/EditExpense.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToAddExpense);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  /**
+   * A button that opens the help option menu.
+   * @param event - mouse click
+   * @throws IOException - if wrong input detected
+   */
+  public void openHelpEdit(ActionEvent event) throws IOException {
+    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpEdit.fxml"));
+    Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
+    Stage stage = new Stage();
+    stage.setScene(new Scene(rootHelp));
     stage.show();
   }
 

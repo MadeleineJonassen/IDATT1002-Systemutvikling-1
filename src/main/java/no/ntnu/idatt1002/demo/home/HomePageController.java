@@ -28,6 +28,7 @@ public class HomePageController {
     stage.setScene(scene);
     stage.show();
   }
+
   /**
    * Button that takes user to expenses.
 
@@ -75,6 +76,22 @@ public class HomePageController {
   }
 
   /**
+   * Button that takes user to future budgeting.
+
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
+  public void switchToFutureBudgeting(ActionEvent event) throws IOException {
+    BorderPane rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/FutureBudgeting.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToFutureBudgeting);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  /**
    * Button that takes user to edit expenses.
 
    * @param event mouse click.
@@ -97,27 +114,11 @@ public class HomePageController {
    * @throws IOException if wrong input detected.
    */
   public void switchToEditIncome(ActionEvent event) throws IOException {
-    GridPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
+    BorderPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
             getClass().getResource("/EditIncome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToEditIncome);
-    stage.setScene(scene);
-    stage.show();
-  }
-
-  /**
-   * Button that takes user to future budgeting.
-
-   * @param event mouse click.
-   * @throws IOException if wrong input detected.
-   */
-  public void switchToFutureBudgeting(ActionEvent event) throws IOException {
-    BorderPane rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/FutureBudgeting.fxml"))));
-
-    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    scene = new Scene(rootSwitchToFutureBudgeting);
     stage.setScene(scene);
     stage.show();
   }

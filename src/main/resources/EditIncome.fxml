@@ -122,10 +122,10 @@
          <top>
             <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <items>
-                <Button mnemonicParsing="false" text="Overview" />
-                  <Button mnemonicParsing="false" text="Future Budgeting" />
-                  <Button mnemonicParsing="false" text="Recurring transactions" />
-                  <Button mnemonicParsing="false" text="Edit" />
+                <Button mnemonicParsing="false" onAction="#switchToIncome" text="Overview" />
+                  <Button mnemonicParsing="false" onAction="#switchToRecurringTransactions" text="Recurring transactions" />
+                  <Button mnemonicParsing="false" onAction="#switchToFutureBudgeting" text="Budgeting" />
+                  <Button mnemonicParsing="false" onAction="#switchToEditExpenses" text="Edit" />
               </items>
             </ToolBar>
          </top>
@@ -134,7 +134,7 @@
    <top>
       <BorderPane prefHeight="100.0" prefWidth="1400.0" BorderPane.alignment="CENTER">
          <left>
-            <Button mnemonicParsing="false" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#goHome" BorderPane.alignment="CENTER">
                <graphic>
                   <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -163,7 +163,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false">
+                  <Button mnemonicParsing="false" onAction="#openHelpEdit">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
