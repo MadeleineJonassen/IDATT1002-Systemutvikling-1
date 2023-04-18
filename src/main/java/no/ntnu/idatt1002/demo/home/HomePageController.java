@@ -23,22 +23,13 @@ public class HomePageController {
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
-  public void rootSwitchToOutcome(ActionEvent event) throws IOException {
+  public void switchToExpenses(ActionEvent event) throws IOException {
     BorderPane rootSwitchToOutcome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/Outcome.fxml"))));
+            getClass().getResource("/Expenses.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToOutcome);
     stage.setScene(scene);
-    stage.show();
-  }
-
-  public void switchToExpenses(ActionEvent event) throws IOException {
-    Scene rootSwitchToExpenses = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/Expenses.fxml"))));
-
-    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(rootSwitchToExpenses);
     stage.show();
   }
 

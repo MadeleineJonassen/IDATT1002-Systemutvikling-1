@@ -11,7 +11,7 @@ public class Outcome extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    URL fxmlUrl = getClass().getResource("/Outcome.fxml");
+    URL fxmlUrl = getClass().getResource("/Expenses.fxml");
     primaryStage.setTitle("Outcome");
     Scene scene = FXMLLoader.load(fxmlUrl);
     primaryStage.setScene(scene);
