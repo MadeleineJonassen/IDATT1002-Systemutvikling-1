@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="HelpScenes.HelpExpenses"
+            fx:controller="no.ntnu.idatt1002.demo.help.HelpController"
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane>
