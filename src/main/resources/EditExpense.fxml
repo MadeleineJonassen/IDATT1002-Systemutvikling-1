@@ -139,7 +139,7 @@
                 <Button mnemonicParsing="false" onAction="#switchToIncome" text="Overview" />
                   <Button mnemonicParsing="false" onAction="#switchToRecurringTransactions" text="Recurring transactions" />
                   <Button mnemonicParsing="false" onAction="#switchToFutureBudgeting" text="Budgeting" />
-                  <Button mnemonicParsing="false" onAction="#switchToEditIncome" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#switchToEditIncome" prefHeight="33.0" prefWidth="44.0" text="Edit" />
               </items>
             </ToolBar>
          </top>
@@ -148,7 +148,7 @@
    <top>
       <BorderPane prefHeight="165.0" prefWidth="140.0" BorderPane.alignment="CENTER">
          <left>
-            <Button fx:id="goHome" mnemonicParsing="false" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#goHome" BorderPane.alignment="CENTER">
                <graphic>
                   <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
