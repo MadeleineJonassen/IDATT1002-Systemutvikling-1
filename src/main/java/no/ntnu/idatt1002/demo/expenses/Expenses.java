@@ -1,14 +1,12 @@
 package no.ntnu.idatt1002.demo.expenses;
 
-import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * Loader for the Expenses.fxml window.
- */
+import java.net.URL;
+
 public class Expenses extends Application {
 
   @Override
@@ -24,6 +22,4 @@ public class Expenses extends Application {
     Application.launch(args);
   }
 
-
 }
-

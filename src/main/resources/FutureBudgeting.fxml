@@ -20,11 +20,11 @@
          <top>
             <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: EC84E2; -fx-border-color: #382119;" BorderPane.alignment="CENTER">
                <items>
-                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Overview" textFill="#382119">
+                  <Button mnemonicParsing="false" onAction="#switchToIncome" style="-fx-background-color: translucent;" text="Overview" textFill="#382119">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Recurring Transactions" textFill="#382119">
+                  <Button mnemonicParsing="false" onAction="#switchToRecurringTransactions" style="-fx-background-color: translucent;" text="Recurring Transactions" textFill="#382119">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font></Button>
@@ -32,7 +32,7 @@
                      <font>
                         <Font name="Arial" size="15.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Edit" textFill="#382119">
+                  <Button mnemonicParsing="false" onAction="#switchToEditIncome" style="-fx-background-color: translucent;" text="Edit" textFill="#382119">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font></Button>
@@ -199,7 +199,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;">
+                  <Button mnemonicParsing="false" onAction="#openHelpOption" style="-fx-background-color: translucent;">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
