@@ -71,16 +71,29 @@ public class EditCategoryController implements Initializable {
     stage.show();
   }
 
-  private void updateList(){
+  private void updateList() {
+    // Also updates the database
+    try {
+      // TODO make into actual file write
+      System.out.println(RegisterController.writeData(register));
+    } catch (IOException e){
+      System.out.println("Could not write to database. Replace with popup window?");
+      throw new RuntimeException(e);
+    }
     categoryList.getItems().clear();
     List<Category> categories = register.getCategories();
     categories.forEach(category -> categoryList.getItems().add(category.getName()));
+
+    // TODO clear each field
   }
 
   public void addCategoryPressed(ActionEvent actionEvent) throws DuplicateNameException, ConformityException {
     if (!categoryName.getText().isEmpty() &&
         !recurringBox.getValue().isEmpty() &&
         !expenseBox.getValue().isEmpty()) {
+      // TODO if statement fails i think?
+      System.out.println(categoryName.getText().isEmpty());
+      System.out.println(recurringBox.getValue().isEmpty());
 
       boolean recurring = recurringBox.getValue().equals("Yes");
       boolean expense = expenseBox.getValue().equals("Expense");
@@ -89,5 +102,9 @@ public class EditCategoryController implements Initializable {
       register.addCategory(category);
       updateList();
     }
+  }
+
+  public void deleteCategoryPressed(ActionEvent actionEvent){
+
   }
 }

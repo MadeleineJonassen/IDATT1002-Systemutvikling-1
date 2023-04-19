@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class RegisterController {
+    // This method actually reads the file for you, if you provide it the URL to the file
     @SuppressWarnings("VulnerableCodeUsages")
     public static Register readData(URL url) throws IOException, URISyntaxException, ConformityException, DuplicateNameException {
         // Default database should be in resources/database
@@ -76,6 +77,7 @@ public class RegisterController {
         return register;
     }
 
+    // This method presently does NOT write to file, it returns a JSON you have to write to file yourself
     @SuppressWarnings("VulnerableCodeUsages")
     public static JSONObject writeData(Register register) throws IOException {
         JSONObject json = new JSONObject();
