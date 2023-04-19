@@ -44,7 +44,6 @@ public class IncomeController implements Initializable {
   private Button editCategory;
   private Register register;
   private Scene rootSwitchToEditCategory;
-  private Stage stage;
 
   public void editCategoryButtonPushed(ActionEvent event) throws IOException {
     rootSwitchToEditCategory = (FXMLLoader.load(Objects.requireNonNull(
