@@ -37,5 +37,4 @@ out/
 ##############################
 *.db
 *.DS_Store
-*.json
-!register.json
+# Add json back here later?
