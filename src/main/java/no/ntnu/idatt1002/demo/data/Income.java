@@ -1,21 +1,19 @@
 package no.ntnu.idatt1002.demo.data;
 
-import java.util.Date;
 
 /**
- * Describes an income using name, notes, date and amount.
- * String name - transaction name
- * String notes - short notes for the income
- * Date date - ISO-8601 format of date for transaction
- * double amount - amount of the income
+ * Describes an Income using the Transaction class.
  */
-
 public class Income extends Transaction {
   public Income(String name, String notes, String date, double amount) {
     super(name, notes, date, amount);
   }
-  //TODO
 
+  /**
+   * Returns the amount of the expense as a string with currency notation.
+   *
+   * @return The amount of the expense as a string representation.
+   */
   protected String amountToString(){
     return Double.toString(this.getAmount()) + " NKr";
   }
