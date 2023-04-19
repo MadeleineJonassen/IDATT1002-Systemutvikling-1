@@ -17,6 +17,7 @@ import no.ntnu.idatt1002.demo.data.Register;
 import no.ntnu.idatt1002.demo.data.RegisterController;
 import no.ntnu.idatt1002.demo.exceptions.ConformityException;
 import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
+import no.ntnu.idatt1002.demo.home.ConfirmBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -71,23 +72,55 @@ public class EditCategoryController implements Initializable {
     stage.show();
   }
 
-  private void updateList(){
+  private void updateList() {
+    // Also updates the database
+    try {
+      // TODO make into actual file write
+      System.out.println(RegisterController.writeData(register));
+    } catch (IOException e){
+      System.out.println("Could not write to database. Replace with popup window?");
+      throw new RuntimeException(e);
+    }
     categoryList.getItems().clear();
     List<Category> categories = register.getCategories();
     categories.forEach(category -> categoryList.getItems().add(category.getName()));
+    // TODO clear each field
   }
 
   public void addCategoryPressed(ActionEvent actionEvent) throws DuplicateNameException, ConformityException {
     if (!categoryName.getText().isEmpty() &&
-        !recurringBox.getValue().isEmpty() &&
-        !expenseBox.getValue().isEmpty()) {
+        !(recurringBox.getValue() == null) &&
+        !(expenseBox.getValue() == null)) {
 
       boolean recurring = recurringBox.getValue().equals("Yes");
       boolean expense = expenseBox.getValue().equals("Expense");
 
       Category category = new Category(categoryName.getText(), expense, recurring);
       register.addCategory(category);
+
+      categoryName.clear();
+      recurringBox.setValue(null);
+      expenseBox.setValue(null);
       updateList();
+    }
+  }
+
+  public void deleteCategoryPressed(ActionEvent actionEvent){
+    String selectedItem = categoryList.getSelectionModel().getSelectedItem();
+    if (selectedItem != null) {
+      Boolean answer = true;
+
+      // Ask the user if they want to delete the category if it has transactions
+      if (register.getCategoryByName(selectedItem).getNumberOfTransactions() != 0){
+        answer = ConfirmBox.display("Title",
+            "Are you sure you want to delete the category " + selectedItem + " and its " +
+                register.getCategoryByName(selectedItem).getNumberOfTransactions() + " transaction(s)?");
+      }
+
+      if (answer){
+        register.removeCategoryByString(selectedItem);
+        updateList();
+      }
     }
   }
 }
