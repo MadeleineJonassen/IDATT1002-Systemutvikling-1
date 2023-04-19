@@ -1,14 +1,20 @@
 package no.ntnu.idatt1002.demo.data;
 
-import java.util.Date;
 
+/**
+ * Describes an expense using the Transaction class.
+ */
 public class Expense extends Transaction{
   public Expense(String name, String notes, String date, double amount) {
     super(name, notes, date, amount);
   }
-  //TODO override the date?
 
-    protected String amountToString(){
+  /**
+   * Returns the amount of the expense as a string with a minus sign in front of it, and currency notation.
+   *
+   * @return The amount of the expense as a string representation.
+   */
+  protected String amountToString(){
         return "-" + Double.toString(this.getAmount()) + " NKr";
     }
 }
