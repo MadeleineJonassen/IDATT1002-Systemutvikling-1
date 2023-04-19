@@ -88,11 +88,9 @@ public class EditCategoryController implements Initializable {
 
   public void addCategoryPressed(ActionEvent actionEvent) throws DuplicateNameException, ConformityException {
     if (!categoryName.getText().isEmpty() &&
-        !recurringBox.getValue().isEmpty() &&
-        !expenseBox.getValue().isEmpty()) {
+        !(recurringBox.getValue() == null) &&
+        !(expenseBox.getValue() == null)) {
       // TODO if statement fails i think?
-      System.out.println(categoryName.getText().isEmpty());
-      System.out.println(recurringBox.getValue().isEmpty());
 
       boolean recurring = recurringBox.getValue().equals("Yes");
       boolean expense = expenseBox.getValue().equals("Expense");
@@ -109,6 +107,11 @@ public class EditCategoryController implements Initializable {
 
   public void deleteCategoryPressed(ActionEvent actionEvent){
     // TODO Set popup/warning if you delete a category with n transactions in it
+    String selectedItem = categoryList.getSelectionModel().getSelectedItem();
+    if (selectedItem != null) {
+      register.removeCategoryByString(selectedItem);
+      updateList();
+    }
 
   }
 }
