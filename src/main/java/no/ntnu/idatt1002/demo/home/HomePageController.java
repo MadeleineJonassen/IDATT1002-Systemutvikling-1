@@ -40,11 +40,12 @@ public class HomePageController {
    * @throws IOException if wrong input detected.
    */
   public void switchToIncome(ActionEvent event) throws IOException {
-    Scene rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/Income.fxml"))));
+    BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/NewIncome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(rootSwitchToIncome);
+    scene = new Scene(rootSwitchToIncome);
+    stage.setScene(scene);
     stage.show();
   }
 
