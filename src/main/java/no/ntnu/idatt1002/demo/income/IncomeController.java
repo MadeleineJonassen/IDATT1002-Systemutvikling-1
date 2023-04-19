@@ -192,17 +192,17 @@ public class IncomeController implements Initializable {
   }
 
   /**
-   * Button that takes user to edit expenses.
+   * Button that takes user to edit income.
 
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
-  public void switchToEditExpenses(ActionEvent event) throws IOException {
-    BorderPane rootSwitchToAddExpense = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/EditExpense.fxml"))));
+  public void switchToEditIncome(ActionEvent event) throws IOException {
+    BorderPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/EditIncome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    scene = new Scene(rootSwitchToAddExpense);
+    scene = new Scene(rootSwitchToEditIncome);
     stage.setScene(scene);
     stage.show();
   }
