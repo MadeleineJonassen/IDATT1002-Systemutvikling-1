@@ -83,7 +83,6 @@ public class EditCategoryController implements Initializable {
     categoryList.getItems().clear();
     List<Category> categories = register.getCategories();
     categories.forEach(category -> categoryList.getItems().add(category.getName()));
-
     // TODO clear each field
   }
 
@@ -100,11 +99,16 @@ public class EditCategoryController implements Initializable {
 
       Category category = new Category(categoryName.getText(), expense, recurring);
       register.addCategory(category);
+
+      categoryName.clear();
+      recurringBox.setValue(null);
+      expenseBox.setValue(null);
       updateList();
     }
   }
 
   public void deleteCategoryPressed(ActionEvent actionEvent){
+    // TODO Set popup/warning if you delete a category with n transactions in it
 
   }
 }
