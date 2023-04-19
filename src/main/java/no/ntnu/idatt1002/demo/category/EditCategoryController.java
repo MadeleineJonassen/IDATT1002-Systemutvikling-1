@@ -37,8 +37,6 @@ public class EditCategoryController implements Initializable {
   private ComboBox<String> recurringBox;
   @FXML
   private ComboBox<String> expenseBox;
-  @FXML
-  private Button addCategory;
   private Register register;
 
   @Override
@@ -84,7 +82,6 @@ public class EditCategoryController implements Initializable {
     categoryList.getItems().clear();
     List<Category> categories = register.getCategories();
     categories.forEach(category -> categoryList.getItems().add(category.getName()));
-    // TODO clear each field
   }
 
   public void addCategoryPressed(ActionEvent actionEvent) throws DuplicateNameException, ConformityException {
@@ -108,7 +105,7 @@ public class EditCategoryController implements Initializable {
   public void deleteCategoryPressed(ActionEvent actionEvent){
     String selectedItem = categoryList.getSelectionModel().getSelectedItem();
     if (selectedItem != null) {
-      Boolean answer = true;
+      boolean answer = true;
 
       // Ask the user if they want to delete the category if it has transactions
       if (register.getCategoryByName(selectedItem).getNumberOfTransactions() != 0){
