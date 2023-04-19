@@ -17,6 +17,7 @@ import no.ntnu.idatt1002.demo.data.Register;
 import no.ntnu.idatt1002.demo.data.RegisterController;
 import no.ntnu.idatt1002.demo.exceptions.ConformityException;
 import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
+import no.ntnu.idatt1002.demo.home.ConfirmBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -90,7 +91,6 @@ public class EditCategoryController implements Initializable {
     if (!categoryName.getText().isEmpty() &&
         !(recurringBox.getValue() == null) &&
         !(expenseBox.getValue() == null)) {
-      // TODO if statement fails i think?
 
       boolean recurring = recurringBox.getValue().equals("Yes");
       boolean expense = expenseBox.getValue().equals("Expense");
@@ -106,12 +106,21 @@ public class EditCategoryController implements Initializable {
   }
 
   public void deleteCategoryPressed(ActionEvent actionEvent){
-    // TODO Set popup/warning if you delete a category with n transactions in it
     String selectedItem = categoryList.getSelectionModel().getSelectedItem();
     if (selectedItem != null) {
-      register.removeCategoryByString(selectedItem);
-      updateList();
-    }
+      Boolean answer = true;
 
+      // Ask the user if they want to delete the category if it has transactions
+      if (register.getCategoryByName(selectedItem).getNumberOfTransactions() != 0){
+        answer = ConfirmBox.display("Title",
+            "Are you sure you want to delete the category " + selectedItem + " and its " +
+                register.getCategoryByName(selectedItem).getNumberOfTransactions() + " transaction(s)?");
+      }
+
+      if (answer){
+        register.removeCategoryByString(selectedItem);
+        updateList();
+      }
+    }
   }
 }
