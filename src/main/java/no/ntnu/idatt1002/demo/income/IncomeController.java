@@ -40,8 +40,6 @@ public class IncomeController implements Initializable {
   private DatePicker toDate;
   @FXML
   private PieChart pieChart;
-  @FXML
-  private Button editCategory;
   private Register register;
   private Scene rootSwitchToEditCategory;
 
@@ -56,10 +54,6 @@ public class IncomeController implements Initializable {
 
   public void editIncomeButtonPushed() {
     System.out.println("The edit income button has been pushed");
-  }
-
-  public void viewExpensesButtonPushed() {
-    System.out.println("The view expenses button has been pushed");
   }
 
   public void changeToIncomeBarGraphButtonPushed() {
