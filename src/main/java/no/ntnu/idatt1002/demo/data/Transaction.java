@@ -68,7 +68,8 @@ public abstract class Transaction {
     }
 
     public void setCategory(String category){
-        //Only fire this method if the category hasn't been set yet
+        // Only fire this method if the category hasn't been set yet
+        // Guarantees immutability safety
         if (this.category == null){
             this.category = new SimpleStringProperty(category);
         }

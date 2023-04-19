@@ -1,7 +1,5 @@
 package no.ntnu.idatt1002.demo.data;
 
-//TODO should there be an extra class for subscriptions that inherit from Transaction?
-
 import no.ntnu.idatt1002.demo.exceptions.ConformityException;
 import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
 
@@ -9,20 +7,16 @@ import javax.naming.NameNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The main class responsible for holding the data of all transactions and categories.
+ * It consists of a hierarchy where Register holds multiple instances of Category.
+ * Category consists of transactions (see Category).
+ */
 public class Register {
     private final ArrayList<Category> categories = new ArrayList<>();
 
     /**
-     * Returns a deep-copy of the transactions given a certain category
      *
-     * @param category The category to search for as a String
-     * @return All transactions found as an ArrayList, returns an empty arraylist if none were found
-     */
-    public void getTransactionsByCategory(String category){
-        //TODO
-    }
-
-    /**
      *
      * @param transaction
      * @param catString
@@ -71,11 +65,10 @@ public class Register {
     }
 
     /**
-     * Returns all transactions given a certain category type (class).
+     * Returns all transactions given a certain category type (boolean).
      *
-     * @param category The category type you want to search for.
-     *                 This can and should be passed as an empty object of the type you want
-     * @return All transactions found as an ArrayList, returns an empty arraylist if none were found
+     * @param recurring The category type you want to search for.
+     * @return All transactions found as an ArrayList, returns an empty arraylist if none were found.
      */
     public ArrayList<Transaction> getTransactionsByCategoryType(boolean recurring){
         ArrayList<Transaction> transactions = new ArrayList<>();
@@ -84,7 +77,7 @@ public class Register {
         //  if empty recurring categories show up as not false due to current behavior
 
         for (Category c : this.categories){
-            if (c.isRecurring()){
+            if (c.isRecurring() == recurring){
                 transactions.addAll(c.getTransactions());
             }
         }
@@ -102,6 +95,8 @@ public class Register {
         if (hasName(category.getName())){
             throw new DuplicateNameException("Category with that name already exists in the register");
         }
+
+        //TODO this does not need to be a deep copy
 
         Category categoryCopy = new Category(
             category.getName(), category.isExpenseCategory(), category.isRecurring());
