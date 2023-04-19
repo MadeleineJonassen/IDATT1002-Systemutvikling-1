@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.BorderPane;
@@ -39,10 +40,19 @@ public class IncomeController implements Initializable {
   private DatePicker toDate;
   @FXML
   private PieChart pieChart;
+  @FXML
+  private Button editCategory;
   private Register register;
+  private Scene rootSwitchToEditCategory;
+  private Stage stage;
 
-  public void editCategoryButtonPushed() {
-    System.out.println("The category button has been pushed");
+  public void editCategoryButtonPushed(ActionEvent event) throws IOException {
+    rootSwitchToEditCategory = (FXMLLoader.load(Objects.requireNonNull(
+        getClass().getResource("/EditCategory.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    stage.setScene(rootSwitchToEditCategory);
+    stage.show();
   }
 
   public void editIncomeButtonPushed() {

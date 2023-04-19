@@ -17,7 +17,7 @@
                      <Insets />
                   </BorderPane.margin>
                   <children>
-                     <PieChart fx:id="pieChart" layoutX="35.0" layoutY="85.0" prefHeight="220.0" prefWidth="229.0" title="Expenses graph" />
+                     <PieChart fx:id="pieChart" layoutX="35.0" layoutY="85.0" prefHeight="220.0" prefWidth="229.0" title="Incomes graph" />
                      <DatePicker fx:id="fromDate" layoutX="275.0" layoutY="36.0" onAction="#goButtonPushed" prefHeight="26.0" prefWidth="120.0" promptText="Enter date to view from" />
                      <DatePicker fx:id="toDate" layoutX="408.0" layoutY="36.0" onAction="#goButtonPushed" prefHeight="26.0" prefWidth="120.0" promptText="Enter date to view to" />
                      <VBox fx:id="categoryCheckBoxes" layoutX="276.0" layoutY="103.0" prefHeight="220.0" prefWidth="120.0" />
