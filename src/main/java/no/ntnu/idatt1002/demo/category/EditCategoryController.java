@@ -115,7 +115,11 @@ public class EditCategoryController implements Initializable {
       }
 
       if (answer){
-        register.removeCategoryByString(selectedItem);
+        try {
+          register.removeCategoryByString(selectedItem);
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
         updateList();
       }
     }

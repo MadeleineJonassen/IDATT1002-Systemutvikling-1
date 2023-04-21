@@ -82,7 +82,7 @@ public class IncomeController implements Initializable {
       return;
     }
 
-    ArrayList<Category> categories = register.getCategories();
+    ArrayList<Category> categories = (ArrayList<Category>) register.getCategories();
     for (Category category : categories) {
       // Only add Income categories to the list
       if (!category.isExpenseCategory()) {
