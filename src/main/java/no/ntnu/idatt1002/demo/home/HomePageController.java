@@ -1,22 +1,37 @@
 package no.ntnu.idatt1002.demo.home;
 
 import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
 import java.util.Objects;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import no.ntnu.idatt1002.demo.data.Category;
+import no.ntnu.idatt1002.demo.data.Register;
+import no.ntnu.idatt1002.demo.data.RegisterController;
 
 /**
  * GUI controller for the home page.
  */
-public class HomePageController {
+public class HomePageController implements Initializable {
 
   private Stage stage;
   private Scene scene;
+  @FXML
+  private PieChart pieChart;
+  private Register register;
+
+
   /**
    * Button that takes user to expenses.
 
@@ -125,4 +140,37 @@ public class HomePageController {
     stage.show();
   }
 
+  /**
+   * Initializes the home page. Mainly used to set up the pie chart for expenses vs. income.
+   * @param url The URL to the FXML file.
+   * @param resourceBundle The resources used in the FXML file.
+   */
+  @Override
+  public void initialize(URL url, ResourceBundle resourceBundle) {
+    try {
+      register = RegisterController.readData(Objects.requireNonNull(
+          getClass().getClassLoader().getResource("database/register.json")));
+    } catch (Exception e) {
+      e.printStackTrace();
+      return;
+    }
+
+    double totalIncome = 0;
+    double totalExpenses = 0;
+    LocalDate today = LocalDate.now();
+    pieChart.setTitle("Overview this fiscal month (" + today.getMonth() + ")");
+    // Checks the total income and expenses for the current fiscal month.
+    for (Category c : register.getCategories()){
+      if (c.isIncomeCategory()) {
+        totalIncome += c.getTotalAmountWithinTimeFrame(today.withDayOfMonth(1),
+            today.withDayOfMonth(today.getMonth().length(today.isLeapYear())));
+      } else {
+        totalExpenses += totalIncome += c.getTotalAmountWithinTimeFrame(today.withDayOfMonth(1),
+            today.withDayOfMonth(today.getMonth().length(today.isLeapYear())));
+      }
+    }
+
+    pieChart.getData().add(new PieChart.Data("Income", totalIncome));
+    pieChart.getData().add(new PieChart.Data("Expenses", totalExpenses));
+  }
 }
