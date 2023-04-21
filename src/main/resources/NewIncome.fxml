@@ -3,18 +3,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -104,58 +99,34 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="560.0" prefWidth="376.0" spacing="10.0">
                      <children>
-                        <Label text="Income graph" textFill="#382119">
+                        <Label prefHeight="36.0" prefWidth="195.0" text="Income Graph" textFill="#382119">
                            <font>
-                              <Font name="Arial" size="20.0" />
+                              <Font name="Arial" size="30.0" />
                            </font>
                         </Label>
-                        <PieChart fx:id="pieChart" prefHeight="400.0" prefWidth="328.0" />
+                        <PieChart fx:id="pieChart" prefHeight="400.0" prefWidth="328.0" style="-fx-background-color: ffe3fd;" />
                      </children>
                   </VBox>
-                  <VBox fx:id="categoryCheckBoxes" alignment="CENTER" prefHeight="560.0" prefWidth="118.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" text="CheckBox" />
-                        <CheckBox layoutX="33.0" layoutY="270.0" mnemonicParsing="false" text="CheckBox" />
-                        <MenuBar prefHeight="42.0" prefWidth="200.0" style="-fx-border-color: #382119;">
-                           <menus>
-                              <Menu mnemonicParsing="false" text="Categories">
-                                <items>
-                                    <CheckMenuItem id="Loan" mnemonicParsing="false" text="Unspecified Action" />
-                                    <CheckMenuItem id="Food" mnemonicParsing="false" text="Unspecified Action" />
-                                </items>
-                              </Menu>
-                           </menus>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </VBox.margin>
-                        </MenuBar>
-                     </children>
+                  <VBox fx:id="categoryCheckBoxes" alignment="CENTER_LEFT" prefHeight="603.0" prefWidth="172.0" spacing="10.0">
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
                   </VBox>
-                  <Region prefHeight="200.0" prefWidth="200.0" />
-                  <VBox alignment="CENTER" prefHeight="603.0" prefWidth="293.0" spacing="10.0">
+                  <VBox alignment="CENTER" prefHeight="506.0" prefWidth="370.0" spacing="10.0" style="-fx-border-color: #382119;">
                      <children>
-                        <HBox prefHeight="26.0" prefWidth="293.0">
+                        <HBox prefHeight="26.0" prefWidth="293.0" spacing="10.0">
                            <children>
                               <DatePicker fx:id="fromDate" onAction="#goButtonPushed" />
                               <DatePicker fx:id="toDate" onAction="#goButtonPushed" />
                            </children>
                         </HBox>
-                        <Button fx:id="goButton" mnemonicParsing="false" onAction="#goButtonPushed" text="Button" />
-                        <Region prefHeight="200.0" prefWidth="293.0" />
-                        <Button mnemonicParsing="false" onAction="#switchToExpenses" prefHeight="30.0" prefWidth="250.0" text="Expense Overview" textFill="#382119">
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
+                        <Button fx:id="goButton" mnemonicParsing="false" onAction="#goButtonPushed" style="-fx-background-color: F5793A;" text="Look at Income in Graph">
                            <font>
-                              <Font name="Arial" size="20.0" />
+                              <Font name="Arial Bold" size="22.0" />
                            </font>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </Button>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Button>
                         <Button fx:id="editCategory" mnemonicParsing="false" onAction="#editCategoryButtonPushed" prefHeight="30.0" prefWidth="250.0" text="Edit categories" textFill="#382119">
                            <font>
                               <Font name="Arial" size="20.0" />
@@ -164,15 +135,21 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#editCategoryButtonPushed" prefHeight="30.0" prefWidth="250.0" text="Edit income">
+                        <Button layoutX="70.0" layoutY="189.0" mnemonicParsing="false" onAction="#switchToEditIncome" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: trans; -fx-border-color: EC84E2;" text="Switch to Edit Income" textFill="#382119">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets top="60.0" />
+                           </VBox.margin>
                         </Button>
-                        <Button fx:id="changeToBarGraph" mnemonicParsing="false" onAction="#changeToIncomeBarGraphButtonPushed" prefHeight="30.0" prefWidth="250.0" text="Change to bar graph">
+                        <Button mnemonicParsing="false" onAction="#switchToExpenses" prefHeight="45.0" prefWidth="302.0" style="-fx-background-color: transparten; -fx-border-color: EC84E2;" text="Switch to Expense Overview" textFill="#382119">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
@@ -181,6 +158,12 @@
                            </padding>
                         </Button>
                      </children>
+                     <HBox.margin>
+                        <Insets bottom="60.0" left="20.0" right="20.0" top="100.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
                   </VBox>
                </children>
             </HBox>
