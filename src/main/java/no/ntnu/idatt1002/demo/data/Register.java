@@ -5,6 +5,7 @@ package no.ntnu.idatt1002.demo.data;
 import no.ntnu.idatt1002.demo.exceptions.ConformityException;
 import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
 
+import javax.naming.NameNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -214,6 +215,11 @@ public class Register {
         }
 
         return null;
+    }
+
+    public void removeCategoryByString(String categoryName){
+        // TODO should this throw name not found exception?
+        categories.removeIf(c -> c.getName().equals(categoryName));
     }
 
     //TODO doing this to avoid aggregation. Change if this impacts coupling too much

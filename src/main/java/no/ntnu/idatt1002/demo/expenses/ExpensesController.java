@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,7 +29,7 @@ import java.util.ResourceBundle;
 /**
  * GUI controller for the expenses.
  */
-public class ExpensesController {
+public class ExpensesController implements Initializable {
   @FXML
   private VBox categoryCheckBoxes;
   @FXML
@@ -143,6 +144,7 @@ public class ExpensesController {
    * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
    * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
    */
+  @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
 
     /*
@@ -172,27 +174,6 @@ public class ExpensesController {
         categoryCheckBoxes.getChildren().add(checkBox);
       }
     }
-  }
-
-
-  @FXML
-  private String timeInterval() { //TODO: optimize...
-    String result = null;
-    if (fromDate.isManaged() || toDate.isManaged()) {
-      LocalDate startDate = fromDate.getValue();
-      LocalDate stopDate = toDate.getValue();
-      if (toDate == null) {
-        toDate = fromDate;
-        result = ("(" + startDate + ")");
-      } else if (stopDate.isAfter(startDate)) {
-        result = ("(" + startDate + "->" + stopDate + ")");
-      } else if (startDate.isAfter(stopDate)) {
-        startDate = toDate.getValue();
-        stopDate = fromDate.getValue();
-        result = ("(" + startDate + "->" + stopDate + ")");
-      }
-    }
-    return result;
   }
 
   /**

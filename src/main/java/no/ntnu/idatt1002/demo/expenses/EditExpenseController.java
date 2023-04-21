@@ -100,6 +100,7 @@ public class EditExpenseController implements Initializable {
         System.out.println(recurringDate);
         RecurringExpense newExpense = new RecurringExpense(name, expenseNotes, recurringDate,expenseAmount);
         categoryRegister.addTransactionToCategory(newExpense, categoryChosen);
+        // TODO make into actual file write when the time comes
         System.out.println(RegisterController.writeData(categoryRegister));
       } else {
         Expense expense = new Expense(name, expenseNotes, date, expenseAmount);

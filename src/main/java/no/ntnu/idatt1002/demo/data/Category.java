@@ -79,12 +79,41 @@ public class Category {
     public double getTotalAmountWithinTimeFrame(LocalDate from, LocalDate to) {
         double total = 0;
 
-        for (Transaction t : transactions){
-            if (t.isWithinTimeFrame(from, to)){
-                total += t.getAmount();
+        if (this.isRecurring()){
+
+
+            /* As long as from is not in the same month as to, we add
+            * the transaction, and increment the month with the start
+            * of the new month. When the months are the same, we stop
+            * the loop */
+
+            while(from.isBefore(to)) {
+                if (from.getMonth().equals(to.getMonth())){
+                    for (Transaction t : transactions) {
+                        if (t.isWithinTimeFrame(from, to)){
+                            total += t.getAmount();
+                        }
+                    }
+                } else {
+                    for (Transaction t : transactions) {
+                        if (t.isWithinTimeFrame(from, from.withDayOfMonth(from.lengthOfMonth()))){
+                            total += t.getAmount();
+                        }
+                    }
+                }
+
+                from = from.plusMonths(1).withDayOfMonth(1);
+            }
+
+        } else {
+            for (Transaction t : transactions) {
+                if (t.isWithinTimeFrame(from, to)){
+                    total += t.getAmount();
+                }
             }
         }
 
+        System.out.println("Total amount: " + total);
         return total;
     }
 
