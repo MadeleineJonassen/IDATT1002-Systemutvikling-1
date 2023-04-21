@@ -40,26 +40,19 @@ public class IncomeController implements Initializable {
   private DatePicker toDate;
   @FXML
   private PieChart pieChart;
-  @FXML
-  private Button editCategory;
   private Register register;
   private Scene rootSwitchToEditCategory;
 
   public void editCategoryButtonPushed(ActionEvent event) throws IOException {
-    rootSwitchToEditCategory = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/EditCategory.fxml"))));
-
-    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(rootSwitchToEditCategory);
+    FXMLLoader rootSwitchToEditCategory = new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
+    Parent rootEditCategory = (Parent) rootSwitchToEditCategory.load();
+    Stage stage = new Stage();
+    stage.setScene(new Scene(rootEditCategory));
     stage.show();
   }
 
   public void editIncomeButtonPushed() {
     System.out.println("The edit income button has been pushed");
-  }
-
-  public void viewExpensesButtonPushed() {
-    System.out.println("The view expenses button has been pushed");
   }
 
   public void changeToIncomeBarGraphButtonPushed() {
@@ -192,17 +185,17 @@ public class IncomeController implements Initializable {
   }
 
   /**
-   * Button that takes user to edit expenses.
+   * Button that takes user to edit income.
 
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
-  public void switchToEditExpenses(ActionEvent event) throws IOException {
-    BorderPane rootSwitchToAddExpense = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/EditExpense.fxml"))));
+  public void switchToEditIncome(ActionEvent event) throws IOException {
+    BorderPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/EditIncome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    scene = new Scene(rootSwitchToAddExpense);
+    scene = new Scene(rootSwitchToEditIncome);
     stage.setScene(scene);
     stage.show();
   }
@@ -212,8 +205,8 @@ public class IncomeController implements Initializable {
    * @param event - mouse click
    * @throws IOException - if wrong input detected
    */
-  public void openHelpEdit(ActionEvent event) throws IOException {
-    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpEdit.fxml"));
+  public void openHelpOption(ActionEvent event) throws IOException {
+    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpIncome.fxml"));
     Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
     Stage stage = new Stage();
     stage.setScene(new Scene(rootHelp));

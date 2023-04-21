@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="no.ntnu.idatt1002.demo.help.HelpController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane prefHeight="235.0" prefWidth="425.0" style="-fx-background-color: #0F2080;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.help.HelpController">
+    <top>
+        <Label alignment="CENTER" contentDisplay="TOP" prefHeight="50.0" prefWidth="307.0" text="Income Overview" textFill="WHITE" textOverrun="CLIP" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="Arial Bold" size="26.0" />
+            </font>
+        </Label>
+    </top>
+    <center>
+        <VBox alignment="CENTER" prefHeight="124.0" prefWidth="228.0" spacing="5.0" BorderPane.alignment="CENTER">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Here you can take a look at your income sorted by categories." textAlignment="CENTER" wrappingWidth="280.8984375">
+                    <font>
+                        <Font name="Arial" size="15.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Text>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="By hovering your mouse over &quot;Categories&quot;, you can check of which categories you would like to take a closer look at." textAlignment="CENTER" wrappingWidth="391.302734375">
+                    <font>
+                        <Font name="Arial" size="15.0" />
+                    </font>
+                </Text>
+            <Text fill="WHITE" layoutX="21.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To the top-right, you can pick a time interval for your income." textAlignment="CENTER" wrappingWidth="404.802734375">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="17.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The buttons have these functionalities:" textAlignment="CENTER" wrappingWidth="344.802734375">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fill="WHITE" layoutX="40.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expense overview = switches to expense overview" textAlignment="CENTER" wrappingWidth="344.802734375">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="40.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit = a pop-up window to edit the income and categories" textAlignment="CENTER" wrappingWidth="386.802734375">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="40.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bar chart = changes the pie chart to  a bar chart" textAlignment="CENTER" wrappingWidth="344.802734375">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Text>
+            </children>
+        </VBox>
+    </center>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+</BorderPane>

@@ -19,93 +19,105 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.income.EditIncomeController">
    <center>
       <BorderPane>
          <center>
-            <HBox alignment="CENTER">
+            <HBox alignment="CENTER" spacing="30.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="560.0" prefWidth="382.0" spacing="20.0">
+                  <VBox alignment="CENTER" prefHeight="572.0" prefWidth="492.0" spacing="20.0">
                      <children>
-                        <TableView fx:id="tableView" editable="true" prefHeight="271.0" prefWidth="268.0">
+                        <TableView fx:id="tableView" editable="true" prefHeight="445.0" prefWidth="431.0" style="-fx-background-color: #382119;">
                           <columns>
-                            <TableColumn fx:id="nameColumn" prefWidth="96.0" text="Name" />
-                            <TableColumn fx:id="amountColumn" prefWidth="139.0" text="Amount" />
-                              <TableColumn fx:id="categoryColumn" prefWidth="146.0" text="Category" />
+                            <TableColumn fx:id="nameColumn" prefWidth="103.0" text="Name" />
+                            <TableColumn fx:id="amountColumn" prefWidth="172.5" text="Amount" />
+                              <TableColumn fx:id="categoryColumn" prefWidth="215.5" text="Category" />
                           </columns>
                         </TableView>
-                        <Button fx:id="deleteIncome" mnemonicParsing="false" onAction="#deleteIncomePressed" prefHeight="27.0" prefWidth="170.0" style="-fx-background-color: D8AF7F;" text="Delete chosen income" textFill="#495635">
+                        <Button fx:id="deleteIncome" mnemonicParsing="false" onAction="#deleteIncomePressed" prefHeight="37.0" prefWidth="239.0" style="-fx-background-color: F5793A;" text="Delete chosen income" textFill="#382119">
                            <font>
-                              <Font name="Arial" size="15.0" />
+                              <Font name="Arial Bold" size="15.0" />
                            </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
                         </Button>
                      </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="20.0" top="20.0" />
+                     </padding>
                   </VBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="560.0" prefWidth="332.0" spacing="30.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="489.0" prefWidth="450.0" style="-fx-border-color: #382119;">
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                            <children>
-                                  <Label text="Add Income" textFill="#8e7d69">
+                                  <Label text="Add Income" textFill="#382119">
                                       <font>
-                                          <Font name="Arial Bold" size="21.0" />
+                                          <Font name="Arial Bold" size="25.0" />
                                       </font>
                                   </Label>
-                                  <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="161.0" promptText="Choose date" style="-fx-background-color: D8AF7F;" />
+                                  <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="161.0" promptText="Choose date" style="-fx-background-color: #382119;" />
                            </children>
                         </HBox>
-                        <GridPane hgap="10.0" prefHeight="234.0" prefWidth="324.0">
+                        <GridPane hgap="10.0" prefHeight="390.0" prefWidth="458.0">
                           <columnConstraints>
                             <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="57.5" minHeight="10.0" prefHeight="52.5" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="49.5" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="119.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="48.5" minHeight="0.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="93.5" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                                  <Label text="Income name:" textFill="#8e7d69">
+                                  <Label text="Income name:" textFill="#382119">
                                       <font>
                                           <Font name="Arial" size="16.0" />
                                       </font>
                                   </Label>
-                                  <TextField fx:id="incomeName" prefHeight="25.0" prefWidth="150.0" promptText="Write here" style="-fx-border-color: D8AF7F;" GridPane.columnIndex="1">
+                                  <TextField fx:id="incomeName" prefHeight="25.0" prefWidth="150.0" promptText="Write here" style="-fx-border-color: #382119;" GridPane.columnIndex="1">
                                  <font>
                                     <Font name="Arial" size="12.0" />
                                  </font>
                               </TextField>
-                                  <Label text="Amount:" textFill="#8e7d69" GridPane.rowIndex="1">
+                                  <Label text="Amount:" textFill="#382119" GridPane.rowIndex="1">
                                       <font>
                                           <Font name="Arial" size="16.0" />
                                       </font>
                                   </Label>
-                                  <TextField fx:id="amount" promptText="Write here" style="-fx-border-color: D8AF7F;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                  <TextField fx:id="amount" promptText="Write here" style="-fx-border-color: #382119;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="Arial" size="12.0" />
                                  </font>
                               </TextField>
-                                  <Label text="Category:" textFill="#8e7d69" GridPane.rowIndex="2">
+                                  <Label text="Category:" textFill="#382119" GridPane.rowIndex="2">
                                       <font>
                                           <Font name="Arial" size="16.0" />
                                       </font>
                                   </Label>
-                                  <ComboBox fx:id="categoryBox" prefWidth="150.0" style="-fx-background-color: D8AF7F;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                  <Button fx:id="addIncome" mnemonicParsing="false" onAction="#addIncomePressed" style="-fx-background-color: D8AF7F;" text="Add income" textFill="#495635" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                  <ComboBox fx:id="categoryBox" prefWidth="150.0" promptText="Choose category" style="-fx-border-color: #382119;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                  <Button fx:id="addIncome" mnemonicParsing="false" onAction="#addIncomePressed" style="-fx-background-color: F5793A;" text="Add income" textFill="#382119" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                  <font>
-                                    <Font name="Arial" size="15.0" />
+                                    <Font name="Arial Bold" size="17.0" />
                                  </font>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
                               </Button>
-                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="2.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <children>
-                                        <Label text="Notes:" textFill="#8e7d69">
+                                        <Label text="Notes:" textFill="#382119">
                                             <font>
                                                 <Font name="Arial" size="15.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="notes" alignment="TOP_LEFT" prefHeight="105.0" prefWidth="268.0" promptText="Write notes here" style="-fx-border-color: D8AF7F;">
+                                        <TextField fx:id="notes" alignment="TOP_LEFT" prefHeight="105.0" prefWidth="268.0" promptText="Write notes here" style="-fx-border-color: #382119;">
                                        <font>
                                           <Font name="Arial" size="12.0" />
                                        </font>
@@ -113,28 +125,52 @@
                                  </children>
                               </VBox>
                            </children>
+                           <padding>
+                              <Insets bottom="40.0" right="40.0" top="40.0" />
+                           </padding>
                         </GridPane>
                      </children>
+                     <HBox.margin>
+                        <Insets bottom="40.0" top="10.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
             </HBox>
          </center>
          <top>
-            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: EC84E2; -fx-border-color: #382119;" BorderPane.alignment="CENTER">
               <items>
-                <Button mnemonicParsing="false" onAction="#switchToIncome" text="Overview" />
-                  <Button mnemonicParsing="false" onAction="#switchToRecurringTransactions" text="Recurring transactions" />
-                  <Button mnemonicParsing="false" onAction="#switchToFutureBudgeting" text="Budgeting" />
-                  <Button mnemonicParsing="false" onAction="#switchToEditExpenses" text="Edit" />
+                <Button mnemonicParsing="false" onAction="#switchToIncome" style="-fx-background-color: transparent;" text="Overview" textFill="#382119">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#switchToRecurringTransactions" style="-fx-background-color: transparent;" text="Recurring transactions" textFill="#382119">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#switchToFutureBudgeting" style="-fx-background-color: transparent;" text="Budgeting" textFill="#382119">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#switchToEditExpenses" style="-fx-background-color: transparent;" text="Edit" textFill="#382119">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font></Button>
               </items>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </ToolBar>
          </top>
       </BorderPane>
    </center>
    <top>
-      <BorderPane prefHeight="100.0" prefWidth="1400.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="100.0" prefWidth="1400.0" style="-fx-background-color: EC84E2;" BorderPane.alignment="CENTER">
          <left>
-            <Button mnemonicParsing="false" onAction="#goHome" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
                <graphic>
                   <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -145,7 +181,7 @@
             </Button>
          </left>
          <center>
-                <Label text="Edit Income" textFill="#495635" BorderPane.alignment="CENTER">
+                <Label text="Edit Income" textFill="#382119" BorderPane.alignment="CENTER">
                     <font>
                         <Font name="Arial Bold" size="40.0" />
                     </font>
@@ -154,7 +190,7 @@
          <right>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="16.0">
                <children>
-                  <Button mnemonicParsing="false">
+                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -163,7 +199,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openHelpEdit">
+                  <Button mnemonicParsing="false" onAction="#openHelpEdit" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>

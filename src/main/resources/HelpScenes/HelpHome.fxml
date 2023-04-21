@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="300.0" style="-fx-background-color: #909F43;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.help.HelpController">
-   <children>
-      <BorderPane layoutX="-1.0" prefHeight="250.0" prefWidth="300.0">
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-         <top>
-            <Label text="HELP" BorderPane.alignment="CENTER">
+<BorderPane prefHeight="200.0" prefWidth="340.0" style="-fx-background-color: #0F2080;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.help.HelpController">
+   <top>
+      <Label alignment="CENTER" contentDisplay="TOP" prefHeight="50.0" prefWidth="307.0" text="Welcome to SpendWise" textFill="WHITE" textOverrun="CLIP" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Arial Bold" size="26.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <VBox alignment="CENTER" prefHeight="124.0" prefWidth="228.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="This is the main menu. Here, you will see a bunch of buttons and a table of the recurring transactions." textAlignment="CENTER" wrappingWidth="275.8984375">
                <font>
-                  <Font name="Arial" size="53.0" />
+                  <Font name="Arial" size="15.0" />
                </font>
-            </Label>
-         </top>
-         <center>
-            <Label text="Info here!" BorderPane.alignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" If you click on the different buttons in the main menu, they will take you to their specified function in the application." textAlignment="CENTER" wrappingWidth="273.802734375">
                <font>
-                  <Font name="Arial" size="28.0" />
+                  <Font name="Arial" size="15.0" />
                </font>
-            </Label>
-         </center>
-      </BorderPane>
-   </children>
-</Pane>
+            </Text>
+         </children>
+      </VBox>
+   </center>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</BorderPane>

@@ -3,7 +3,6 @@ package no.ntnu.idatt1002.demo.expenses;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.*;
 
 import javafx.collections.FXCollections;
@@ -19,7 +18,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import no.ntnu.idatt1002.demo.data.*;
 import no.ntnu.idatt1002.demo.exceptions.ConformityException;
@@ -183,11 +181,12 @@ public class EditExpenseController implements Initializable {
    * @throws IOException if wrong input detected.
    */
   public void switchToIncome(ActionEvent event) throws IOException {
-    Scene rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/Income.fxml"))));
+    BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/NewIncome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(rootSwitchToIncome);
+    scene = new Scene(rootSwitchToIncome);
+    stage.setScene(scene);
     stage.show();
   }
 

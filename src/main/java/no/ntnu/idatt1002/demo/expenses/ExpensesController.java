@@ -43,6 +43,13 @@ public class ExpensesController implements Initializable {
 
   private Scene scene;
 
+  public void editCategoryButtonPushed(ActionEvent event) throws IOException {
+    FXMLLoader rootSwitchToEditCategory = new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
+    Parent rootEditCategory = (Parent) rootSwitchToEditCategory.load();
+    Stage stage = new Stage();
+    stage.setScene(new Scene(rootEditCategory));
+    stage.show();
+  }
   public void goHome(ActionEvent event) throws IOException {
     BorderPane rootGoHome = (FXMLLoader.load(
             Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
@@ -55,16 +62,17 @@ public class ExpensesController implements Initializable {
 
   /**
    * Button that takes user to income.
-   *
+
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToIncome(ActionEvent event) throws IOException {
-    Scene rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/Income.fxml"))));
+    BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/NewIncome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(rootSwitchToIncome);
+    scene = new Scene(rootSwitchToIncome);
+    stage.setScene(scene);
     stage.show();
   }
 
