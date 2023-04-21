@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.budgeting.BudgetingController">
+<BorderPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.demo.budgeting.BudgetingController">
    <center>
       <BorderPane>
          <top>
@@ -187,14 +175,26 @@
                   <VBox prefHeight="503.0" prefWidth="602.0">
                      <children>
                         <DatePicker fx:id="datePicker" onAction="#dateChosen" />
-                        <BarChart fx:id="budgetingChart" prefHeight="460.0" prefWidth="602.0">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </BarChart>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="61.0" prefWidth="344.0" text="Expected PieChart:">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="74.0" prefWidth="322.0" text="Actual PieChart:">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="485.0" prefWidth="602.0">
+                           <children>
+                              <PieChart fx:id="expectedPie" prefHeight="485.0" prefWidth="316.0" />
+                              <PieChart fx:id="actualPie" prefHeight="485.0" prefWidth="317.0" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </children>
