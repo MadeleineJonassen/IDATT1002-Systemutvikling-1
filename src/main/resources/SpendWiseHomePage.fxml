@@ -188,7 +188,13 @@
             </ToolBar>
          </top>
          <left>
-            <PieChart fx:id="pieChart" title="Overview this fiscal month" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart" title="Overview this fiscal month" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin></PieChart>
          </left>
       </BorderPane>
    </center>

@@ -159,7 +159,7 @@ public class HomePageController implements Initializable {
     double totalIncome = 0;
     double totalExpenses = 0;
     LocalDate today = LocalDate.now();
-    pieChart.setTitle("Overview this fiscal month (" + today.getMonth() + ")");
+    pieChart.setTitle("Overview for " + today.getMonth());
     // Checks the total income and expenses for the current fiscal month.
     for (Category c : register.getCategories()){
       if (c.isIncomeCategory()) {
