@@ -14,6 +14,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import no.ntnu.idatt1002.SpendWise.data.Category;
 import no.ntnu.idatt1002.SpendWise.data.Register;
@@ -42,13 +43,6 @@ public class ExpensesController implements Initializable {
 
   private Scene scene;
 
-  public void editCategoryButtonPushed(ActionEvent event) throws IOException {
-    FXMLLoader rootSwitchToEditCategory = new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
-    Parent rootEditCategory = (Parent) rootSwitchToEditCategory.load();
-    Stage stage = new Stage();
-    stage.setScene(new Scene(rootEditCategory));
-    stage.show();
-  }
   public void goHome(ActionEvent event) throws IOException {
     BorderPane rootGoHome = (FXMLLoader.load(
             Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
@@ -170,6 +164,7 @@ public class ExpensesController implements Initializable {
       if (category.isExpenseCategory()) {
         CheckBox checkBox = new CheckBox(category.getName());
         checkBox.setSelected(false);
+        checkBox.setFont(Font.font("Arial",20));
         categoryCheckBoxes.getChildren().add(checkBox);
       }
     }
