@@ -44,11 +44,10 @@ public class IncomeController implements Initializable {
   private Scene rootSwitchToEditCategory;
 
   public void editCategoryButtonPushed(ActionEvent event) throws IOException {
-    rootSwitchToEditCategory = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/EditCategory.fxml"))));
-
-    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(rootSwitchToEditCategory);
+    FXMLLoader rootSwitchToEditCategory = new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
+    Parent rootEditCategory = (Parent) rootSwitchToEditCategory.load();
+    Stage stage = new Stage();
+    stage.setScene(new Scene(rootEditCategory));
     stage.show();
   }
 
