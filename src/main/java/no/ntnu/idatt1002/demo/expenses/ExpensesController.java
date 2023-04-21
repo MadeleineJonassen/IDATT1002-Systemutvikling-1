@@ -42,6 +42,13 @@ public class ExpensesController {
 
   private Scene scene;
 
+  public void editCategoryButtonPushed(ActionEvent event) throws IOException {
+    FXMLLoader rootSwitchToEditCategory = new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
+    Parent rootEditCategory = (Parent) rootSwitchToEditCategory.load();
+    Stage stage = new Stage();
+    stage.setScene(new Scene(rootEditCategory));
+    stage.show();
+  }
   public void goHome(ActionEvent event) throws IOException {
     BorderPane rootGoHome = (FXMLLoader.load(
             Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
