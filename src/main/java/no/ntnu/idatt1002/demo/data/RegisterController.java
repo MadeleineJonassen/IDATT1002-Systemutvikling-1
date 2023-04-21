@@ -83,7 +83,7 @@ public class RegisterController {
         JSONObject json = new JSONObject();
 
         JSONArray categoriesJson = new JSONArray();
-        ArrayList<Category> categories = register.getCategories();
+        ArrayList<Category> categories = (ArrayList<Category>) register.getCategories();
 
         for (Category c : categories){
             JSONObject categoryJson = new JSONObject();

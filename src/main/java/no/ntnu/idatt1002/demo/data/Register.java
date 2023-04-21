@@ -1,7 +1,5 @@
 package no.ntnu.idatt1002.demo.data;
 
-//TODO should there be an extra class for subscriptions that inherit from Transaction?
-
 import no.ntnu.idatt1002.demo.exceptions.ConformityException;
 import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
 
@@ -9,24 +7,22 @@ import javax.naming.NameNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The main class responsible for holding the data of all transactions and categories.
+ * It consists of a hierarchy where Register holds multiple instances of Category.
+ * Category consists of transactions (see Category).
+ */
 public class Register {
     private final ArrayList<Category> categories = new ArrayList<>();
 
     /**
-     * Returns a deep-copy of the transactions given a certain category
+     * Adds a transaction to the register with a specified category.
+     * If the transaction type does not match the category type, a
+     * ConformityException will be thrown.
      *
-     * @param category The category to search for as a String
-     * @return All transactions found as an ArrayList, returns an empty arraylist if none were found
-     */
-    public void getTransactionsByCategory(String category){
-        //TODO
-    }
-
-    /**
-     *
-     * @param transaction
-     * @param catString
-     * @throws ConformityException
+     * @param transaction The transaction to be added.
+     * @param catString The name of the category to add the transaction to.
+     * @throws ConformityException If the transaction type does not match the category type.
      */
     public void addTransactionToCategory(Transaction transaction, String catString) throws ConformityException {
         Category category = this.getCategoryByName(catString);
@@ -34,9 +30,10 @@ public class Register {
     }
 
     /**
+     * Returns categories given a transaction type (expense/income).
      *
-     * @param isExpense
-     * @return
+     * @param isExpense If the category is an expense category or not.
+     * @return A list of categories.
      */
     public List<String> getCategoriesByTransactionType(boolean isExpense) {
         List<String> categoriesByType = new ArrayList<>();
@@ -56,9 +53,10 @@ public class Register {
     }
 
     /**
+     * Returns all transactions given a transaction type (expense/income).
      *
-     * @param isExpense
-     * @return
+     * @param isExpense If the transaction is an expense or not.
+     * @return A list of transactions.
      */
     public List<Transaction> getTransactionByTransactionType(boolean isExpense) {
         List<Transaction> transactionsByType = new ArrayList<>();
@@ -71,11 +69,10 @@ public class Register {
     }
 
     /**
-     * Returns all transactions given a certain category type (class).
+     * Returns all transactions given a certain category type (boolean).
      *
-     * @param category The category type you want to search for.
-     *                 This can and should be passed as an empty object of the type you want
-     * @return All transactions found as an ArrayList, returns an empty arraylist if none were found
+     * @param recurring The category type you want to search for.
+     * @return All transactions found as an ArrayList, returns an empty arraylist if none were found.
      */
     public ArrayList<Transaction> getTransactionsByCategoryType(boolean recurring){
         ArrayList<Transaction> transactions = new ArrayList<>();
@@ -84,7 +81,7 @@ public class Register {
         //  if empty recurring categories show up as not false due to current behavior
 
         for (Category c : this.categories){
-            if (c.isRecurring()){
+            if (c.isRecurring() == recurring){
                 transactions.addAll(c.getTransactions());
             }
         }
@@ -102,6 +99,8 @@ public class Register {
         if (hasName(category.getName())){
             throw new DuplicateNameException("Category with that name already exists in the register");
         }
+
+        //TODO this does not need to be a deep copy
 
         Category categoryCopy = new Category(
             category.getName(), category.isExpenseCategory(), category.isRecurring());
@@ -125,9 +124,9 @@ public class Register {
     /**
      * Adds all categories passed to the register.
      * If any of the categories already exists a DuplicateNameException will be thrown.
-     * The categories are passed as varargs
+     * The categories are passed as varargs.
      *
-     * @param categories Categories to add
+     * @param categories Categories to add.
      */
     public void addAll(Category... categories) throws DuplicateNameException, ConformityException {
         for (Category c : categories){
@@ -136,10 +135,10 @@ public class Register {
     }
 
     /**
-     * Checks if a category with the given name exists in the register
+     * Checks if a category with the given name exists in the register.
      *
-     * @param name Name to check as a String
-     * @return True if name exists, false if it does not
+     * @param name Name to check as a String.
+     * @return True if name exists, false if it does not.
      */
     private boolean hasName(String name) {
         for (Category c : categories){
@@ -151,29 +150,33 @@ public class Register {
         return false;
     }
 
-    //TODO should this be here? Or should it only work for subscriptions
     /**
-     * Based on all transactions in the register, this method calculates the
-     * net income
+     * Returns all categories present in the register, with all transactions.
+     * This is a deep copy, and can therefore not be used to modify the register.
      *
-     * @return The net income as a double. Negative means the user is losing money.
+     * @return A list of categories.
      */
-    public double getNetIncome(){
-        double netIncome = 0;
+    public List<Category> getCategories() {
+        //TODO This has to be tested, since it may break with a deep copy like this
+        ArrayList<Category> categoriesCopy = new ArrayList<>();
+        for (Category c : categories){
+            Category categoryCopy = new Category(c.getName(), c.isExpenseCategory(), c.isRecurring());
+            try {
+                // Transaction is guaranteed immutable and can therefore be shallow copied
+                categoryCopy.addAll(c.getTransactions());
+            } catch (ConformityException e) {
+                e.printStackTrace();
+            }
+            categoriesCopy.add(categoryCopy);
+        }
 
-        //TODO
-        return netIncome;
-    }
-
-    public ArrayList<Category> getCategories() {
-        //TODO write properly deep copy
-        return categories;
+        return categoriesCopy;
     }
 
     /**
-     * Returns an ArrayList of all transactions in the register
+     * Returns an ArrayList of all transactions in the register.
      *
-     * @return All transactions as an ArrayList
+     * @return All transactions as an ArrayList.
      */
     public ArrayList<Transaction> getAllTransactions() {
         ArrayList<Transaction> transactions = new ArrayList<>();
@@ -186,46 +189,43 @@ public class Register {
     }
 
     /**
-     * Return the number of transactions across all categories in the register
-     *
-     * @return The number of transactions as an int
-     */
-    public int getNumberOfTransactions() {
-        int numberOfTransactions = 0;
-
-        for (Category c : categories) {
-            numberOfTransactions += c.getNumberOfTransactions();
-        }
-
-        return numberOfTransactions;
-    }
-
-    /**
-     * Returns the category with the given name
+     * Returns the category with the given name. If no category is found, null is returned.
+     * This is a deep copy, and can therefore not be used to modify the register.
      *
      * @param text Name of the category to search for
      * @return The category with the given name, or null if no category was found
      */
     public Category getCategoryByName(String text) {
-        //TODO write properly deep copy
+        //TODO This has to be tested, since it may break with a deep copy like this
         for (Category c : categories){
             if (c.getName().equals(text)){
-                return c;
+                Category categoryCopy = new Category(c.getName(), c.isExpenseCategory(), c.isRecurring());
+                try {
+                    // Transaction is guaranteed immutable and can therefore be shallow copied
+                    categoryCopy.addAll(c.getTransactions());
+                } catch (ConformityException e) {
+                    e.printStackTrace();
+                }
+                return categoryCopy;
             }
         }
 
         return null;
     }
 
-    public void removeCategoryByString(String categoryName){
+    public void removeCategoryByString(String categoryName) throws NameNotFoundException {
         // TODO should this throw name not found exception?
-        categories.removeIf(c -> c.getName().equals(categoryName));
+        if (!categories.removeIf(c -> c.getName().equals(categoryName))){
+            throw new NameNotFoundException("No category with that name was found");
+        };
     }
 
-    //TODO doing this to avoid aggregation. Change if this impacts coupling too much
-
-    //TODO getCategoriesByName
-
+    /**
+     * Removes a transaction from the register.
+     *
+     * @param transaction Transaction to remove.
+     * @throws ConformityException If the transaction does not conform to the category.
+     */
     public void removeTransaction(Transaction transaction) throws ConformityException {
         Category category = this.getCategoryByName(transaction.getCategory());
         category.removeTransaction(transaction);
