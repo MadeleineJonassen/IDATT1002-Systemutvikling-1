@@ -18,6 +18,8 @@ import no.ntnu.idatt1002.SpendWise.exceptions.ConformityException;
 import no.ntnu.idatt1002.SpendWise.exceptions.DuplicateNameException;
 import no.ntnu.idatt1002.SpendWise.home.ConfirmBox;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -72,10 +74,13 @@ public class EditCategoryController implements Initializable {
   private void updateList() {
     // Also updates the database
     try {
-      // TODO make into actual file write
-      System.out.println(RegisterController.writeData(register));
+      FileWriter file = new FileWriter(
+          Objects.requireNonNull(this.getClass().getClassLoader()
+              .getResource("database/register.json")).getFile());
+      file.write(RegisterController.writeData(register).toString());
+      file.close();
     } catch (IOException e){
-      System.out.println("Could not write to database. Replace with popup window?");
+      System.out.println("Could not write to database");
       throw new RuntimeException(e);
     }
     categoryList.getItems().clear();
