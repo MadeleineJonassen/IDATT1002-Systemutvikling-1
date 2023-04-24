@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>no.ntnu.idatt1002.SpendWise</groupId>
-    <artifactId>idatt1002SpendWise</artifactId>
+    <groupId>no.ntnu.idatt1002.spendwise</groupId>
+    <artifactId>idatt1002spendwise</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>main</name>
     <packaging>jar</packaging>
@@ -158,7 +158,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        no.ntnu.idatt1002.SpendWise.home.HomePage
+                                        no.ntnu.idatt1002.spendwise.home.HomePage
                                     </mainClass>
                                 </manifest>
                             </archive>
@@ -178,7 +178,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>no.ntnu.idatt1002.SpendWise.home.HomePage</mainClass>
+                            <mainClass>no.ntnu.idatt1002.spendwise.home.HomePage</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
