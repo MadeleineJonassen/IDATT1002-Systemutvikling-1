@@ -41,7 +41,6 @@ public class RegisterController {
       JSONObject currentJsonCategory = jsonCategories.getJSONObject(i);
 
       Category category;
-      // TODO add failsafes so regular transactions can not be recurring and vice versa?
       category = new Category(
           currentJsonCategory.getString("name"),
           currentJsonCategory.getBoolean("isExpenseCategory"),

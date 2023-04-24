@@ -57,10 +57,10 @@ public class IncomeController implements Initializable {
   }
 
   /**
-   * Making comment to make checkstyle go away. TODO: comment for real.
+   * Initializes the controller.
    *
-   * @param url            unknown
-   * @param resourceBundle unknown
+   * @param url The url of the FXML file
+   * @param resourceBundle The resource bundle
    */
   public void initialize(URL url, ResourceBundle resourceBundle) {
     try {
