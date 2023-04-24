@@ -114,22 +114,5 @@ public class RegisterController {
         json.put("categories", categoriesJson);
 
         return json;
-
-        //TODO find differences where json can be written and read
-        //FileWriter file = new FileWriter(Register.class.getResource(".").getFile() + "/" + jsonPath);
-        //file.write(json.toString());
-        //file.close();
-
-
     }
-
-    /*
-    public static void main(String[] args) throws IOException, URISyntaxException {
-        try{
-            loadData(getClass().getClassLoader().getResource("database/register.json"));
-        } catch (Exception e){
-
-        }
-
-    }*/
 }
