@@ -51,7 +51,7 @@
                   <Insets bottom="40.0" left="80.0" right="80.0" top="40.0" />
                </BorderPane.margin>
                <children>
-                  <VBox alignment="CENTER">
+                  <VBox alignment="CENTER" prefHeight="523.0" prefWidth="552.0">
                      <children>
                         <HBox alignment="CENTER" prefHeight="50.0" prefWidth="757.0">
                            <children>
@@ -186,7 +186,7 @@
                                     <PieChart fx:id="expectedPie" prefHeight="480.0" prefWidth="286.0" style="-fx-background-color: ffe3fd;" />
                                  </children>
                               </VBox>
-                              <VBox alignment="CENTER" prefHeight="376.0" prefWidth="474.0">
+                              <VBox alignment="CENTER" prefHeight="362.0" prefWidth="508.0">
                                  <children>
                                     <Label alignment="CENTER" prefHeight="65.0" prefWidth="140.0" text="Actual PieChart" textFill="#382119">
                                        <font>

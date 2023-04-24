@@ -26,6 +26,7 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
@@ -94,7 +95,6 @@ public class BudgetingController implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-
   }
 
   private void fillTableIncome() {
@@ -218,6 +218,10 @@ public class BudgetingController implements Initializable {
   }
 
   private void updateTotal() {
+    totalActualDoub = 0;
+    totalExpectedDoub = 0;
+    totalDifferenceDoub = 0;
+
     for (BudgetingCell item : tableViewIncomeCat.getItems()) {
       actualIncome += item.getActual();
       expectedIncome += item.getExpected();
@@ -232,9 +236,12 @@ public class BudgetingController implements Initializable {
       totalDifferenceDoub += item.getDifference();
       totalExpectedDoub -= item.getExpected();
     }
-    totalActual.setText(Double.toString(totalActualDoub));
-    totalDifference.setText(Double.toString(totalDifferenceDoub));
-    totalExpected.setText(Double.toString(totalExpectedDoub));
+    //totalActual.setText(Double.toString(totalActualDoub));
+    totalActual.setText(new DecimalFormat("##.##").format(totalActualDoub));
+    //totalDifference.setText(Double.toString(totalDifferenceDoub));
+    totalDifference.setText(new DecimalFormat("##.##").format(totalDifferenceDoub));
+    //totalExpected.setText(Double.toString(totalExpectedDoub));
+    totalExpected.setText(new DecimalFormat("##.##").format(totalExpectedDoub));
   }
 
   private List<LocalDate> getDates() {
