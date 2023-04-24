@@ -1,4 +1,4 @@
-package no.ntnu.idatt1002.SpendWise.budgeting;
+package no.ntnu.idatt1002.demo.budgeting;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -11,12 +11,12 @@ import javafx.stage.Stage;
 /**
  * Creates the stage for future budgeting.
  */
-public class FutureBudgeting extends Application {
+public class Budgeting extends Application {
   @Override
   public void start(Stage stage) throws IOException {
 
     Parent root = FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/FutureBudgeting.fxml")));
+        getClass().getResource("/Budgeting.fxml")));
     Scene scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
