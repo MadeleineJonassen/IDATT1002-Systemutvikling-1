@@ -41,6 +41,12 @@ public class IncomeController implements Initializable {
   private PieChart pieChart;
   private Register register;
 
+  /**
+   * Trigger for when the the user clicks the edit category button.
+   *
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
+   */
   public void editCategoryButtonPushed(ActionEvent event) throws IOException {
     FXMLLoader rootSwitchToEditCategory =
         new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
@@ -78,7 +84,7 @@ public class IncomeController implements Initializable {
   }
 
   /**
-   * Trigger for the go button
+   * Trigger for the go button.
    *
    * @param actionEvent The ActionEvent that triggered the method
    */
@@ -133,6 +139,12 @@ public class IncomeController implements Initializable {
     stage.show();
   }
 
+  /**
+   * Button that takes user to expenses.
+   *
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
+   */
   public void switchToExpenses(ActionEvent event) throws IOException {
     BorderPane rootSwitchToOutcome = (FXMLLoader.load(Objects.requireNonNull(
         getClass().getResource("/Expenses.fxml"))));

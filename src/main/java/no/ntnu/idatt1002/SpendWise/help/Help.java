@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * Opens the help option
+ * Opens the help option.
  */
 public class Help extends Application {
 

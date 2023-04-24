@@ -69,6 +69,9 @@ public class EditExpenseController implements Initializable {
   private List<String> categories;
   private List<String> retrievedCategories;
 
+  /**
+   * Initializes the controller class.
+   */
   public EditExpenseController()
       throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
     categoryRegister = RegisterController.readData(
@@ -83,6 +86,11 @@ public class EditExpenseController implements Initializable {
     }
   }
 
+  /**
+   * Triggers when the delete expense button is pressed.
+   *
+   * @throws ConformityException If the transaction is not an expense.
+   */
   public void deleteExpensePressed() throws ConformityException {
     Transaction selectedItem = tableView.getSelectionModel().getSelectedItem();
     if (selectedItem != null) {
@@ -93,6 +101,12 @@ public class EditExpenseController implements Initializable {
     writeData();
   }
 
+  /**
+   * Triggers when the add expense button is pressed.
+   *
+   * @throws ConformityException If the transaction is not an expense.
+   * @throws IOException If the database file is not found.
+   */
   public void addExpensePressed() throws ConformityException, IOException {
     try {
       Double.parseDouble(amount.getText());
@@ -145,6 +159,9 @@ public class EditExpenseController implements Initializable {
     fillTableView();
   }
 
+  /**
+   * Method for writing data to the database.
+   */
   private void writeData() {
     try {
       FileWriter file = new FileWriter(Objects.requireNonNull(
@@ -157,15 +174,24 @@ public class EditExpenseController implements Initializable {
     }
   }
 
+  /**
+   * Initalizes the controller class.
+   *
+   * @param url The url of the fxml file.
+   * @param resourceBundle The resource bundle.
+   */
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     categoryBox.getItems().addAll(categories);
     fillTableView();
   }
 
+  /**
+   * Method for filling the table view with the transactions.
+   */
   public void fillTableView() {
     List<Transaction> transactions = categoryRegister.getTransactionByTransactionType(true);
-    ObservableList<Transaction> transactionObservableList =
+    final ObservableList<Transaction> transactionObservableList =
         FXCollections.observableArrayList(transactions);
     nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
     amountColumn.setCellValueFactory(new PropertyValueFactory<>("Amount"));
@@ -173,22 +199,48 @@ public class EditExpenseController implements Initializable {
     tableView.setItems(transactionObservableList);
   }
 
+  /**
+   * Method for checking if the name field is empty.
+   *
+   * @return True if the name field is empty, false otherwise.
+   */
   private boolean isNameEmpty() {
     return ((expenseName.getText() == null) || (expenseName.getText().isEmpty()));
   }
 
+  /**
+   * Method for checking if the amount field is empty.
+   *
+   * @return True if the amount field is empty, false otherwise.
+   */
   private boolean isAmountEmpty() {
     return ((amount.getText() == null) || (amount).getText().isEmpty());
   }
 
+  /**
+   * Method for checking if the category box is empty.
+   *
+   * @return True if the category box is empty, false otherwise.
+   */
   private boolean isCategoryBoxEmpty() {
     return categoryBox.getSelectionModel().isEmpty();
   }
 
+  /**
+   * Method for checking if the date is not chosen.
+   *
+   * @return True if the date is not chosen, false otherwise.
+   */
   private boolean isDateNotChosen() {
     return (datePicker.getValue() == null);
   }
 
+  /**
+   * Method for handling the button that is used to go to the add category page.
+   *
+   * @param event Mouse click.
+   * @throws IOException If the fxml file is not found.
+   */
   public void editCategoryButtonPushed(ActionEvent event) throws IOException {
     FXMLLoader rootSwitchToEditCategory =
         new FXMLLoader(getClass().getResource("/EditCategory.fxml"));

@@ -66,7 +66,7 @@ public class RecurringTransactionsController implements Initializable {
 
   private void fillTable() {
     ArrayList<Transaction> transactions = categoryRegister.getTransactionsByCategoryType(true);
-    ObservableList<Transaction> transactionObservableList =
+    final ObservableList<Transaction> transactionObservableList =
         FXCollections.observableArrayList(transactions);
     name.setCellValueFactory(new PropertyValueFactory<>("Name"));
     amount.setCellValueFactory(new PropertyValueFactory<>("Amount"));
@@ -91,16 +91,6 @@ public class RecurringTransactionsController implements Initializable {
     );
     pieChart.setData(pieChartData);
   }
-/*
-@FXML
-  public void listData() {
-    List<String> transactionStringList = new ArrayList<>();
-    transactionStringList.add("Cats");
-    transactionStringList.add("Bottle");
-    ObservableList<String> observableList = FXCollections.observableList(transactionStringList);
-    recurringTransactions.setItems(observableList);
-  }
-*/
 
   /**
    * Button to go to home page of application.

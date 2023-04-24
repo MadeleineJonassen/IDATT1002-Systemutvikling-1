@@ -42,6 +42,12 @@ public class ExpensesController implements Initializable {
 
   private Scene scene;
 
+  /**
+   * Trigger for when the the user clicks the home button.
+   *
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
+   */
   public void goHome(ActionEvent event) throws IOException {
     BorderPane rootGoHome = (FXMLLoader.load(
         Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
@@ -55,8 +61,8 @@ public class ExpensesController implements Initializable {
   /**
    * Button that takes user to income.
    *
-   * @param event mouse click.
-   * @throws IOException if wrong input detected.
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
    */
   public void switchToIncome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
@@ -71,8 +77,8 @@ public class ExpensesController implements Initializable {
   /**
    * Button that takes user to recurring transactions.
    *
-   * @param event mouse click.
-   * @throws IOException if wrong input detected.
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
    */
   public void switchToRecurringTransactions(ActionEvent event) throws IOException {
     BorderPane rootSwitchToRecurringTrans = (FXMLLoader.load(Objects.requireNonNull(
@@ -87,8 +93,8 @@ public class ExpensesController implements Initializable {
   /**
    * Button that takes user to edit income.
    *
-   * @param event mouse click.
-   * @throws IOException if wrong input detected.
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
    */
   public void switchToEditIncome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
@@ -103,8 +109,8 @@ public class ExpensesController implements Initializable {
   /**
    * Button that takes user to future budgeting.
    *
-   * @param event mouse click.
-   * @throws IOException if wrong input detected.
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
    */
   public void switchToFutureBudgeting(ActionEvent event) throws IOException {
     BorderPane rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
@@ -119,8 +125,8 @@ public class ExpensesController implements Initializable {
   /**
    * A button that opens the help option menu.
    *
-   * @param event - mouse click
-   * @throws IOException - if wrong input detected
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
    */
   public void openHelpOption(ActionEvent event) throws IOException {
     FXMLLoader rootSwitchToHelpOption =
@@ -134,22 +140,11 @@ public class ExpensesController implements Initializable {
   /**
    * Initializes the controller class.
    *
-   * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
-   * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+   * @param url The url to the FXML file.
+   * @param resourceBundle The resource bundle.
    */
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    /*
-    ObservableList<PieChart.Data> piechartData = FXCollections.observableArrayList(
-            new PieChart.Data("Food", 13),
-            new PieChart.Data("Housing", 25),
-            new PieChart.Data("Fixed Expenses", 10),
-            new PieChart.Data("Travel", 22),
-            new PieChart.Data("Other", 30)
-    );
-    pieChart.setData(piechartData);*/
-
     try {
       register = RegisterController.readData(Objects.requireNonNull(
           getClass().getClassLoader().getResource("database/register.json")));
@@ -171,7 +166,7 @@ public class ExpensesController implements Initializable {
   }
 
   /**
-   * Trigger for the go button
+   * Trigger for the go button.
    *
    * @param actionEvent The ActionEvent that triggered the method
    */

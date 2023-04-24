@@ -8,10 +8,20 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * A class that creates a window for the user to confirm an action.
+ */
 public class ConfirmBox {
 
   static boolean answer;
 
+  /**
+   * Creates a window with a title and a message.
+   *
+   * @param title The title of the window.
+   * @param message The message to be displayed in the window.
+   * @return True if the user clicks yes, false if the user clicks no.
+   */
   public static boolean display(String title, String message) {
     Stage window = new Stage();
     window.initModality(

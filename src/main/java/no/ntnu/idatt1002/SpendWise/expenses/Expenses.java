@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The main class for the expenses page.
+ */
 public class Expenses extends Application {
 
   public static void main(String[] args) {

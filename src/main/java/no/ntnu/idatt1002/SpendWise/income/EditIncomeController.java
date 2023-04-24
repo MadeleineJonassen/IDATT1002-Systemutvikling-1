@@ -71,6 +71,14 @@ public class EditIncomeController implements Initializable {
   private List<String> categories;
   private List<String> retrievedCategories;
 
+  /**
+   * Initializes the controller class.
+   *
+   * @throws DuplicateNameException If the name of the category is already in use.
+   * @throws IOException If the file cannot be found.
+   * @throws URISyntaxException If the URI is not valid.
+   * @throws ConformityException If the category is not valid.
+   */
   public EditIncomeController()
       throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
     categoryRegister = RegisterController.readData(
@@ -85,6 +93,9 @@ public class EditIncomeController implements Initializable {
     }
   }
 
+  /**
+   * Method for writing data to the database.
+   */
   private void writeData() {
     try {
       FileWriter file = new FileWriter(
@@ -98,6 +109,11 @@ public class EditIncomeController implements Initializable {
     }
   }
 
+  /**
+   * Trigger for when the delete income button is pressed.
+   *
+   * @throws ConformityException If the category is not valid.
+   */
   public void deleteIncomePressed() throws ConformityException {
     Transaction selectedItem = tableView.getSelectionModel().getSelectedItem();
     if (selectedItem != null) {
@@ -108,6 +124,12 @@ public class EditIncomeController implements Initializable {
     writeData();
   }
 
+  /**
+   * Trigger for when the add income button is pressed.
+   *
+   * @throws IOException If the file cannot be found.
+   * @throws ConformityException If the category is not valid.
+   */
   public void addIncomePressed() throws IOException, ConformityException {
     try {
       Double.parseDouble(amount.getText());
@@ -160,15 +182,24 @@ public class EditIncomeController implements Initializable {
     fillTableView();
   }
 
+  /**
+   * Initializes the controller class.
+   *
+   * @param url The url of the fxml file.
+   * @param resourceBundle The resource bundle.
+   */
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     categoryBox.getItems().addAll(categories);
     fillTableView();
   }
 
+  /**
+   * Method for filling the table view with the transactions.
+   */
   public void fillTableView() {
     List<Transaction> transactions = categoryRegister.getTransactionByTransactionType(false);
-    ObservableList<Transaction> transactionObservableList =
+    final ObservableList<Transaction> transactionObservableList =
         FXCollections.observableArrayList(transactions);
     nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
     amountColumn.setCellValueFactory(new PropertyValueFactory<>("Amount"));
@@ -176,22 +207,48 @@ public class EditIncomeController implements Initializable {
     tableView.setItems(transactionObservableList);
   }
 
+  /**
+   * Method for checking if the name field is empty.
+   *
+   * @return True if the name field is empty, false otherwise.
+   */
   private boolean isNameEmpty() {
     return ((incomeName.getText() == null) || (incomeName.getText().isEmpty()));
   }
 
+  /**
+   * Method for checking if the amount field is empty.
+   *
+   * @return True if the amount field is empty, false otherwise.
+   */
   private boolean isAmountEmpty() {
     return ((amount.getText() == null) || (amount).getText().isEmpty());
   }
 
+  /**
+   * Method for checking if the category box is empty.
+   *
+   * @return True if the category box is empty, false otherwise.
+   */
   private boolean isCategoryBoxEmpty() {
     return categoryBox.getSelectionModel().isEmpty();
   }
 
+  /**
+   * Method for checking if the date is not chosen.
+   *
+   * @return True if the date is not chosen, false otherwise.
+   */
   private boolean isDateNotChosen() {
     return (datePicker.getValue() == null);
   }
 
+  /**
+   * Button to go to add category page.
+   *
+   * @param event Mouse click.
+   * @throws IOException If the fxml file can not be found.
+   */
   public void editCategoryButtonPushed(ActionEvent event) throws IOException {
     FXMLLoader rootSwitchToEditCategory =
         new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
@@ -204,8 +261,8 @@ public class EditIncomeController implements Initializable {
   /**
    * Button to go to home page.
    *
-   * @param event mouse click
-   * @throws IOException if invalid input is detected.
+   * @param event Mouse click
+   * @throws IOException If the FXML file can not be found.
    */
   public void goHome(ActionEvent event) throws IOException {
     BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
@@ -220,8 +277,8 @@ public class EditIncomeController implements Initializable {
   /**
    * Button that takes user to income.
    *
-   * @param event mouse click.
-   * @throws IOException if wrong input detected.
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
    */
   public void switchToIncome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
@@ -236,8 +293,8 @@ public class EditIncomeController implements Initializable {
   /**
    * Button that takes user to recurring transactions.
    *
-   * @param event mouse click.
-   * @throws IOException if wrong input detected.
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
    */
   public void switchToRecurringTransactions(ActionEvent event) throws IOException {
     BorderPane rootSwitchToRecurringTrans = (FXMLLoader.load(Objects.requireNonNull(
@@ -252,8 +309,8 @@ public class EditIncomeController implements Initializable {
   /**
    * Button that takes user to future budgeting.
    *
-   * @param event mouse click.
-   * @throws IOException if wrong input detected.
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
    */
   public void switchToFutureBudgeting(ActionEvent event) throws IOException {
     BorderPane rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
@@ -268,8 +325,8 @@ public class EditIncomeController implements Initializable {
   /**
    * Button that takes user to edit expenses.
    *
-   * @param event mouse click.
-   * @throws IOException if wrong input detected.
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
    */
   public void switchToEditExpenses(ActionEvent event) throws IOException {
     BorderPane rootSwitchToAddExpense = (FXMLLoader.load(Objects.requireNonNull(
@@ -284,8 +341,8 @@ public class EditIncomeController implements Initializable {
   /**
    * A button that opens the help option menu.
    *
-   * @param event - mouse click
-   * @throws IOException - if wrong input detected
+   * @param event Mouse click.
+   * @throws IOException If the FXML file can not be found.
    */
   public void openHelpEdit(ActionEvent event) throws IOException {
     FXMLLoader rootSwitchToHelpOption =
