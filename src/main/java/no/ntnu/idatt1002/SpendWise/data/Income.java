@@ -14,7 +14,7 @@ public class Income extends Transaction {
    *
    * @return The amount of the expense as a string representation.
    */
-  protected String amountToString(){
+  protected String amountToString() {
     return Double.toString(this.getAmount()) + " NKr";
   }
 }
