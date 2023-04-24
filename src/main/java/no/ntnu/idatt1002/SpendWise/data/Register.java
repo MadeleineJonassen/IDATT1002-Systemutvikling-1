@@ -190,23 +190,16 @@ public class Register {
 
     /**
      * Returns the category with the given name. If no category is found, null is returned.
-     * This is a deep copy, and can therefore not be used to modify the register.
+     * This is a shallow copy, and can be used to modify the register.
      *
      * @param text Name of the category to search for
      * @return The category with the given name, or null if no category was found
      */
     public Category getCategoryByName(String text) {
-        //TODO This has to be tested, since it may break with a deep copy like this
+        // TODO review if needs to be changed
         for (Category c : categories){
             if (c.getName().equals(text)){
-                Category categoryCopy = new Category(c.getName(), c.isExpenseCategory(), c.isRecurring());
-                try {
-                    // Transaction is guaranteed immutable and can therefore be shallow copied
-                    categoryCopy.addAll(c.getTransactions());
-                } catch (ConformityException e) {
-                    e.printStackTrace();
-                }
-                return categoryCopy;
+                return c;
             }
         }
 

@@ -14,6 +14,9 @@ import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Tests for data operations with the RegisterController class.
+ */
 @SuppressWarnings("VulnerableCodeUsages")
 public class RegisterControllerTest {
     @Test
@@ -29,7 +32,5 @@ public class RegisterControllerTest {
         JSONObject writeJson = RegisterController.writeData(readRegister);
 
         assertEquals(readJson.toString(), writeJson.toString());
-
-        // TODO add test with empty category
     }
 }

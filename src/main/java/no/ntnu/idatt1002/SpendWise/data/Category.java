@@ -62,7 +62,8 @@ public class Category {
         // If transaction is not the same as any other transaction in the category
         if (!transactions.isEmpty()){
             if (!transactions.get(0).getClass().equals(t.getClass())){
-                throw new ConformityException("Transaction has to be of same type as others in category");
+                throw new ConformityException("Transaction has to be of same type as others in category"
+                + " (needs to be " + transactions.get(0).getClass() + ")");
             }
         }
 
