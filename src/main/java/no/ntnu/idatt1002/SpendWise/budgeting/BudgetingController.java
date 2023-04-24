@@ -258,16 +258,15 @@ public class BudgetingController implements Initializable {
    * @throws IOException if wrong input is detected.
    */
   @FXML
-  public void goHome(ActionEvent event) throws IOException {
+  public void goHome(javafx.event.ActionEvent event) throws IOException {
     BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/SpendWiseHomePage.fxml"))));
+          getClass().getResource("/SpendWiseHomePage.fxml"))));
 
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);
     stage.setScene(scene);
     stage.show();
   }
-
   /**
    * Button that takes user to income.
 
@@ -330,5 +329,6 @@ public class BudgetingController implements Initializable {
     stage.setScene(new Scene(rootHelp));
     stage.show();
   }
+
 
 }
