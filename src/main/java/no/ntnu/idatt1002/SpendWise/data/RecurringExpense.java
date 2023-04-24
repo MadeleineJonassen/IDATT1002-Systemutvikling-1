@@ -10,9 +10,9 @@ public class RecurringExpense extends Expense {
   /**
    * Constructor for a recurring expense.
    *
-   * @param name Name of the expense.
-   * @param notes Notes for the expense.
-   * @param date Date of the expense. (Day of the month)
+   * @param name   Name of the expense.
+   * @param notes  Notes for the expense.
+   * @param date   Date of the expense. (Day of the month)
    * @param amount Amount of the expense.
    */
   public RecurringExpense(String name, String notes, String date, double amount) {
@@ -23,7 +23,7 @@ public class RecurringExpense extends Expense {
    * Returns whether the expense is within the given time frame.
    *
    * @param fromDate The start date of the time frame.
-   * @param toDate The end date of the time frame.
+   * @param toDate   The end date of the time frame.
    * @return True if the expense is within the time frame, false otherwise.
    */
   public boolean isWithinTimeFrame(LocalDate fromDate, LocalDate toDate) {

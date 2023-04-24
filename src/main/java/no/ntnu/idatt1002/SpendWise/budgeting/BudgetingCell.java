@@ -16,7 +16,7 @@ public class BudgetingCell {
    * Constructor for the BudgetingCell class.
    *
    * @param expected Expected amount of money to spend.
-   * @param actual  Actual amount of money spent.
+   * @param actual   Actual amount of money spent.
    * @param category Category of the cell.
    */
   public BudgetingCell(double expected, double actual, Category category) {
@@ -29,7 +29,7 @@ public class BudgetingCell {
   /**
    * Constructor for the BudgetingCell class.
    *
-   * @param actual  Actual amount of money spent.
+   * @param actual   Actual amount of money spent.
    * @param category Category of the cell.
    */
   public BudgetingCell(double actual, Category category) {

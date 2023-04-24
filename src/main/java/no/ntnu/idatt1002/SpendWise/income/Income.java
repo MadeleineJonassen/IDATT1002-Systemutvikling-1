@@ -11,6 +11,10 @@ import javafx.stage.Stage;
  */
 public class Income extends Application {
 
+  public static void main(String[] args) {
+    Application.launch(args);
+  }
+
   @Override
   public void start(Stage primaryStage) throws Exception {
     URL fxmlUrl = getClass().getResource("/Income.fxml");
@@ -18,10 +22,6 @@ public class Income extends Application {
     Scene scene = FXMLLoader.load(fxmlUrl);
     primaryStage.setScene(scene);
     primaryStage.show();
-  }
-
-  public static void main(String[] args) {
-    Application.launch(args);
   }
 }
 

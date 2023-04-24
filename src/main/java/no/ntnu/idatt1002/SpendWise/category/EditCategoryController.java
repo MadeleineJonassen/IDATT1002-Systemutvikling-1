@@ -57,7 +57,7 @@ public class EditCategoryController implements Initializable {
 
   /**
    * Button to go to home page.
-
+   *
    * @param event mouse click
    * @throws IOException if invalid input is detected.
    */
@@ -92,7 +92,7 @@ public class EditCategoryController implements Initializable {
    *
    * @param actionEvent Mouse click
    * @throws DuplicateNameException If the category name already exists
-   * @throws ConformityException If the category is not an expense or income
+   * @throws ConformityException    If the category is not an expense or income
    */
   public void addCategoryPressed(ActionEvent actionEvent) throws
       DuplicateNameException, ConformityException {

@@ -1,5 +1,10 @@
 package no.ntnu.idatt1002.SpendWise.expenses;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,12 +25,6 @@ import no.ntnu.idatt1002.SpendWise.data.Category;
 import no.ntnu.idatt1002.SpendWise.data.Register;
 import no.ntnu.idatt1002.SpendWise.data.RegisterController;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.ResourceBundle;
-
 /**
  * GUI controller for the expenses.
  */
@@ -45,7 +44,7 @@ public class ExpensesController implements Initializable {
 
   public void goHome(ActionEvent event) throws IOException {
     BorderPane rootGoHome = (FXMLLoader.load(
-            Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
+        Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);
     stage.setScene(scene);
@@ -55,13 +54,13 @@ public class ExpensesController implements Initializable {
 
   /**
    * Button that takes user to income.
-
+   *
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToIncome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/Income.fxml"))));
+        getClass().getResource("/Income.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToIncome);
@@ -77,7 +76,7 @@ public class ExpensesController implements Initializable {
    */
   public void switchToRecurringTransactions(ActionEvent event) throws IOException {
     BorderPane rootSwitchToRecurringTrans = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/RecurringTransactions.fxml"))));
+        getClass().getResource("/RecurringTransactions.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToRecurringTrans);
@@ -93,7 +92,7 @@ public class ExpensesController implements Initializable {
    */
   public void switchToEditIncome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/EditIncome.fxml"))));
+        getClass().getResource("/EditIncome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToEditIncome);
@@ -109,7 +108,7 @@ public class ExpensesController implements Initializable {
    */
   public void switchToFutureBudgeting(ActionEvent event) throws IOException {
     BorderPane rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/FutureBudgeting.fxml"))));
+        getClass().getResource("/FutureBudgeting.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToFutureBudgeting);
@@ -124,7 +123,8 @@ public class ExpensesController implements Initializable {
    * @throws IOException - if wrong input detected
    */
   public void openHelpOption(ActionEvent event) throws IOException {
-    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpExpenses.fxml"));
+    FXMLLoader rootSwitchToHelpOption =
+        new FXMLLoader(getClass().getResource("/HelpScenes/HelpExpenses.fxml"));
     Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
     Stage stage = new Stage();
     stage.setScene(new Scene(rootHelp));
@@ -152,7 +152,7 @@ public class ExpensesController implements Initializable {
 
     try {
       register = RegisterController.readData(Objects.requireNonNull(
-              getClass().getClassLoader().getResource("database/register.json")));
+          getClass().getClassLoader().getResource("database/register.json")));
     } catch (Exception e) {
       e.printStackTrace();
       return;
@@ -164,7 +164,7 @@ public class ExpensesController implements Initializable {
       if (category.isExpenseCategory()) {
         CheckBox checkBox = new CheckBox(category.getName());
         checkBox.setSelected(false);
-        checkBox.setFont(Font.font("Arial",20));
+        checkBox.setFont(Font.font("Arial", 20));
         categoryCheckBoxes.getChildren().add(checkBox);
       }
     }

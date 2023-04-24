@@ -21,9 +21,9 @@ public class RegisterController {
    *
    * @param url The URL of the JSON file.
    * @return A Register object, with all the data from the JSON file loaded.
-   * @throws IOException If the file read fails.
-   * @throws URISyntaxException If the URL is invalid.
-   * @throws ConformityException If the data in the JSON file is invalid.
+   * @throws IOException            If the file read fails.
+   * @throws URISyntaxException     If the URL is invalid.
+   * @throws ConformityException    If the data in the JSON file is invalid.
    * @throws DuplicateNameException If the data in the JSON file is invalid.
    */
   @SuppressWarnings("VulnerableCodeUsages")

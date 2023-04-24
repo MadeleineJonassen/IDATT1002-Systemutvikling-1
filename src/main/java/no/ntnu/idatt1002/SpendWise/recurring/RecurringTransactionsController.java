@@ -1,5 +1,11 @@
 package no.ntnu.idatt1002.SpendWise.recurring;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,10 +16,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import no.ntnu.idatt1002.SpendWise.data.Expense;
@@ -22,14 +29,6 @@ import no.ntnu.idatt1002.SpendWise.data.RegisterController;
 import no.ntnu.idatt1002.SpendWise.data.Transaction;
 import no.ntnu.idatt1002.SpendWise.exceptions.ConformityException;
 import no.ntnu.idatt1002.SpendWise.exceptions.DuplicateNameException;
-
-//import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.ResourceBundle;
 
 /**
  * Controller for recurring transactions FXML.
@@ -53,8 +52,10 @@ public class RecurringTransactionsController implements Initializable {
   private PieChart pieChart;
   private Register categoryRegister;
 
-  public RecurringTransactionsController() throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
-    categoryRegister = RegisterController.readData(getClass().getClassLoader().getResource("database/register.json"));
+  public RecurringTransactionsController()
+      throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
+    categoryRegister = RegisterController.readData(
+        getClass().getClassLoader().getResource("database/register.json"));
   }
 
   @Override
@@ -65,7 +66,8 @@ public class RecurringTransactionsController implements Initializable {
 
   private void fillTable() {
     ArrayList<Transaction> transactions = categoryRegister.getTransactionsByCategoryType(true);
-    ObservableList<Transaction> transactionObservableList = FXCollections.observableArrayList(transactions);
+    ObservableList<Transaction> transactionObservableList =
+        FXCollections.observableArrayList(transactions);
     name.setCellValueFactory(new PropertyValueFactory<>("Name"));
     amount.setCellValueFactory(new PropertyValueFactory<>("Amount"));
     date.setCellValueFactory(new PropertyValueFactory<>("Date"));
@@ -84,8 +86,8 @@ public class RecurringTransactionsController implements Initializable {
       }
     }
     ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-      new PieChart.Data("Expenses", expenseAmount),
-      new PieChart.Data("Income", incomeAmount)
+        new PieChart.Data("Expenses", expenseAmount),
+        new PieChart.Data("Income", incomeAmount)
     );
     pieChart.setData(pieChartData);
   }
@@ -102,13 +104,13 @@ public class RecurringTransactionsController implements Initializable {
 
   /**
    * Button to go to home page of application.
-
+   *
    * @param event when button is pressed with mouse.
    * @throws IOException if input is invalid.
    */
   public void goHome(ActionEvent event) throws IOException {
     BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
-            "/SpendWiseHomePage.fxml"))));
+        "/SpendWiseHomePage.fxml"))));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);
     stage.setScene(scene);
@@ -117,13 +119,13 @@ public class RecurringTransactionsController implements Initializable {
 
   /**
    * Button that takes user to income.
-
+   *
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToIncome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/Income.fxml"))));
+        getClass().getResource("/Income.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToIncome);
@@ -134,13 +136,13 @@ public class RecurringTransactionsController implements Initializable {
 
   /**
    * Button that takes user to future budgeting.
-
+   *
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToFutureBudgeting(ActionEvent event) throws IOException {
     BorderPane rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/FutureBudgeting.fxml"))));
+        getClass().getResource("/FutureBudgeting.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToFutureBudgeting);
@@ -150,13 +152,13 @@ public class RecurringTransactionsController implements Initializable {
 
   /**
    * Button that takes user to edit income.
-
+   *
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToEditIncome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/EditIncome.fxml"))));
+        getClass().getResource("/EditIncome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToEditIncome);
@@ -166,11 +168,13 @@ public class RecurringTransactionsController implements Initializable {
 
   /**
    * A button that opens the help option menu.
+   *
    * @param event - mouse click
    * @throws IOException - if wrong input detected
    */
   public void openHelpOption(ActionEvent event) throws IOException {
-    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpRecTrans.fxml"));
+    FXMLLoader rootSwitchToHelpOption =
+        new FXMLLoader(getClass().getResource("/HelpScenes/HelpRecTrans.fxml"));
     Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
     Stage stage = new Stage();
     stage.setScene(new Scene(rootHelp));

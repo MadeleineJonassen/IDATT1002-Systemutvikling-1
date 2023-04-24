@@ -20,7 +20,7 @@ public class Register {
    * ConformityException will be thrown.
    *
    * @param transaction The transaction to be added.
-   * @param catString The name of the category to add the transaction to.
+   * @param catString   The name of the category to add the transaction to.
    * @throws ConformityException If the transaction type does not match the category type.
    */
   public void addTransactionToCategory(Transaction transaction, String catString)

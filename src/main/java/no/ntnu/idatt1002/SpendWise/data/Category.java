@@ -14,15 +14,15 @@ import no.ntnu.idatt1002.SpendWise.exceptions.ConformityException;
 public class Category {
   private final String name;
   private final ArrayList<Transaction> transactions = new ArrayList<>();
-  private int numberOfTransactions;
   private final boolean isExpenseCategory; // false means income, true means expense
   private final boolean isRecurringCategory;
+  private int numberOfTransactions;
 
   /**
    * Constructor a category.
    *
-   * @param name The name of the category.
-   * @param isExpenseCategory If the category holds Expense objects or not.
+   * @param name                The name of the category.
+   * @param isExpenseCategory   If the category holds Expense objects or not.
    * @param isRecurringCategory If the category is recurring or not
    */
   public Category(String name, boolean isExpenseCategory, boolean isRecurringCategory) {
@@ -137,7 +137,7 @@ public class Category {
    * Returns the sum of transactions in the category that fit the given timeframe.
    *
    * @param from The "from" date as a LocalDate object.
-   * @param to The "to" date as a LocalDate object.
+   * @param to   The "to" date as a LocalDate object.
    * @return The sum of transactions in the given timeframe as a double.
    */
   public double getTotalAmountWithinTimeFrame(LocalDate from, LocalDate to) {

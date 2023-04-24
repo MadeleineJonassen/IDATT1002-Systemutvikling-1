@@ -19,15 +19,15 @@ public abstract class Transaction {
   //TODO make into string (all other places)
   private final SimpleStringProperty date;
   private final SimpleDoubleProperty amount;
-  private SimpleStringProperty category; // Only used by tableview
   private final SimpleStringProperty amountString; // Only used by tableview
+  private SimpleStringProperty category; // Only used by tableview
 
   /**
    * Constructor for a transaction.
    *
-   * @param name The name given to the transaction.
-   * @param notes The notes given to the transaction, may be empty.
-   * @param date The date given to the transactions as a String. ISO 8601 format.
+   * @param name   The name given to the transaction.
+   * @param notes  The notes given to the transaction, may be empty.
+   * @param date   The date given to the transactions as a String. ISO 8601 format.
    * @param amount The amount of the transactions as a double. Does not specify a currency
    */
   public Transaction(String name, String notes, String date, double amount) {
@@ -120,7 +120,7 @@ public abstract class Transaction {
    * Checks if the transaction is within the given time frame.
    *
    * @param fromDate The start date of the time frame.
-   * @param toDate The end date of the time frame.
+   * @param toDate   The end date of the time frame.
    * @return True if the transaction is within the time frame, false otherwise.
    */
   public boolean isWithinTimeFrame(LocalDate fromDate, LocalDate toDate) {

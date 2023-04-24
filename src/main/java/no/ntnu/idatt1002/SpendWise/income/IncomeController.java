@@ -42,7 +42,8 @@ public class IncomeController implements Initializable {
   private Register register;
 
   public void editCategoryButtonPushed(ActionEvent event) throws IOException {
-    FXMLLoader rootSwitchToEditCategory = new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
+    FXMLLoader rootSwitchToEditCategory =
+        new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
     Parent rootEditCategory = (Parent) rootSwitchToEditCategory.load();
     Stage stage = new Stage();
     stage.setScene(new Scene(rootEditCategory));
@@ -51,8 +52,8 @@ public class IncomeController implements Initializable {
 
   /**
    * Making comment to make checkstyle go away. TODO: comment for real.
-
-   * @param url unknown
+   *
+   * @param url            unknown
    * @param resourceBundle unknown
    */
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -69,7 +70,7 @@ public class IncomeController implements Initializable {
       // Only add Income categories to the list
       if (!category.isExpenseCategory()) {
         CheckBox checkBox = new CheckBox(category.getName());
-        checkBox.setFont(Font.font("Arial",20));
+        checkBox.setFont(Font.font("Arial", 20));
         checkBox.setSelected(false);
         categoryCheckBoxes.getChildren().add(checkBox);
       }
@@ -119,13 +120,13 @@ public class IncomeController implements Initializable {
 
   /**
    * Button to go to home page.
-
+   *
    * @param event mouse click
    * @throws IOException if invalid input is detected.
    */
   public void goHome(ActionEvent event) throws IOException {
     BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/SpendWiseHomePage.fxml"))));
+        getClass().getResource("/SpendWiseHomePage.fxml"))));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);
     stage.setScene(scene);
@@ -134,7 +135,7 @@ public class IncomeController implements Initializable {
 
   public void switchToExpenses(ActionEvent event) throws IOException {
     BorderPane rootSwitchToOutcome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/Expenses.fxml"))));
+        getClass().getResource("/Expenses.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToOutcome);
@@ -144,13 +145,13 @@ public class IncomeController implements Initializable {
 
   /**
    * Button that takes user to recurring transactions.
-
+   *
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToRecurringTransactions(ActionEvent event) throws IOException {
     BorderPane rootSwitchToRecurringTrans = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/RecurringTransactions.fxml"))));
+        getClass().getResource("/RecurringTransactions.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToRecurringTrans);
@@ -160,13 +161,13 @@ public class IncomeController implements Initializable {
 
   /**
    * Button that takes user to future budgeting.
-
+   *
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToFutureBudgeting(ActionEvent event) throws IOException {
     BorderPane rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/FutureBudgeting.fxml"))));
+        getClass().getResource("/FutureBudgeting.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToFutureBudgeting);
@@ -176,13 +177,13 @@ public class IncomeController implements Initializable {
 
   /**
    * Button that takes user to edit income.
-
+   *
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToEditIncome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/EditIncome.fxml"))));
+        getClass().getResource("/EditIncome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToEditIncome);
@@ -192,11 +193,13 @@ public class IncomeController implements Initializable {
 
   /**
    * A button that opens the help option menu.
+   *
    * @param event - mouse click
    * @throws IOException - if wrong input detected
    */
   public void openHelpOption(ActionEvent event) throws IOException {
-    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpIncome.fxml"));
+    FXMLLoader rootSwitchToHelpOption =
+        new FXMLLoader(getClass().getResource("/HelpScenes/HelpIncome.fxml"));
     Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
     Stage stage = new Stage();
     stage.setScene(new Scene(rootHelp));

@@ -87,9 +87,9 @@ public class BudgetingController {
    * Constructor for the budgeting controller.
    *
    * @throws DuplicateNameException If the name of the category is already in the register.
-   * @throws IOException If the file is not found.
-   * @throws URISyntaxException If the URI is not correct.
-   * @throws ConformityException If the data is not correct.
+   * @throws IOException            If the file is not found.
+   * @throws URISyntaxException     If the URI is not correct.
+   * @throws ConformityException    If the data is not correct.
    */
   public BudgetingController() throws DuplicateNameException, IOException,
       URISyntaxException, ConformityException {
@@ -291,7 +291,7 @@ public class BudgetingController {
 
   /**
    * Trigger for the home button.
-
+   *
    * @param event Mouse click on button.
    * @throws IOException If wrong input is detected.
    */

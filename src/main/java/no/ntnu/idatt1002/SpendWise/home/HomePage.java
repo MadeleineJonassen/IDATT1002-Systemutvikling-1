@@ -16,11 +16,15 @@ public class HomePage extends Application {
 
   Stage window;
 
+  public static void main(String[] args) {
+    launch();
+  }
+
   @Override
   public void start(Stage stage) throws IOException {
 
     window = stage;
-    window.setOnCloseRequest(e-> {
+    window.setOnCloseRequest(e -> {
       e.consume();
       closeProgram();
     });
@@ -33,13 +37,10 @@ public class HomePage extends Application {
     stage.show();
   }
 
-  public static void main(String[] args) {
-    launch();
-  }
-
-  private void closeProgram(){
+  private void closeProgram() {
     Boolean answer = ConfirmBox.display("Title", "Are you sure you want to exit?");
-    if(answer)
+    if (answer) {
       window.close();
+    }
   }
 }

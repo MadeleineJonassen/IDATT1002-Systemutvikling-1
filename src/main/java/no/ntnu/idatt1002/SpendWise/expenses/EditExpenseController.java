@@ -4,8 +4,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.*;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,19 +17,27 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import no.ntnu.idatt1002.SpendWise.data.*;
+import no.ntnu.idatt1002.SpendWise.data.Expense;
+import no.ntnu.idatt1002.SpendWise.data.RecurringExpense;
+import no.ntnu.idatt1002.SpendWise.data.Register;
+import no.ntnu.idatt1002.SpendWise.data.RegisterController;
+import no.ntnu.idatt1002.SpendWise.data.Transaction;
 import no.ntnu.idatt1002.SpendWise.exceptions.ConformityException;
 import no.ntnu.idatt1002.SpendWise.exceptions.DuplicateNameException;
 
 /**
  * Controller for the AddExpense.fxml window.
  */
-
 public class EditExpenseController implements Initializable {
   private Scene scene;
   private Stage stage;
@@ -59,7 +69,8 @@ public class EditExpenseController implements Initializable {
   private List<String> categories;
   private List<String> retrievedCategories;
 
-  public EditExpenseController() throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
+  public EditExpenseController()
+      throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
     categoryRegister = RegisterController.readData(
         Objects.requireNonNull(getClass().getClassLoader().getResource("database/register.json")));
     retrievedCategories = categoryRegister.getCategoriesByTransactionType(true);
@@ -102,7 +113,8 @@ public class EditExpenseController implements Initializable {
       if (isRecurring) {
         String recurringDate = date.substring(8);
         System.out.println(recurringDate);
-        RecurringExpense newExpense = new RecurringExpense(name, expenseNotes, recurringDate,expenseAmount);
+        RecurringExpense newExpense =
+            new RecurringExpense(name, expenseNotes, recurringDate, expenseAmount);
         categoryRegister.addTransactionToCategory(newExpense, categoryChosen);
         writeData();
       } else {
@@ -133,14 +145,13 @@ public class EditExpenseController implements Initializable {
     fillTableView();
   }
 
-  private void writeData(){
+  private void writeData() {
     try {
-      FileWriter file = new FileWriter(
-          Objects.requireNonNull(this.getClass().getClassLoader()
-              .getResource("database/register.json")).getFile());
+      FileWriter file = new FileWriter(Objects.requireNonNull(
+          this.getClass().getClassLoader().getResource("database/register.json")).getFile());
       file.write(RegisterController.writeData(categoryRegister).toString());
       file.close();
-    } catch (IOException e){
+    } catch (IOException e) {
       System.out.println("Could not write to database");
       throw new RuntimeException(e);
     }
@@ -151,9 +162,11 @@ public class EditExpenseController implements Initializable {
     categoryBox.getItems().addAll(categories);
     fillTableView();
   }
+
   public void fillTableView() {
     List<Transaction> transactions = categoryRegister.getTransactionByTransactionType(true);
-    ObservableList<Transaction> transactionObservableList = FXCollections.observableArrayList(transactions);
+    ObservableList<Transaction> transactionObservableList =
+        FXCollections.observableArrayList(transactions);
     nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
     amountColumn.setCellValueFactory(new PropertyValueFactory<>("Amount"));
     categoryColumn.setCellValueFactory(new PropertyValueFactory<>("Category"));
@@ -163,18 +176,22 @@ public class EditExpenseController implements Initializable {
   private boolean isNameEmpty() {
     return ((expenseName.getText() == null) || (expenseName.getText().isEmpty()));
   }
+
   private boolean isAmountEmpty() {
     return ((amount.getText() == null) || (amount).getText().isEmpty());
   }
+
   private boolean isCategoryBoxEmpty() {
     return categoryBox.getSelectionModel().isEmpty();
   }
+
   private boolean isDateNotChosen() {
     return (datePicker.getValue() == null);
   }
 
   public void editCategoryButtonPushed(ActionEvent event) throws IOException {
-    FXMLLoader rootSwitchToEditCategory = new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
+    FXMLLoader rootSwitchToEditCategory =
+        new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
     Parent rootEditCategory = (Parent) rootSwitchToEditCategory.load();
     Stage stage = new Stage();
     stage.setScene(new Scene(rootEditCategory));
@@ -190,8 +207,8 @@ public class EditExpenseController implements Initializable {
    */
 
   public void goHome(ActionEvent event) throws IOException {
-    BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/SpendWiseHomePage.fxml"))));
+    BorderPane rootGoHome = (FXMLLoader.load(
+        Objects.requireNonNull(getClass().getResource("/SpendWiseHomePage.fxml"))));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);
     stage.setScene(scene);
@@ -200,13 +217,13 @@ public class EditExpenseController implements Initializable {
 
   /**
    * Button that takes user to income.
-
+   *
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToIncome(ActionEvent event) throws IOException {
-    BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/Income.fxml"))));
+    BorderPane rootSwitchToIncome =
+        (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Income.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToIncome);
@@ -216,13 +233,13 @@ public class EditExpenseController implements Initializable {
 
   /**
    * Button that takes user to recurring transactions.
-
+   *
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToRecurringTransactions(ActionEvent event) throws IOException {
-    BorderPane rootSwitchToRecurringTrans = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/RecurringTransactions.fxml"))));
+    BorderPane rootSwitchToRecurringTrans = (FXMLLoader.load(
+        Objects.requireNonNull(getClass().getResource("/RecurringTransactions.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToRecurringTrans);
@@ -232,13 +249,13 @@ public class EditExpenseController implements Initializable {
 
   /**
    * Button that takes user to edit income.
-
+   *
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToEditIncome(ActionEvent event) throws IOException {
-    BorderPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/EditIncome.fxml"))));
+    BorderPane rootSwitchToEditIncome =
+        (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/EditIncome.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToEditIncome);
@@ -248,13 +265,13 @@ public class EditExpenseController implements Initializable {
 
   /**
    * Button that takes user to future budgeting.
-
+   *
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
   public void switchToFutureBudgeting(ActionEvent event) throws IOException {
-    BorderPane rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/FutureBudgeting.fxml"))));
+    BorderPane rootSwitchToFutureBudgeting =
+        (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FutureBudgeting.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToFutureBudgeting);
@@ -264,11 +281,13 @@ public class EditExpenseController implements Initializable {
 
   /**
    * A button that opens the help option menu.
+   *
    * @param event - mouse click
    * @throws IOException - if wrong input detected
    */
   public void openHelpEdit(ActionEvent event) throws IOException {
-    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpEdit.fxml"));
+    FXMLLoader rootSwitchToHelpOption =
+        new FXMLLoader(getClass().getResource("/HelpScenes/HelpEdit.fxml"));
     Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
     Stage stage = new Stage();
     stage.setScene(new Scene(rootHelp));

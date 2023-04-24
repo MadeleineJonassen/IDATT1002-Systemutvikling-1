@@ -11,6 +11,10 @@ import javafx.stage.Stage;
  * Creates the GUI stage for recurring transactions.
  */
 public class RecurringTransactions extends Application {
+  public static void main(String[] args) {
+    launch(args);
+  }
+
   @Override
   public void start(Stage primaryStage) throws Exception {
     URL fxmUrl = getClass().getResource("/RecurringTransactions.fxml");
@@ -18,9 +22,5 @@ public class RecurringTransactions extends Application {
     Parent root = FXMLLoader.load(fxmUrl);
     primaryStage.setScene(new Scene(root));
     primaryStage.show();
-  }
-
-  public static void main(String[] args) {
-    launch(args);
   }
 }
