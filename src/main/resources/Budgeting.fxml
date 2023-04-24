@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.SpendWise.budgeting.BudgetingController">
+<BorderPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatt1002.SpendWise.budgeting.BudgetingController">
    <center>
       <BorderPane>
          <top>
             <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: EC84E2; -fx-border-color: #382119;" BorderPane.alignment="CENTER">
                <items>
-                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Overview" textFill="#382119">
+                  <Button mnemonicParsing="false" onAction="#switchToIncome" style="-fx-background-color: translucent;" text="Overview" textFill="#382119">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Recurring Transactions" textFill="#382119">
+                  <Button mnemonicParsing="false" onAction="#switchToRecurringTransactions" style="-fx-background-color: translucent;" text="Recurring Transactions" textFill="#382119">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font></Button>
@@ -25,7 +35,7 @@
                      <font>
                         <Font name="Arial" size="15.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;" text="Edit" textFill="#382119">
+                  <Button mnemonicParsing="false" onAction="#switchToEditIncome" style="-fx-background-color: translucent;" text="Edit" textFill="#382119">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font></Button>
@@ -216,7 +226,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;">
+                  <Button mnemonicParsing="false" onAction="#openHelpOption" style="-fx-background-color: translucent;">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>

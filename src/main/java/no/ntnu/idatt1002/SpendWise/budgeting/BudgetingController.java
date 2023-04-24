@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
@@ -84,6 +85,8 @@ public class BudgetingController implements Initializable {
   private PieChart actualPie;
   private LocalDate dateChosen;
   private Register categoryRegister;
+  private Stage stage;
+  private Scene scene;
 
   public BudgetingController() throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
     categoryRegister = RegisterController.readData(getClass().getClassLoader().getResource("database/register.json"));
@@ -264,4 +267,68 @@ public class BudgetingController implements Initializable {
     stage.setScene(scene);
     stage.show();
   }
+
+  /**
+   * Button that takes user to income.
+
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
+  public void switchToIncome(javafx.event.ActionEvent event) throws IOException {
+    BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/Income.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToIncome);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  /**
+   * Button that takes user to recurring transactions.
+
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
+  public void switchToRecurringTransactions(javafx.event.ActionEvent event) throws IOException {
+    BorderPane rootSwitchToRecurringTrans = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/RecurringTransactions.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToRecurringTrans);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+
+
+  /**
+   * Button that takes user to edit income.
+
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
+  public void switchToEditIncome(javafx.event.ActionEvent event) throws IOException {
+    BorderPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/EditIncome.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToEditIncome);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  /**
+   * A button that opens the help option menu.
+   * @param event - mouse click
+   * @throws IOException - if wrong input detected
+   */
+  public void openHelpOption(javafx.event.ActionEvent event) throws IOException {
+    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpBudgeting.fxml"));
+    Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
+    Stage stage = new Stage();
+    stage.setScene(new Scene(rootHelp));
+    stage.show();
+  }
+
 }
