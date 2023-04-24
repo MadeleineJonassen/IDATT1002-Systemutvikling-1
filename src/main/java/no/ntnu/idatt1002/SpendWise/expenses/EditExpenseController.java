@@ -1,5 +1,6 @@
 package no.ntnu.idatt1002.SpendWise.expenses;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -59,7 +60,8 @@ public class EditExpenseController implements Initializable {
   private List<String> retrievedCategories;
 
   public EditExpenseController() throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
-    categoryRegister = RegisterController.readData(getClass().getClassLoader().getResource("database/register.json"));
+    categoryRegister = RegisterController.readData(
+        Objects.requireNonNull(getClass().getClassLoader().getResource("database/register.json")));
     retrievedCategories = categoryRegister.getCategoriesByTransactionType(true);
     categories = new ArrayList<>();
     for (String category : retrievedCategories) {
@@ -76,6 +78,8 @@ public class EditExpenseController implements Initializable {
       categoryRegister.removeTransaction(selectedItem);
       tableView.getItems().remove(selectedItem);
     }
+
+    writeData();
   }
 
   public void addExpensePressed() throws ConformityException, IOException {
@@ -100,12 +104,11 @@ public class EditExpenseController implements Initializable {
         System.out.println(recurringDate);
         RecurringExpense newExpense = new RecurringExpense(name, expenseNotes, recurringDate,expenseAmount);
         categoryRegister.addTransactionToCategory(newExpense, categoryChosen);
-        // TODO make into actual file write when the time comes
-        System.out.println(RegisterController.writeData(categoryRegister));
+        writeData();
       } else {
         Expense expense = new Expense(name, expenseNotes, date, expenseAmount);
         categoryRegister.addTransactionToCategory(expense, categoryChosen);
-        System.out.println(RegisterController.writeData(categoryRegister));
+        writeData();
       }
       expenseName.clear();
       amount.clear();
@@ -126,7 +129,21 @@ public class EditExpenseController implements Initializable {
         datePicker.setPromptText("CHOSE DATE");
       }
     }
+
     fillTableView();
+  }
+
+  private void writeData(){
+    try {
+      FileWriter file = new FileWriter(
+          Objects.requireNonNull(this.getClass().getClassLoader()
+              .getResource("database/register.json")).getFile());
+      file.write(RegisterController.writeData(categoryRegister).toString());
+      file.close();
+    } catch (IOException e){
+      System.out.println("Could not write to database");
+      throw new RuntimeException(e);
+    }
   }
 
   @Override

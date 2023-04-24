@@ -1,5 +1,6 @@
 package no.ntnu.idatt1002.SpendWise.income;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -64,7 +65,8 @@ public class EditIncomeController implements Initializable {
   private List<String> retrievedCategories;
 
   public EditIncomeController() throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
-    categoryRegister = RegisterController.readData(getClass().getClassLoader().getResource("database/register.json"));
+    categoryRegister = RegisterController.readData(
+        Objects.requireNonNull(getClass().getClassLoader().getResource("database/register.json")));
     retrievedCategories = categoryRegister.getCategoriesByTransactionType(false);
     categories = new ArrayList<>();
     for (String category : retrievedCategories) {
@@ -75,12 +77,27 @@ public class EditIncomeController implements Initializable {
     }
   }
 
+  private void writeData(){
+    try {
+      FileWriter file = new FileWriter(
+          Objects.requireNonNull(this.getClass().getClassLoader()
+              .getResource("database/register.json")).getFile());
+      file.write(RegisterController.writeData(categoryRegister).toString());
+      file.close();
+    } catch (IOException e){
+      System.out.println("Could not write to database");
+      throw new RuntimeException(e);
+    }
+  }
+
   public void deleteIncomePressed() throws ConformityException {
     Transaction selectedItem = tableView.getSelectionModel().getSelectedItem();
     if (selectedItem != null) {
       categoryRegister.removeTransaction(selectedItem);
       tableView.getItems().remove(selectedItem);
     }
+
+    writeData();
   }
   public void addIncomePressed() throws IOException, ConformityException {
     try {
@@ -104,11 +121,11 @@ public class EditIncomeController implements Initializable {
         System.out.println(recurringDate);
         RecurringIncome newIncome = new RecurringIncome(name, incomeNotes, recurringDate,incomeAmount);
         categoryRegister.addTransactionToCategory(newIncome, categoryChosen);
-        System.out.println(RegisterController.writeData(categoryRegister));
+        writeData();
       } else {
         Income income = new Income(name, incomeNotes, date, incomeAmount);
         categoryRegister.addTransactionToCategory(income, categoryChosen);
-        System.out.println(RegisterController.writeData(categoryRegister));
+        writeData();
       }
       incomeName.clear();
       amount.clear();
@@ -129,6 +146,7 @@ public class EditIncomeController implements Initializable {
         datePicker.setPromptText("CHOSE DATE");
       }
     }
+
     fillTableView();
   }
 
