@@ -86,12 +86,12 @@ public class HomePageController implements Initializable {
    * @param event mouse click.
    * @throws IOException if wrong input detected.
    */
-  public void switchToFutureBudgeting(ActionEvent event) throws IOException {
-    BorderPane rootSwitchToFutureBudgeting = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/FutureBudgeting.fxml"))));
+  public void switchToBudgeting(ActionEvent event) throws IOException {
+    BorderPane rootSwitchToBudgeting = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/Budgeting.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    scene = new Scene(rootSwitchToFutureBudgeting);
+    scene = new Scene(rootSwitchToBudgeting);
     stage.setScene(scene);
     stage.show();
   }
