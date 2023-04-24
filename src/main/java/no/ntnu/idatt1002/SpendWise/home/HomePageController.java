@@ -56,7 +56,7 @@ public class HomePageController implements Initializable {
    */
   public void switchToIncome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/NewIncome.fxml"))));
+            getClass().getResource("/Income.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToIncome);
@@ -159,7 +159,7 @@ public class HomePageController implements Initializable {
     double totalIncome = 0;
     double totalExpenses = 0;
     LocalDate today = LocalDate.now();
-    pieChart.setTitle("Overview this fiscal month (" + today.getMonth() + ")");
+    pieChart.setTitle("Overview for " + today.getMonth());
     // Checks the total income and expenses for the current fiscal month.
     for (Category c : register.getCategories()){
       if (c.isIncomeCategory()) {

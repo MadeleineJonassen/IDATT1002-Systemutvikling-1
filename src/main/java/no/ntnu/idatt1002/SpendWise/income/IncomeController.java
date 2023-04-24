@@ -19,6 +19,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import no.ntnu.idatt1002.SpendWise.data.Category;
 import no.ntnu.idatt1002.SpendWise.data.Register;
@@ -39,7 +40,6 @@ public class IncomeController implements Initializable {
   @FXML
   private PieChart pieChart;
   private Register register;
-  private Scene rootSwitchToEditCategory;
 
   public void editCategoryButtonPushed(ActionEvent event) throws IOException {
     FXMLLoader rootSwitchToEditCategory = new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
@@ -48,15 +48,6 @@ public class IncomeController implements Initializable {
     stage.setScene(new Scene(rootEditCategory));
     stage.show();
   }
-
-  public void editIncomeButtonPushed() {
-    System.out.println("The edit income button has been pushed");
-  }
-
-  public void changeToIncomeBarGraphButtonPushed() {
-    System.out.println("The change to bar graph button has been pushed");
-  }
-
 
   /**
    * Making comment to make checkstyle go away. TODO: comment for real.
@@ -78,6 +69,7 @@ public class IncomeController implements Initializable {
       // Only add Income categories to the list
       if (!category.isExpenseCategory()) {
         CheckBox checkBox = new CheckBox(category.getName());
+        checkBox.setFont(Font.font("Arial",20));
         checkBox.setSelected(false);
         categoryCheckBoxes.getChildren().add(checkBox);
       }

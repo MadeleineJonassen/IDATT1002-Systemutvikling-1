@@ -13,7 +13,7 @@ public class Income extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    URL fxmlUrl = getClass().getResource("/NewIncome.fxml");
+    URL fxmlUrl = getClass().getResource("/Income.fxml");
     primaryStage.setTitle("Income");
     Scene scene = FXMLLoader.load(fxmlUrl);
     primaryStage.setScene(scene);

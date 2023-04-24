@@ -156,6 +156,13 @@ public class EditExpenseController implements Initializable {
     return (datePicker.getValue() == null);
   }
 
+  public void editCategoryButtonPushed(ActionEvent event) throws IOException {
+    FXMLLoader rootSwitchToEditCategory = new FXMLLoader(getClass().getResource("/EditCategory.fxml"));
+    Parent rootEditCategory = (Parent) rootSwitchToEditCategory.load();
+    Stage stage = new Stage();
+    stage.setScene(new Scene(rootEditCategory));
+    stage.show();
+  }
 
 
   /**
@@ -182,7 +189,7 @@ public class EditExpenseController implements Initializable {
    */
   public void switchToIncome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/NewIncome.fxml"))));
+            getClass().getResource("/Income.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToIncome);

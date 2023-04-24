@@ -123,7 +123,7 @@ public class RecurringTransactionsController implements Initializable {
    */
   public void switchToIncome(ActionEvent event) throws IOException {
     BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
-            getClass().getResource("/NewIncome.fxml"))));
+            getClass().getResource("/Income.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToIncome);
