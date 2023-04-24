@@ -13,8 +13,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
@@ -23,11 +26,25 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.util.converter.LocalDateStringConverter;
 import no.ntnu.idatt1002.SpendWise.data.Category;
 import no.ntnu.idatt1002.SpendWise.data.Register;
 import no.ntnu.idatt1002.SpendWise.data.RegisterController;
 import no.ntnu.idatt1002.SpendWise.exceptions.ConformityException;
 import no.ntnu.idatt1002.SpendWise.exceptions.DuplicateNameException;
+import org.w3c.dom.Text;
+
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Year;
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 /**
  * Class that controls the budgeting window.
@@ -82,6 +99,8 @@ public class BudgetingController {
   private PieChart actualPie;
   private LocalDate dateChosen;
   private Register categoryRegister;
+  private Stage stage;
+  private Scene scene;
 
   /**
    * Constructor for the budgeting controller.
@@ -232,9 +251,6 @@ public class BudgetingController {
     fillCharts();
   }
 
-  /**
-   * Fills the charts with the data the user wants to view.
-   */
   public void fillCharts() {
     ObservableList<PieChart.Data> piechartExpectedData = FXCollections.observableArrayList();
     piechartExpectedData.add(new PieChart.Data("Expected expenses", expectedExpense));
@@ -247,9 +263,6 @@ public class BudgetingController {
     actualPie.setData(piechartActualData);
   }
 
-  /**
-   * Updates the total values.
-   */
   private void updateTotal() {
     for (BudgetingCell item : tableViewIncomeCat.getItems()) {
       actualIncome += item.getActual();
@@ -270,11 +283,6 @@ public class BudgetingController {
     totalExpected.setText(Double.toString(totalExpectedDoub));
   }
 
-  /**
-   * Returns the dates chosen.
-   *
-   * @return The dates as a list of LocalDate objects.
-   */
   private List<LocalDate> getDates() {
     Calendar c = Calendar.getInstance();
     ArrayList<LocalDate> dates = new ArrayList<>();
@@ -290,10 +298,10 @@ public class BudgetingController {
   }
 
   /**
-   * Trigger for the home button.
-   *
-   * @param event Mouse click on button.
-   * @throws IOException If wrong input is detected.
+   * Home button.
+
+   * @param event mouse click on button.
+   * @throws IOException if wrong input is detected.
    */
   @FXML
   public void goHome(ActionEvent event) throws IOException {
