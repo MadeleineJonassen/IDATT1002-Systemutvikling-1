@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
@@ -25,6 +26,7 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
@@ -84,6 +86,8 @@ public class BudgetingController implements Initializable {
   private PieChart actualPie;
   private LocalDate dateChosen;
   private Register categoryRegister;
+  private Stage stage;
+  private Scene scene;
 
   public BudgetingController() throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
     categoryRegister = RegisterController.readData(getClass().getClassLoader().getResource("database/register.json"));
@@ -91,7 +95,6 @@ public class BudgetingController implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-
   }
 
   private void fillTableIncome() {
@@ -215,6 +218,10 @@ public class BudgetingController implements Initializable {
   }
 
   private void updateTotal() {
+    totalActualDoub = 0;
+    totalExpectedDoub = 0;
+    totalDifferenceDoub = 0;
+
     for (BudgetingCell item : tableViewIncomeCat.getItems()) {
       actualIncome += item.getActual();
       expectedIncome += item.getExpected();
@@ -229,9 +236,12 @@ public class BudgetingController implements Initializable {
       totalDifferenceDoub += item.getDifference();
       totalExpectedDoub -= item.getExpected();
     }
-    totalActual.setText(Double.toString(totalActualDoub));
-    totalDifference.setText(Double.toString(totalDifferenceDoub));
-    totalExpected.setText(Double.toString(totalExpectedDoub));
+    //totalActual.setText(Double.toString(totalActualDoub));
+    totalActual.setText(new DecimalFormat("##.##").format(totalActualDoub));
+    //totalDifference.setText(Double.toString(totalDifferenceDoub));
+    totalDifference.setText(new DecimalFormat("##.##").format(totalDifferenceDoub));
+    //totalExpected.setText(Double.toString(totalExpectedDoub));
+    totalExpected.setText(new DecimalFormat("##.##").format(totalExpectedDoub));
   }
 
   private List<LocalDate> getDates() {
@@ -255,13 +265,77 @@ public class BudgetingController implements Initializable {
    * @throws IOException if wrong input is detected.
    */
   @FXML
-  public void goHome(ActionEvent event) throws IOException {
+  public void goHome(javafx.event.ActionEvent event) throws IOException {
     BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/SpendWiseHomePage.fxml"))));
+          getClass().getResource("/SpendWiseHomePage.fxml"))));
 
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(rootGoHome);
     stage.setScene(scene);
     stage.show();
   }
+  /**
+   * Button that takes user to income.
+
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
+  public void switchToIncome(javafx.event.ActionEvent event) throws IOException {
+    BorderPane rootSwitchToIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/Income.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToIncome);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  /**
+   * Button that takes user to recurring transactions.
+
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
+  public void switchToRecurringTransactions(javafx.event.ActionEvent event) throws IOException {
+    BorderPane rootSwitchToRecurringTrans = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/RecurringTransactions.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToRecurringTrans);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+
+
+  /**
+   * Button that takes user to edit income.
+
+   * @param event mouse click.
+   * @throws IOException if wrong input detected.
+   */
+  public void switchToEditIncome(javafx.event.ActionEvent event) throws IOException {
+    BorderPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/EditIncome.fxml"))));
+
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(rootSwitchToEditIncome);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  /**
+   * A button that opens the help option menu.
+   * @param event - mouse click
+   * @throws IOException - if wrong input detected
+   */
+  public void openHelpOption(javafx.event.ActionEvent event) throws IOException {
+    FXMLLoader rootSwitchToHelpOption = new FXMLLoader(getClass().getResource("/HelpScenes/HelpBudgeting.fxml"));
+    Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
+    Stage stage = new Stage();
+    stage.setScene(new Scene(rootHelp));
+    stage.show();
+  }
+
+
 }
