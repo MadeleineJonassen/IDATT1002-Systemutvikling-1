@@ -1,4 +1,4 @@
-package no.ntnu.idatt1002.demo.budgeting;
+package no.ntnu.idatt1002.SpendWise.budgeting;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,11 +14,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
-import no.ntnu.idatt1002.demo.data.Category;
-import no.ntnu.idatt1002.demo.data.Register;
-import no.ntnu.idatt1002.demo.data.RegisterController;
-import no.ntnu.idatt1002.demo.exceptions.ConformityException;
-import no.ntnu.idatt1002.demo.exceptions.DuplicateNameException;
+import no.ntnu.idatt1002.SpendWise.data.Category;
+import no.ntnu.idatt1002.SpendWise.data.Register;
+import no.ntnu.idatt1002.SpendWise.data.RegisterController;
+import no.ntnu.idatt1002.SpendWise.exceptions.ConformityException;
+import no.ntnu.idatt1002.SpendWise.exceptions.DuplicateNameException;
 import org.w3c.dom.Text;
 
 import java.awt.event.ActionEvent;

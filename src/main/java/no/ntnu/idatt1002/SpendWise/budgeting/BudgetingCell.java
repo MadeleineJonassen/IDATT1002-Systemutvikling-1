@@ -1,7 +1,7 @@
-package no.ntnu.idatt1002.demo.budgeting;
+package no.ntnu.idatt1002.SpendWise.budgeting;
 
 import javafx.beans.property.SimpleDoubleProperty;
-import no.ntnu.idatt1002.demo.data.Category;
+import no.ntnu.idatt1002.SpendWise.data.Category;
 
 public class BudgetingCell {
   private Category category;

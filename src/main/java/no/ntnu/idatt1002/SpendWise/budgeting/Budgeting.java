@@ -1,4 +1,4 @@
-package no.ntnu.idatt1002.demo.budgeting;
+package no.ntnu.idatt1002.SpendWise.budgeting;
 
 import java.io.IOException;
 import java.util.Objects;
