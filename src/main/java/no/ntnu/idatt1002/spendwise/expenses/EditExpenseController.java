@@ -323,7 +323,7 @@ public class EditExpenseController implements Initializable {
    */
   public void switchToFutureBudgeting(ActionEvent event) throws IOException {
     BorderPane rootSwitchToFutureBudgeting =
-        (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FutureBudgeting.fxml"))));
+        (FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Budgeting.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToFutureBudgeting);
