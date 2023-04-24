@@ -1,40 +1,38 @@
 package no.ntnu.idatt1002.SpendWise.budgeting;
 
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Objects;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.*;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.util.converter.LocalDateStringConverter;
 import no.ntnu.idatt1002.SpendWise.data.Category;
 import no.ntnu.idatt1002.SpendWise.data.Register;
 import no.ntnu.idatt1002.SpendWise.data.RegisterController;
 import no.ntnu.idatt1002.SpendWise.exceptions.ConformityException;
 import no.ntnu.idatt1002.SpendWise.exceptions.DuplicateNameException;
-import org.w3c.dom.Text;
 
-import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.Year;
-import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
-
-import static java.lang.Double.parseDouble;
-
-public class BudgetingController implements Initializable {
+/**
+ * Class that controls the budgeting window.
+ */
+public class BudgetingController {
   @FXML
   private TextField expectedAmountExpenseField;
   @FXML
@@ -85,50 +83,72 @@ public class BudgetingController implements Initializable {
   private LocalDate dateChosen;
   private Register categoryRegister;
 
-  public BudgetingController() throws DuplicateNameException, IOException, URISyntaxException, ConformityException {
-    categoryRegister = RegisterController.readData(getClass().getClassLoader().getResource("database/register.json"));
+  /**
+   * Constructor for the budgeting controller.
+   *
+   * @throws DuplicateNameException If the name of the category is already in the register.
+   * @throws IOException If the file is not found.
+   * @throws URISyntaxException If the URI is not correct.
+   * @throws ConformityException If the data is not correct.
+   */
+  public BudgetingController() throws DuplicateNameException, IOException,
+      URISyntaxException, ConformityException {
+    categoryRegister = RegisterController.readData(
+        Objects.requireNonNull(getClass().getClassLoader()
+            .getResource("database/register.json")));
   }
 
-  @Override
-  public void initialize(URL url, ResourceBundle resourceBundle) {
-
-  }
-
+  /**
+   * Method that fills the tables with income data.
+   */
   private void fillTableIncome() {
     List<String> incomeString = categoryRegister.getCategoriesByTransactionType(false);
     List<LocalDate> dates = getDates();
     ArrayList<BudgetingCell> incomeDouble = new ArrayList<>();
     for (String string : incomeString) {
       Category category = categoryRegister.getCategoryByName(string);
-      BudgetingCell budgetingCell = new BudgetingCell(category.getTotalAmountWithinTimeFrame(dates.get(0), dates.get(1)), category);
+      BudgetingCell budgetingCell =
+          new BudgetingCell(category.getTotalAmountWithinTimeFrame(
+              dates.get(0), dates.get(1)), category);
       incomeDouble.add(budgetingCell);
     }
-    ObservableList<BudgetingCell> transactionObservableList = FXCollections.observableArrayList(incomeDouble);
+    ObservableList<BudgetingCell> transactionObservableList =
+        FXCollections.observableArrayList(incomeDouble);
     categoryColumnIn.setCellValueFactory(new PropertyValueFactory<>("CategoryName"));
     actualAmountColumnIn.setCellValueFactory(new PropertyValueFactory<>("Actual"));
+    tableViewIncomeCat.setItems(transactionObservableList);
 
-    ObservableList<BudgetingCell> transactionObservableList2 = FXCollections.observableArrayList(incomeDouble);
+    ObservableList<BudgetingCell> transactionObservableList2 =
+        FXCollections.observableArrayList(incomeDouble);
     expectedAmountColumnIn.setCellValueFactory(new PropertyValueFactory<>("Expected"));
     differenceColumnIn.setCellValueFactory(new PropertyValueFactory<>("Difference"));
-
-    tableViewIncomeCat.setItems(transactionObservableList);
     tableViewIncomeDoub.setItems(transactionObservableList2);
   }
 
+  /**
+   * Method that fills the tables with expense data.
+   */
   private void fillTableExpense() {
     List<String> expenseString = categoryRegister.getCategoriesByTransactionType(true);
     List<LocalDate> dates = getDates();
     ArrayList<BudgetingCell> expenseDouble = new ArrayList<>();
     for (String string : expenseString) {
       Category category = categoryRegister.getCategoryByName(string);
-      BudgetingCell budgetingCell = new BudgetingCell(category.getTotalAmountWithinTimeFrame(dates.get(0), dates.get(1)), category);
+      BudgetingCell budgetingCell =
+          new BudgetingCell(category.getTotalAmountWithinTimeFrame(
+              dates.get(0), dates.get(1)), category);
       expenseDouble.add(budgetingCell);
     }
-    ObservableList<BudgetingCell> transactionObservableList = FXCollections.observableArrayList(expenseDouble);
+
+    // TODO test if final impacts performance
+
+    final ObservableList<BudgetingCell> transactionObservableList =
+        FXCollections.observableArrayList(expenseDouble);
     categoryColumnEx.setCellValueFactory(new PropertyValueFactory<>("CategoryName"));
     actualAmountColumnEx.setCellValueFactory(new PropertyValueFactory<>("Actual"));
 
-    ObservableList<BudgetingCell> transactionsObservableList2 = FXCollections.observableArrayList(expenseDouble);
+    final ObservableList<BudgetingCell> transactionsObservableList2 =
+        FXCollections.observableArrayList(expenseDouble);
     expectedAmountColumnEx.setCellValueFactory(new PropertyValueFactory<>("Expected"));
     differenceColumnEx.setCellValueFactory(new PropertyValueFactory<>("Difference"));
 
@@ -136,6 +156,9 @@ public class BudgetingController implements Initializable {
     tableViewExpenseDoub.setItems(transactionsObservableList2);
   }
 
+  /**
+   * Triggers when the date is chosen.
+   */
   public void dateChosen() {
     dateChosen = datePicker.getValue();
     fillTableExpense();
@@ -149,6 +172,9 @@ public class BudgetingController implements Initializable {
 
   }
 
+  /**
+   * Triggers when the add expense amount button is pressed.
+   */
   public void addExpenseAmountPressed() {
     BudgetingCell selectedItem = tableViewExpenseDoub.getSelectionModel().getSelectedItem();
     try {
@@ -176,6 +202,10 @@ public class BudgetingController implements Initializable {
     updateTotal();
     fillCharts();
   }
+
+  /**
+   * Triggers when the add income amount button is pressed.
+   */
   public void addIncomeAmountPressed() {
     BudgetingCell selectedItem = tableViewIncomeDoub.getSelectionModel().getSelectedItem();
     try {
@@ -202,6 +232,9 @@ public class BudgetingController implements Initializable {
     fillCharts();
   }
 
+  /**
+   * Fills the charts with the data the user wants to view.
+   */
   public void fillCharts() {
     ObservableList<PieChart.Data> piechartExpectedData = FXCollections.observableArrayList();
     piechartExpectedData.add(new PieChart.Data("Expected expenses", expectedExpense));
@@ -214,6 +247,9 @@ public class BudgetingController implements Initializable {
     actualPie.setData(piechartActualData);
   }
 
+  /**
+   * Updates the total values.
+   */
   private void updateTotal() {
     for (BudgetingCell item : tableViewIncomeCat.getItems()) {
       actualIncome += item.getActual();
@@ -234,6 +270,11 @@ public class BudgetingController implements Initializable {
     totalExpected.setText(Double.toString(totalExpectedDoub));
   }
 
+  /**
+   * Returns the dates chosen.
+   *
+   * @return The dates as a list of LocalDate objects.
+   */
   private List<LocalDate> getDates() {
     Calendar c = Calendar.getInstance();
     ArrayList<LocalDate> dates = new ArrayList<>();
@@ -249,10 +290,10 @@ public class BudgetingController implements Initializable {
   }
 
   /**
-   * Home button.
+   * Trigger for the home button.
 
-   * @param event mouse click on button.
-   * @throws IOException if wrong input is detected.
+   * @param event Mouse click on button.
+   * @throws IOException If wrong input is detected.
    */
   @FXML
   public void goHome(ActionEvent event) throws IOException {
