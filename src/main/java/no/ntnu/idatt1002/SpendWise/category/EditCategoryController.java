@@ -1,5 +1,11 @@
 package no.ntnu.idatt1002.SpendWise.category;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.Objects;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,13 +24,6 @@ import no.ntnu.idatt1002.SpendWise.exceptions.ConformityException;
 import no.ntnu.idatt1002.SpendWise.exceptions.DuplicateNameException;
 import no.ntnu.idatt1002.SpendWise.home.ConfirmBox;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.net.URL;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
 
 /**
  * Controller for the EditCategory.fxml window.
@@ -79,7 +78,7 @@ public class EditCategoryController implements Initializable {
               .getResource("database/register.json")).getFile());
       file.write(RegisterController.writeData(register).toString());
       file.close();
-    } catch (IOException e){
+    } catch (IOException e) {
       System.out.println("Could not write to database");
       throw new RuntimeException(e);
     }
@@ -88,10 +87,18 @@ public class EditCategoryController implements Initializable {
     categories.forEach(category -> categoryList.getItems().add(category.getName()));
   }
 
-  public void addCategoryPressed(ActionEvent actionEvent) throws DuplicateNameException, ConformityException {
-    if (!categoryName.getText().isEmpty() &&
-        !(recurringBox.getValue() == null) &&
-        !(expenseBox.getValue() == null)) {
+  /**
+   * Trigger when the add category button is pressed.
+   *
+   * @param actionEvent Mouse click
+   * @throws DuplicateNameException If the category name already exists
+   * @throws ConformityException If the category is not an expense or income
+   */
+  public void addCategoryPressed(ActionEvent actionEvent) throws
+      DuplicateNameException, ConformityException {
+    if (!categoryName.getText().isEmpty()
+        && !(recurringBox.getValue() == null)
+        && !(expenseBox.getValue() == null)) {
 
       boolean recurring = recurringBox.getValue().equals("Yes");
       boolean expense = expenseBox.getValue().equals("Expense");
@@ -106,19 +113,25 @@ public class EditCategoryController implements Initializable {
     }
   }
 
-  public void deleteCategoryPressed(ActionEvent actionEvent){
+  /**
+   * Trigger when the delete category button is pressed.
+   *
+   * @param actionEvent Mouse click.
+   */
+  public void deleteCategoryPressed(ActionEvent actionEvent) {
     String selectedItem = categoryList.getSelectionModel().getSelectedItem();
     if (selectedItem != null) {
       boolean answer = true;
 
       // Ask the user if they want to delete the category if it has transactions
-      if (register.getCategoryByName(selectedItem).getNumberOfTransactions() != 0){
+      if (register.getCategoryByName(selectedItem).getNumberOfTransactions() != 0) {
         answer = ConfirmBox.display("Title",
-            "Are you sure you want to delete the category " + selectedItem + " and its " +
-                register.getCategoryByName(selectedItem).getNumberOfTransactions() + " transaction(s)?");
+            "Are you sure you want to delete the category " + selectedItem + " and its "
+                + register.getCategoryByName(selectedItem).getNumberOfTransactions()
+                + " transaction(s)?");
       }
 
-      if (answer){
+      if (answer) {
         try {
           register.removeCategoryByString(selectedItem);
         } catch (Exception e) {
