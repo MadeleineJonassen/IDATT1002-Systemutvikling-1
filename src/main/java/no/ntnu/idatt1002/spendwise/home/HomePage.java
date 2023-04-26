@@ -33,6 +33,7 @@ public class HomePage extends Application {
         getClass().getResource("/SpendWiseHomePage.fxml")));
 
     Scene scene = new Scene(root);
+    stage.setResizable(false);
     stage.setScene(scene);
     stage.show();
   }
