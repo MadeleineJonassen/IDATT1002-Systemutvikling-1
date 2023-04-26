@@ -6,8 +6,6 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import no.ntnu.idatt1002.spendwise.exceptions.ConformityException;
 
-//TODO make user tests for all in data
-
 /**
  * Abstract class that Expense/Income inherits from.
  * All instances derived from this class are immutable.
@@ -16,7 +14,6 @@ import no.ntnu.idatt1002.spendwise.exceptions.ConformityException;
 public abstract class Transaction {
   private final SimpleStringProperty name;
   private final SimpleStringProperty notes;
-  //TODO make into string (all other places)
   private final SimpleStringProperty date;
   private final SimpleDoubleProperty amount;
   private final SimpleStringProperty amountString; // Only used by tableview

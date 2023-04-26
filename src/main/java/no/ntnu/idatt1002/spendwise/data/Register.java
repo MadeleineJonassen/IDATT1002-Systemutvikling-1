@@ -77,9 +77,6 @@ public class Register {
   public ArrayList<Transaction> getTransactionsByCategoryType(boolean recurring) {
     ArrayList<Transaction> transactions = new ArrayList<>();
 
-    // TODO may introduce bugs
-    //  if empty recurring categories show up as not false due to current behavior
-
     for (Category c : this.categories) {
       if (c.isRecurring() == recurring) {
         transactions.addAll(c.getTransactions());
@@ -99,8 +96,6 @@ public class Register {
     if (hasName(category.getName())) {
       throw new DuplicateNameException("Category with that name already exists in the register");
     }
-
-    //TODO this does not need to be a deep copy
 
     Category categoryCopy = new Category(
         category.getName(), category.isExpenseCategory(), category.isRecurring());
@@ -158,7 +153,6 @@ public class Register {
    * @return A list of categories.
    */
   public List<Category> getCategories() {
-    //TODO This has to be tested, since it may break with a deep copy like this
     ArrayList<Category> categoriesCopy = new ArrayList<>();
     for (Category c : categories) {
       Category categoryCopy = new Category(c.getName(), c.isExpenseCategory(), c.isRecurring());
@@ -197,7 +191,6 @@ public class Register {
    * @return The category with the given name, or null if no category was found
    */
   public Category getCategoryByName(String text) {
-    // TODO review if needs to be changed
     for (Category c : categories) {
       if (c.getName().equals(text)) {
         return c;
