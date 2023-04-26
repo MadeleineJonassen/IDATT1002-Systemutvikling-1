@@ -91,17 +91,17 @@ public class ExpensesController implements Initializable {
   }
 
   /**
-   * Button that takes user to edit income.
+   * Button that takes user to edit expenses.
    *
    * @param event Mouse click.
    * @throws IOException If the FXML file can not be found.
    */
-  public void switchToEditIncome(ActionEvent event) throws IOException {
-    BorderPane rootSwitchToEditIncome = (FXMLLoader.load(Objects.requireNonNull(
-        getClass().getResource("/EditIncome.fxml"))));
+  public void switchToEditExpense(ActionEvent event) throws IOException {
+    BorderPane rootSwitchToEditExpense = (FXMLLoader.load(Objects.requireNonNull(
+        getClass().getResource("/EditExpense.fxml"))));
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    scene = new Scene(rootSwitchToEditIncome);
+    scene = new Scene(rootSwitchToEditExpense);
     stage.setScene(scene);
     stage.show();
   }

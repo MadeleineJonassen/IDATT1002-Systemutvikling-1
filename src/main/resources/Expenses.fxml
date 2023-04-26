@@ -74,7 +74,7 @@
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#switchToEditIncome" style="-fx-background-color: translucent;" text="Edit" textFill="#382119">
+                  <Button mnemonicParsing="false" onAction="#switchToEditExpense" style="-fx-background-color: translucent;" text="Edit" textFill="#382119">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
@@ -131,7 +131,7 @@
                               <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                            </padding>
                         </VBox>
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: EC84E2; -fx-background-color: trans;" text="Switch to Edit Expense">
+                        <Button mnemonicParsing="false" onAction="#switchToEditExpense" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: EC84E2; -fx-background-color: trans;" text="Switch to Edit Expense">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
