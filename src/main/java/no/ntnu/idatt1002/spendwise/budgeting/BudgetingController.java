@@ -339,11 +339,11 @@ public class BudgetingController {
    * @throws IOException - if wrong input detected
    */
   public void goHome(javafx.event.ActionEvent event) throws IOException {
-    FXMLLoader rootSwitchToHelpOption =
-          new FXMLLoader(getClass().getResource("/HelpScenes/HelpBudgeting.fxml"));
-    Parent rootHelp = (Parent) rootSwitchToHelpOption.load();
-    Stage stage = new Stage();
-    stage.setScene(new Scene(rootHelp));
+    BorderPane rootGoHome = (FXMLLoader.load(Objects.requireNonNull(
+            getClass().getResource("/SpendWiseHomePage.fxml"))));
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    Scene scene = new Scene(rootGoHome);
+    stage.setScene(scene);
     stage.show();
   }
 
