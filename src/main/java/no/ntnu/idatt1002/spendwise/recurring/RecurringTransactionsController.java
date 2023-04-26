@@ -119,6 +119,7 @@ public class RecurringTransactionsController implements Initializable {
 
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(rootSwitchToIncome);
+    stage.setResizable(false);
     stage.setScene(scene);
     stage.show();
   }
