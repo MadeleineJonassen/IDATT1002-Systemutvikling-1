@@ -30,15 +30,6 @@
          <right>
             <VBox alignment="CENTER" prefHeight="108.0" prefWidth="54.0" spacing="16.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: translucent;">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Icons/Settings.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                   <Button mnemonicParsing="false" onAction="#openHelpOption" style="-fx-background-color: translucent;">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
