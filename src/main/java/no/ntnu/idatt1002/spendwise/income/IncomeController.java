@@ -94,7 +94,6 @@ public class IncomeController implements Initializable {
       return;
     }
     // If the user has made a wrong selection
-    // TODO: maybe make more user friendly (error message)
     if (fromDate.getValue().isAfter(toDate.getValue())) {
       return;
     }

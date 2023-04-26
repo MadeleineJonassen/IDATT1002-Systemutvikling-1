@@ -1,6 +1,5 @@
 package no.ntnu.idatt1002.spendwise.budgeting;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
@@ -142,8 +141,6 @@ public class BudgetingController {
               dates.get(0), dates.get(1)), category);
       expenseDouble.add(budgetingCell);
     }
-
-    // TODO test if final impacts performance
 
     final ObservableList<BudgetingCell> transactionObservableList =
         FXCollections.observableArrayList(expenseDouble);
@@ -361,7 +358,4 @@ public class BudgetingController {
     stage.setScene(new Scene(rootHelp));
     stage.show();
   }
-
-
-  // TODO write triggers for button switches in Budgeting.fxml
 }
