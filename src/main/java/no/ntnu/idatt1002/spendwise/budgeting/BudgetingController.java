@@ -347,6 +347,12 @@ public class BudgetingController {
     stage.show();
   }
 
+  /**
+   * Trigger for opening the help option menu.
+   *
+   * @param actionEvent Mouse click
+   * @throws IOException If the FXML file is not found
+   */
   public void openHelpOption(javafx.event.ActionEvent actionEvent) throws IOException {
     FXMLLoader rootSwitchToHelpOption =
             new FXMLLoader(getClass().getResource("/HelpScenes/HelpBudgeting.fxml"));
