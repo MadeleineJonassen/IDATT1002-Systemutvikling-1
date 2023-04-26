@@ -39,18 +39,6 @@
          <right>
             <VBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button alignment="CENTER" minWidth="32.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent;" textOverrun="CLIP">
-                     <opaqueInsets>
-                        <Insets left="5.0" right="5.0" />
-                     </opaqueInsets>
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Icons/Settings.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                   <Button alignment="CENTER" minWidth="28.0" mnemonicParsing="false" onAction="#openHelpOption" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent;" textOverrun="CLIP">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -188,7 +176,7 @@
             </ToolBar>
          </top>
          <left>
-            <PieChart fx:id="pieChart" title="Overview this fiscal month" BorderPane.alignment="CENTER">
+            <PieChart fx:id="pieChart" title="Overview" BorderPane.alignment="CENTER">
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
