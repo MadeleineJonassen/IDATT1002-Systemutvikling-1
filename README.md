@@ -48,9 +48,30 @@ idatt-1002-2023-5/
 |   |       └── idatt1002/
 |   |           └── demo/
 |   |               ├── class-use/
+|   |               |    └── MyApp.html
+|   |               |
 |   |               ├── data/
+|   |               |   ├── class-use/
+|   |               |   |   └── MyEntity.html
+|   |               |   ├── MyEntity.html
+|   |               |   ├── package-summary.html
+|   |               |   ├── package-tre.html
+|   |               |   └── package-use.html
+|   |               |   
 |   |               ├── repo/
+|   |               |   ├── class-use/
+|   |               |   |   └── MyEntityRepo.html
+|   |               |   ├── MyEntityRepo.html
+|   |               |   ├── package-summary.html
+|   |               |   ├── package-tre.html
+|   |               |   └── package-use.html
+|   |               |
 |   |               ├── view/
+|   |               |   ├── MyApp.html
+|   |               |   ├── package-summary.html
+|   |               |   ├── package-tre.html
+|   |               |   └── package-use.html
+|   |               |  
 |   |               ├── MyApp.html
 |   |               ├── package-summary.html
 |   |               ├── package-tree.html
@@ -184,8 +205,97 @@ idatt-1002-2023-5/
 |
 ├── target/
 |   ├── classes/
+|   |   ├── database/
+|   |   |   ├──.getkeep
+|   |   |   ├── backup.json
+|   |   |   └── register.json
+|   |   |
+|   |   ├── HelpScenes/
+|   |   |   ├── HelpBudgeting.fxml
+|   |   |   ├── HelpEdit.fxml
+|   |   |   ├── HelpExpenses.fxml
+|   |   |   ├── HelpHome.fxml
+|   |   |   ├── HelpIncome.fxml
+|   |   |   └── HelpRecTrans.fxml
+|   |   |
+|   |   ├── Icons/
+|   |   |   ├── BudgetingIcon-png
+|   |   |   ├── ExpenseOverviewIcon.png
+|   |   |   ├── HelpIcon
+|   |   |   ├── IncomeOverviewIcon.png
+|   |   |   ├── RecurringTransactions.png
+|   |   |   ├── Settings.png
+|   |   |   └── SpendWiseIcon.png
+|   |   |
+|   |   ├── no.
+|   |   |   └── ntnu
+|   |   |       └── idatt1002
+|   |   |           └── spendwise/
+|   |   |              ├── budgeting/
+|   |   |              |    ├── Budgeting
+|   |   |              |    ├── BudgetingCell
+|   |   |              |    └── BudgetingController
+|   |   |              |
+|   |   |              ├── category/
+|   |   |              |   ├── EditCategory
+|   |   |              |   └── EditCategoryController
+|   |   |              |
+|   |   |              ├── data/
+|   |   |              |   ├── Category
+|   |   |              |   ├── Expense
+|   |   |              |   ├── Income
+|   |   |              |   ├── RecurringExpense
+|   |   |              |   ├── RecurringIncome
+|   |   |              |   ├── Register
+|   |   |              |   ├── RegisterController
+|   |   |              |   └── Transactions
+|   |   |              |
+|   |   |              ├── expeptions/
+|   |   |              |   ├── ConformityExpeption
+|   |   |              |   └── DuplicateNameException
+|   |   |              |
+|   |   |              ├── expenses/
+|   |   |              |   ├── EditExpenses
+|   |   |              |   ├── EditExpensesController
+|   |   |              |   ├── Expenses
+|   |   |              |   └── ExpensesController
+|   |   |              |
+|   |   |              ├── help/
+|   |   |              |   └── Help
+|   |   |              |
+|   |   |              ├── home/
+|   |   |              |   ├── ConfirmBox
+|   |   |              |   ├── HomePage
+|   |   |              |   └── HomePageController
+|   |   |              |
+|   |   |              ├── income/
+|   |   |              |   ├── EditIncome
+|   |   |              |   ├── EditIncomeController
+|   |   |              |   ├── Income
+|   |   |              |   └── IncomeController
+|   |   |              |
+|   |   |              └── recurring/
+|   |   |                  ├── RecurringTransactions
+|   |   |                  └── RecurringTransactionsController
+|   |   |
+|   |   ├── Budgeting.fxml
+|   |   ├── EditCategory.fxml
+|   |   ├── EditExpense.fxml
+|   |   ├── EditIncome.fxml
+|   |   ├── Expense.fxml
+|   |   ├── Income.fxml
+|   |   ├── RecurringTransactions.fxml
+|   |   └── SpendWiseHomePage.fxml 
+|   |  
 |   ├── generated-sources/
+|   |   └── annotations/
+|   | 
 |   └── maven-status/
+|       └── maven-compiler-plugin/
+|           └── compile/
+|               └── default-compile/
+|                   └── createdFiles.lst
+|                   └── inputFiles.lst
 |
 ├── .gitignore
 ├── .gitlab-ci.yml
