@@ -2,6 +2,7 @@ package no.ntnu.idatt1002.spendwise.budgeting;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -82,6 +83,7 @@ public class BudgetingController {
   private PieChart actualPie;
   private LocalDate dateChosen;
   private Register categoryRegister;
+  private static final DecimalFormat df = new DecimalFormat("#.##");
   private Stage stage;
   private Scene scene;
 
@@ -248,6 +250,9 @@ public class BudgetingController {
   }
 
   private void updateTotal() {
+    totalDifferenceDoub = 0;
+    totalActualDoub = 0;
+    totalExpectedDoub = 0;
     for (BudgetingCell item : tableViewIncomeCat.getItems()) {
       actualIncome += item.getActual();
       expectedIncome += item.getExpected();
@@ -262,9 +267,9 @@ public class BudgetingController {
       totalDifferenceDoub += item.getDifference();
       totalExpectedDoub -= item.getExpected();
     }
-    totalActual.setText(Double.toString(totalActualDoub));
-    totalDifference.setText(Double.toString(totalDifferenceDoub));
-    totalExpected.setText(Double.toString(totalExpectedDoub));
+    totalActual.setText(df.format(totalActualDoub));
+    totalDifference.setText(df.format(totalDifferenceDoub));
+    totalExpected.setText(df.format(totalExpectedDoub));
   }
 
   private List<LocalDate> getDates() {
