@@ -90,59 +90,94 @@ idatt-1002-2023-5/
 |
 ├── src/
 |   ├── main/
-|   |   ├── java/
-|   |   |   ├── dao/
-|   |   |   |   ├── Database.java
-|   |   |   |   ├── GroupChatDAO.java
-|   |   |   |   ├── MessageDAO.java
-|   |   |   |   └── UserDAO.java
-|   |   |   | 
-|   |   |   ├── data/
-|   |   |   |   ├── GroupChat.java
-|   |   |   |   ├── Message.java
-|   |   |   |   └── User.java
-|   |   |   |  
-|   |   |   ├── resources/
-|   |   |   |   ├── CalculatorResource.java
-|   |   |   |   ├── GroupChatResource.java
-|   |   |   |   ├── MessageResource.java
-|   |   |   |   └── UserResource.java
-|   |   |   |   
-|   |   |   └── websockets/
-|   |   |       └── Websocket.java
-|   |   |       
-|   |   └── webapp/
-|   |       ├── css/
-|   |       |   ├── app.css
-|   |       |   ├── index.css
-|   |       |   ├── popupform.css
-|   |       |   └── settings.css
-|   |       |
-|   |       ├── js/
-|   |       |   ├── calculator.js
-|   |       |   ├── createElements.js
-|   |       |   ├── groupchat.js
-|   |       |   ├── index.js
-|   |       |   ├── message.js
-|   |       |   ├── responsive.js
-|   |       |   ├── settings.js
-|   |       |   ├── user.js
-|   |       |   └── websocket.js
-|   |       |
-|   |       ├── WEB-INF/
-|   |       |   └── web.xml
-|   |       |
-|   |       ├── app.html
-|   |       ├── index.html
-|   |       └── settings.html
+|   |   └── java/
+|   |       ├── no.ntnu.idatt1002.spendwise/
+|   |       |   ├── budgeting/
+|   |       |   |   ├── Budgeting
+|   |       |   |   ├── BudgetingCell
+|   |       |   |   └── BudgetingController
+|   |       |   |
+|   |       |   ├── category/
+|   |       |   |   ├── EditCategory
+|   |       |   |   └── EditCategoryController
+|   |       |   |
+|   |       |   ├── data/
+|   |       |   |   ├── Category
+|   |       |   |   ├── Expense
+|   |       |   |   ├── Income
+|   |       |   |   ├── RecurringExpense
+|   |       |   |   ├── RecurringIncome
+|   |       |   |   ├── Register
+|   |       |   |   ├── RegisterController
+|   |       |   |   └── Transactions
+|   |       |   |
+|   |       |   ├── expeptions/
+|   |       |   |   ├── ConformityExpeption
+|   |       |   |   └── DuplicateNameException
+|   |       |   |
+|   |       |   ├── expenses/
+|   |       |   |   ├── EditExpenses
+|   |       |   |   ├── EditExpensesController
+|   |       |   |   ├── Expenses
+|   |       |   |   └── ExpensesController
+|   |       |   |
+|   |       |   ├── help/
+|   |       |   |   └── Help
+|   |       |   |
+|   |       |   ├── home/
+|   |       |   |   ├── ConfirmBox
+|   |       |   |   ├── HomePage
+|   |       |   |   └── HomePageController
+|   |       |   |
+|   |       |   ├── income/
+|   |       |   |   ├── EditIncome
+|   |       |   |   ├── EditIncomeController
+|   |       |   |   ├── Income
+|   |       |   |   └── IncomeController
+|   |       |   |
+|   |       |   └── recurring/
+|   |       |       ├── RecurringTransactions
+|   |       |       └── RecurringTransactionsController
+|   |       |  
+|   |       └── resources/
+|   |           ├── database/
+|   |           |   ├── .gitkeep
+|   |           |   ├── backup.json
+|   |           |   └── register
+|   |           |
+|   |           ├── HelpScenes/
+|   |           |   ├── HelpBudgeting.fxml
+|   |           |   ├── HelpEdit.fxml
+|   |           |   ├── HelpExpenses.fxml
+|   |           |   ├── HelpHome.fxml
+|   |           |   ├── HelpIncome.fxml
+|   |           |   └── HelpRecTrans.fxml
+|   |           |
+|   |           ├── Icons/
+|   |           |   ├── BudgetingIcon-png
+|   |           |   ├── ExpenseOverviewIcon.png
+|   |           |   ├── HelpIcon
+|   |           |   ├── IncomeOverviewIcon.png
+|   |           |   ├── RecurringTransactions.png
+|   |           |   ├── Settings.png
+|   |           |   └── SpendWiseIcon.png 
+|   |           |
+|   |           ├── Budgeting.fxml
+|   |           ├── EditCategory.fxml
+|   |           ├── EditExpense.fxml
+|   |           ├── EditIncome.fxml
+|   |           ├── Expense.fxml
+|   |           ├── Income.fxml
+|   |           ├── RecurringTransactions.fxml
+|   |           └── SpendWiseHomePage.fxml        
 |   |
 |   └── test/
-|       └── java/
-|           ├── CalculatorResourceTest.java
-|           ├── MessageDAOTest.java
-|           ├── MessageResourceTest.java
-|           ├── UserDAOTest.java
-|           └── UserResourceTest.java      
+|   |   └── java/
+|   |       └── no.ntnu.idatt1002.spendwise.data
+|   |           ├── RegisterControllerTest
+|   |           └── RegisterTest     
+|   | 
+|   └── .gitkeep
 |
 ├── target/
 |   ├── classes/
