@@ -3,7 +3,6 @@ A personal finance application with Java backend
 
 ##Contents
 - [How to run the application localy](#how-to-run-the-application-localy)
-- [JavaDocs] (#javadocs)
 - [Package Structure] (#package-Structure)
 - [Maven] (#maven)
 - [Information about the client] (#information-about-the-client)
@@ -12,11 +11,14 @@ A personal finance application with Java backend
 
 ## How to run the application localy
 To run the application localy, you will need Maven on your computer. Firstly, check to see if you have already installed it. If you do not have Maven on your computer, download it [here](https://maven.apache.org/download.cgi). Unpack Maven and read the README within Maven.
-...
 
-
-## JavaDocs
-// Vedlegg til repository
+After installing maven, you will nedd to download the SpendWise application zip folder from git. To do this, simply go to the gitlab project home page and press the download button, then select zip.
+Once it is done downloading, right clicking the application folder and then click on "copy as path", or by pressing ctrl+shift+c with the folder selected:
+Then go to the command prompt and type: "cd {your_path_goes_here}". (no brackets).
+To then run the program you will have to type: 
+```text
+mvn javafx:run
+```
 
 
 ## Package Structure
