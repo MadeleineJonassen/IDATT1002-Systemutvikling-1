@@ -3,10 +3,10 @@ A personal finance application with Java backend
 
 ##Contents
 - [How to run the application localy](#how-to-run-the-application-localy)
-- [Package Structure] (#package-Structure)
-- [Maven] (#maven)
-- [Information about the client] (#information-about-the-client)
-- [Information about the tests] (#information-about-the-tests)
+- [Package Structure]
+- [Maven] 
+- [Information about the client]
+- [Information about the tests] 
 
 
 ## How to run the application localy
@@ -19,6 +19,7 @@ To then run the program you will have to type:
 ```text
 mvn javafx:run
 ```
+in the terminal.
 
 
 ## Package Structure
