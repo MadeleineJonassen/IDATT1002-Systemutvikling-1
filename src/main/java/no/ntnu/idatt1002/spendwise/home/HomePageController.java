@@ -168,7 +168,7 @@ public class HomePageController implements Initializable {
         totalIncome += c.getTotalAmountWithinTimeFrame(today.withDayOfMonth(1),
             today.withDayOfMonth(today.getMonth().length(today.isLeapYear())));
       } else {
-        totalExpenses += totalIncome += c.getTotalAmountWithinTimeFrame(today.withDayOfMonth(1),
+        totalExpenses += c.getTotalAmountWithinTimeFrame(today.withDayOfMonth(1),
             today.withDayOfMonth(today.getMonth().length(today.isLeapYear())));
       }
     }
