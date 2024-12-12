@@ -1,12 +1,19 @@
 <h1>Spendwise</h1>
 A personal finance application made for the course IDATT1002 Software Engineering, with Java for the backend and JavaFX for the frontend.
+My first ever Software Engineering project.
+
+
+## VideoDemo
+https://github.com/user-attachments/assets/629d380f-f552-4245-95f7-b98569288d37
+
+
 
 ## Contents
-- [How to run the application locally](#how-to-run-the-application-localy)
-- [Package Structure]
+- [How to run the application locally]
 - [Maven] 
 - [Information about the client]
-- [Information about the tests] 
+- [Information about the tests]
+- [Package Structure]
 
 
 ## How to run the application locally
@@ -20,6 +27,29 @@ To then run the program you will have to type:
 mvn javafx:run
 ```
 in the terminal.
+
+
+## Maven
+This system uses Maven. Maven is a tool that handles dependencies within a system. By using Maven, one can ensure that every team member uses the same version of dependencies. These dependencies are declared in the pom.xml file. Not only can Maven be used for dependencies, but it can also used to compile and run tests.
+
+
+## Information about the client
+The client consists of two different types of files:
+- Java.fxml
+- Java
+
+The Java.fxml files are used for user experience and the universal design. Java is used to give the elements within the application functionality; such as user interaction and changes within the application.
+
+
+## Information about the tests
+To test the application, JUnit was used. These tests can be compiled by writing
+```text
+mvn clean test
+```
+in the terminal. It is important to have Maven installed on the computer before doing this. An alternative option is to run the test in IDE.
+
+
+
 
 
 ## Package Structure
@@ -303,24 +333,3 @@ idatt-1002-2023-5/
 ├── README.md
 └── run-bat
 ```
-
-
-## Maven
-This system uses Maven. Maven is a tool that handles dependencies within a system. By using Maven, one can ensure that every team member uses the same version of dependencies. These dependencies are declared in the pom.xml file. Not only can Maven be used for dependencies, but it can also used to compile and run tests.
-
-
-## Information about the client
-The client consists of two different types of files:
-- Java.fxml
-- Java
-
-The Java.fxml files are used for user experience and the universal design. Java is used to give the elements within the application functionality; such as user interaction and changes within the application.
-
-
-## Information about the tests
-To test the application, JUnit was used. These tests can be compiled by writing
-```text
-mvn clean test
-```
-in the terminal. It is important to have Maven installed on the computer before doing this. An alternative option is to run the test in IDE.
-
