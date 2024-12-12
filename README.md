@@ -1,19 +1,19 @@
-<h1>Personal finance application</h1>
-A personal finance application with Java backend.
+<h1>Spendwise</h1>
+A personal finance application made for the course IDATT1002 Software Engineering, with Java for the backend and JavaFX for the frontend.
 
 ## Contents
-- [How to run the application localy](#how-to-run-the-application-localy)
+- [How to run the application locally](#how-to-run-the-application-localy)
 - [Package Structure]
 - [Maven] 
 - [Information about the client]
 - [Information about the tests] 
 
 
-## How to run the application localy
-To run the application localy, you will need Maven on your computer. Firstly, check to see if you have already installed it. If you do not have Maven on your computer, download it [here](https://maven.apache.org/download.cgi). Unpack Maven and read the README-file within Maven.
+## How to run the application locally
+To run the application locally, you will need Maven on your computer. First, check to see if you have already installed it. If you do not have Maven on your computer, download it [here](https://maven.apache.org/download.cgi). Unpack Maven and read the README file within Maven.
 
-After installing maven, you will need to download the SpendWise application zip folder from git. To do this, simply go to the home page of the the gitlab project and press the download button, then select zip.
-Once it is done downloading, right clicking the application folder and then click on "copy as path", or by pressing ctrl+shift+c with the folder selected.
+After installing Maven, you will need to download the SpendWise application zip folder from git. To do this, go to the GitLab project's home page, press the download button, and select zip.
+Once it is done downloading, right-click the application folder and then click on "copy as path", or by pressing ctrl+shift+c with the folder selected.
 Then open a command prompt and type: "cd {your_path_goes_here}". (no brackets).
 To then run the program you will have to type: 
 ```text
@@ -306,7 +306,7 @@ idatt-1002-2023-5/
 
 
 ## Maven
-This system uses Maven. Maven is a tool that handles dependencies within a system. By using Maven, one can assure that every team member uses the same version of dependencies. These dependencies are declared in the pom.xml file. Not only can Maven be used for dependencies, but it can also used to compile and run tests.
+This system uses Maven. Maven is a tool that handles dependencies within a system. By using Maven, one can ensure that every team member uses the same version of dependencies. These dependencies are declared in the pom.xml file. Not only can Maven be used for dependencies, but it can also used to compile and run tests.
 
 
 ## Information about the client
@@ -318,7 +318,7 @@ The Java.fxml files are used for user experience and the universal design. Java 
 
 
 ## Information about the tests
-To test the application, JUnit was used. These test can be compiled by writing
+To test the application, JUnit was used. These tests can be compiled by writing
 ```text
 mvn clean test
 ```
